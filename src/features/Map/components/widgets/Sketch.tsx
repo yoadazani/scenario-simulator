@@ -108,7 +108,7 @@ const Sketch = (props: SketchProps) => {
         updateTool = "transform",
         creationMode = "single",
     } = props;
-    const prevActivTool = useRef<Tools | undefined>(undefined);
+    const prevActiveTool = useRef<Tools | undefined>(undefined);
     const [isOpen, setIsOpen] = useState(false);
     const [activeTool, setActiveTool] = useState<Tools>();
     const [canUndo, setCanUndo] = useState(false);
@@ -201,9 +201,10 @@ const Sketch = (props: SketchProps) => {
 
     const handleSketchCreate = useCallback(
         async (event: __esri.SketchViewModelCreateEvent) => {
+            updateUndoRedoState();
             if (event.state !== "complete") return;
 
-            event.graphic.attributes = {toolType: prevActivTool.current};
+            event.graphic.attributes = {toolType: prevActiveTool.current};
             event.graphic.geometry = await projectedGeometry(event.graphic);
 
             if (sketchRef.current.creationMode === "update") {
@@ -215,7 +216,6 @@ const Sketch = (props: SketchProps) => {
             setActiveTool(undefined);
 
             onSketchCreate?.(event, event.graphic.attributes.toolType);
-            updateUndoRedoState();
         },
         [onSketchCreate, updateUndoRedoState]
     );
@@ -228,7 +228,7 @@ const Sketch = (props: SketchProps) => {
                     mode:
                         currentActiveTool === "ellipse" ? "freehand" : defaultCreateMode,
                 });
-                prevActivTool.current = currentActiveTool;
+                prevActiveTool.current = currentActiveTool;
                 setActiveTool(currentActiveTool);
             } else {
                 sketchRef.current.cancel();
