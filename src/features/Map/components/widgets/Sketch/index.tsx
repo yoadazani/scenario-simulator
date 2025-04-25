@@ -1,18 +1,18 @@
 import {RefObject, useCallback, useEffect, useRef, useState} from "react";
 import SketchModel from "@arcgis/core/widgets/Sketch/SketchViewModel";
-import {useWidget} from "@/features/Map/hooks/useWidget";
+import {useWidget} from "@/features/Map/hooks/useWidget.ts";
 import {Position, SketchTool, Symbols, Tools} from "@/features/Map/types";
-import {useMap} from "@/contexts/MapContainer";
+import {useMap} from "@/contexts/MapContainer.tsx";
 import PictureMarkerSymbol from "@arcgis/core/symbols/PictureMarkerSymbol";
 import SimpleFillSymbol from "@arcgis/core/symbols/SimpleFillSymbol";
 import SimpleLineSymbol from "@arcgis/core/symbols/SimpleLineSymbol";
-import {useGraphicsLayer} from "@/contexts/GraphicLayer";
-import {sketchTools} from "@/features/Map/data/sketch_tools";
+import {useGraphicsLayer} from "@/contexts/GraphicLayer.tsx";
+import {sketchTools} from "@/features/Map/data/sketch_tools.ts";
 import Pencil from "@/assets/pencil.svg?react";
-import Undo from "@/assets/undo.svg?react";
-import Redo from "@/assets/redo.svg?react";
 import Trash from "@/assets/trash.svg?react";
 import {projectedGeometry} from "@/features/Map/utils";
+import ToolButton from "./ToolButton.tsx";
+import UndoRedoButtons from "./UndoRedoButtons.tsx";
 
 interface SketchProps {
     symbols: Symbols;
@@ -34,67 +34,6 @@ interface SketchProps {
         type: Tools
     ) => void;
 }
-
-interface ToolButtonProps {
-    tool: SketchTool["tool"];
-    ComponentSvg: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-    currentActiveTool: Tools;
-    activeTool: Tools;
-    handleCreateOrCancel: (
-        tool: SketchTool["tool"],
-        currentActiveTool: Tools
-    ) => void;
-}
-
-interface UndoRedoButtonsProps {
-    canUndo: boolean;
-    canRedo: boolean;
-    currentActiveTool: Tools;
-    handleUndo: () => void;
-    handleRedo: () => void;
-}
-
-const ToolButton = (props: ToolButtonProps) => {
-    const {
-        tool,
-        ComponentSvg,
-        currentActiveTool,
-        activeTool,
-        handleCreateOrCancel,
-    } = props;
-    return (
-        <div className="flex flex-col space-y-2">
-            <ComponentSvg
-                className={`btn draw-btn ${
-                    activeTool === currentActiveTool ? "active" : ""
-                }`}
-                onClick={() => handleCreateOrCancel(tool, currentActiveTool)}
-            />
-        </div>
-    );
-};
-
-const UndoRedoButtons = (props: UndoRedoButtonsProps) => {
-    const {canUndo, canRedo, currentActiveTool, handleUndo, handleRedo} = props;
-    return (
-        <>
-            {canUndo &&
-                (currentActiveTool === "polygon" ||
-                    currentActiveTool === "polyline") && (
-                    <Undo className="btn" onClick={handleUndo}>
-                        Undo
-                    </Undo>
-                )}
-            {canRedo &&
-                (currentActiveTool === "polygon" ||
-                    currentActiveTool === "polyline") && (
-                    <Redo className="btn" onClick={handleRedo}>
-                        Redo
-                    </Redo>
-                )}
-        </>
-    );
-};
 
 const Sketch = (props: SketchProps) => {
     const {

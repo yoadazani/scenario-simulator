@@ -1,19 +1,19 @@
-import {GroupsLayer} from "@/contexts/GroupLayer";
+import {GroupsLayer} from "@/contexts/GroupLayer.tsx";
 
-import {useMapStore} from "@/features/Map/stores/mapStore";
+import {useMapStore} from "@/features/Map/stores/mapStore.ts";
 import {useSuspenseQueries} from "@tanstack/react-query";
-import {DisrictsQueryOptions} from "../../queries/districts.query";
-import {SubdisrictsQueryOptions} from "../../queries/subdistricts.query";
-import {EventsQueryOptions} from "../../queries/events.query";
-import {EllipsesQueryOptions} from "../../queries/ellipses.query";
+import {DisrictsQueryOptions} from "../../../queries/districts.query.tsx";
+import {SubdisrictsQueryOptions} from "../../../queries/subdistricts.query.tsx";
+import {EventsQueryOptions} from "../../../queries/events.query.tsx";
+import {EllipsesQueryOptions} from "../../../queries/ellipses.query.tsx";
 import {useShallow} from "zustand/shallow";
-import {destrictSymbol, ellipseSymbol, markerSymbol, subdestrictSymbol,} from "../../constants/symbols";
+import {destrictSymbol, ellipseSymbol, markerSymbol, subdestrictSymbol,} from "../../../constants/symbols.ts";
 
-import GraphicLayer from "@/contexts/GraphicLayer";
-import FeaturesLayer from "@/contexts/FeatureLayer";
-import LayersControl from "../widgets/LayersControl";
+import GraphicLayer from "@/contexts/GraphicLayer.tsx";
+import FeaturesLayer from "@/contexts/FeatureLayer.tsx";
+import LayersControl from "../../widgets/LayersControl";
 
-import {FeaturesGroupsData, OnlyFeatures, OnlyGraphics,} from "../../types/map.type.ts";
+import {FeaturesGroupsData, OnlyFeatures, OnlyGraphics,} from "../../../types/map.type.ts";
 import {featuresLayersComponents, graphicLayersComponents} from "@/features/Map/data/layers.tsx";
 
 

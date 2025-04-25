@@ -1,15 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import BasemapGalleryViewModel from "@arcgis/core/widgets/BasemapGallery/BasemapGalleryViewModel";
 import BasemapGalleryItem from "@arcgis/core/widgets/BasemapGallery/support/BasemapGalleryItem";
-import { useWidget } from "@/features/Map/hooks/useWidget";
-import { useMap } from "@/contexts/MapContainer";
+import { useWidget } from "@/features/Map/hooks/useWidget.ts";
+import { useMap } from "@/contexts/MapContainer.tsx";
 import Basemap from "@arcgis/core/Basemap";
 import TileLayer from "@arcgis/core/layers/TileLayer";
 import MapGallery from "@/assets/map-gallery.svg?react";
 import { Position } from "@/features/Map/types";
-import { useMapGalleryStore } from "@/features/Map/stores/mapGalleryStore";
+import { useMapGalleryStore } from "@/features/Map/stores/mapGalleryStore.ts";
 import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
 import { useShallow } from "zustand/shallow";
+import BasemapItem from "./BasemapItem.tsx";
 
 
 const createBaseLayer = (
@@ -20,27 +21,6 @@ const createBaseLayer = (
         ? new VectorTileLayer({ url: baseLayerUrl })
         : new TileLayer({ url: baseLayerUrl });
 };
-
-const BasemapItem = ({ 
-    item, 
-    onSelect 
-}: { 
-    item: BasemapGalleryItem; 
-    onSelect: (basemap: Basemap) => void;
-}) => (
-    <div className="size-10 text-center" key={item.basemap.id}>
-        <img
-            className="btn draw-btn"
-            style={{ padding: 0 }}
-            onClick={() => onSelect(item.basemap)}
-            src={`${item.basemap.thumbnailUrl}`}
-            alt={item.basemap.title}
-        />
-        <span className="text-zinc-500 text-xs font-semibold">
-            {item.basemap.title}
-        </span>
-    </div>
-);
 
 const BaseMapGallery = ({ position }: { position?: Position }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -97,17 +77,17 @@ const BaseMapGallery = ({ position }: { position?: Position }) => {
 
     const handleActiveBasemapChange = (currentBasemap: Basemap) => {
         const { current: gallery } = basemapGalleryRef;
-        
+
         if (gallery.basemapEquals(currentBasemap, gallery.activeBasemap)) {
             return;
         }
-        
+
         gallery.activeBasemap = currentBasemap;
-        
+
         const newActiveBasemap = basemaps.find(
             (basemap) => basemap.id === currentBasemap.id
         );
-        
+
         if (newActiveBasemap) {
             updateActiveBaseMap(newActiveBasemap);
         }
