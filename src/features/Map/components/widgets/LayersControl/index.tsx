@@ -9,10 +9,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet.tsx";
-import { useMapStore } from "@/features/Map/stores/mapStore.ts";
 import { useShallow } from "zustand/shallow";
 import { layer, layerName } from "@/features/Map/types/map.type.ts";
 import LayersControlItem from "./LayersControlItem";
+import {useMapStore} from "@/features/Map/stores/mapStore.ts";
 
 interface LayersControl {
   position?: Position;

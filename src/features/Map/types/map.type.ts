@@ -1,4 +1,4 @@
-import {MapState} from "@/features/Map/stores/mapStore";
+import {MapLayersState} from "@/features/Map/stores/mapLayersSlice.ts";
 import {KeyOfType} from "@/types";
 import SimpleFillSymbolProperties = __esri.SimpleFillSymbolProperties;
 import SimpleMarkerSymbolProperties = __esri.SimpleMarkerSymbolProperties;
@@ -17,7 +17,7 @@ export type FeatureLayer = BaseLayer & {
 
 export type GraphicLayer = BaseLayer & { type: "graphic" };
 
-export type layerName = keyof MapState["layers"];
+export type layerName = keyof MapLayersState["layers"];
 
 export type layer = GraphicLayer | FeatureLayer;
 
@@ -62,8 +62,8 @@ export type DistrictAndSubdistrict = {
     geometry: number[][];
 };
 
-export type OnlyGraphics = KeyOfType<MapState["layers"], GraphicLayer>
-export type OnlyFeatures = KeyOfType<MapState["layers"], FeatureLayer>
+export type OnlyGraphics = KeyOfType<MapLayersState["layers"], GraphicLayer>
+export type OnlyFeatures = KeyOfType<MapLayersState["layers"], FeatureLayer>
 
 export type FeaturesGroupsData = {
     graphics: Record<

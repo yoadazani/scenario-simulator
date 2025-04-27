@@ -7,10 +7,10 @@ import Basemap from "@arcgis/core/Basemap";
 import TileLayer from "@arcgis/core/layers/TileLayer";
 import MapGallery from "@/assets/map-gallery.svg?react";
 import { Position } from "@/features/Map/types";
-import { useMapGalleryStore } from "@/features/Map/stores/mapGalleryStore.ts";
 import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
 import { useShallow } from "zustand/shallow";
 import BasemapItem from "./BasemapItem.tsx";
+import {useMapStore} from "@/features/Map/stores/mapStore.ts";
 
 
 const createBaseLayer = (
@@ -26,7 +26,7 @@ const BaseMapGallery = ({ position }: { position?: Position }) => {
     const [isOpen, setIsOpen] = useState(false);
     const { elementRef } = useWidget(position ?? "top-left");
     const { mapView } = useMap();
-    const { basemaps, activeBaseMap, updateActiveBaseMap } = useMapGalleryStore(
+    const { basemaps, activeBaseMap, updateActiveBaseMap } = useMapStore(
         useShallow((state) => ({
             basemaps: state.basemaps,
             activeBaseMap: state.activeBaseMap,

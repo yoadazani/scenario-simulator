@@ -1,81 +1,34 @@
-import { FeatureLayer, GraphicLayer, layerName } from "@/features/Map/types/map.type.ts";
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
-import { immer } from "zustand/middleware/immer";
+import {create} from "zustand";
+import {immer} from "zustand/middleware/immer";
+import {persist} from "zustand/middleware";
+import {mapLayersSlice, MapLayersSlice} from "@/features/Map/stores/mapLayersSlice.ts";
+import {MapGallerySlice, mapGallerySlice} from "@/features/Map/stores/mapGalleryStore.ts";
+import {MapInteractionSlice, mapInteractionSlice} from "@/features/Map/stores/mapInteractionStore.ts";
 
-export type MapState = {
-  layers: {
-    districts: GraphicLayer;
-    subdistricts: GraphicLayer;
-    ellipses: GraphicLayer;
-    events: FeatureLayer;
-  };
-};
 
-type MapActions = {
-  setVisibility: (layer: layerName, visible: boolean) => void;
-  setOrder: (layer: layerName, order: number) => void;
-  setCluster: (layer: layerName, isCluster: boolean) => void;
-};
+export type MapStore = MapLayersSlice & MapGallerySlice & MapInteractionSlice
 
-type MapStore = MapState & MapActions;
+// Create store with correct middleware application
+export const useMapStore = create<MapStore>()(
+    persist(
+        immer((...args) => {
+            const layersSlice = mapLayersSlice(...args);
+            const gallerySlice = mapGallerySlice(...args);
+            const interactionSlice = mapInteractionSlice(...args);
 
-export const useMapStore = create<
-  MapStore,
-  [["zustand/persist", unknown], ["zustand/immer", never]]
->(
-  persist(
-    immer((set) => ({
-      layers: {
-        districts: {
-          type: "graphic",
-          id: "districts",
-          title: "נפות",
-          visible: false,
-          order: 0,
-        },
-        subdistricts: {
-          type: "graphic",
-          id: "subdistricts",
-          title: "מחוזות",
-          visible: false,
-          order: 1,
-        },
-        ellipses: {
-          type: "graphic",
-          id: "ellipses",
-          title: "אליפסות",
-          visible: false,
-          order: 2,
-        },
-        events: {
-          type: "feature",
-          id: "events",
-          title: "אירועים",
-          visible: false,
-          order: 3,
-          isCluster: false,
-        },
-      },
-      setVisibility: (layer, visible) => {
-        set((state) => {
-          state.layers[layer].visible = visible;
-        });
-      },
-      setCluster(layer, isCluster) {
-        set((state) => {
-          (state.layers[layer] as FeatureLayer).isCluster = isCluster;
-        });
-      },
-      setOrder(layer, order) {
-        set((state) => {
-          state.layers[layer].order = order;
-        });
-      },
-    })),
-    {
-      name: "map-layers",
-      partialize: (state) => ({ layers: state.layers }),
-    }
-  )
+            return {
+                ...layersSlice,
+                ...gallerySlice,
+                ...interactionSlice
+            };
+        }),
+        {
+            name: "map-store",
+            partialize: (state) => ({
+                layers: state.layers,
+                activeBaseMap: state.activeBaseMap,
+                graphics: state.graphics
+            })
+        }
+    )
 );

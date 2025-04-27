@@ -1,4 +1,3 @@
-import React from "react";
 import {Tools} from "@/features/Map/types";
 import Undo from "@/assets/undo.svg?react";
 import Redo from "@/assets/redo.svg?react";

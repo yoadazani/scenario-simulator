@@ -1,10 +1,10 @@
 import { SheetDescription } from "@/components/ui/sheet.tsx";
 import { Switch } from "@/components/ui/switch.tsx";
 import { Label } from "@/components/ui/label.tsx";
-import { useMapStore } from "@/features/Map/stores/mapStore.ts";
 import { useShallow } from "zustand/shallow";
 import { layer, layerName } from "@/features/Map/types/map.type.ts";
 import ClusterToggle from "./ClusterToggle";
+import {useMapStore} from "@/features/Map/stores/mapStore.ts";
 
 interface LayersControlItemProps {
   layer: layer;

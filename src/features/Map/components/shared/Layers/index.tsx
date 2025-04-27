@@ -1,4 +1,3 @@
-import {useMapStore} from "@/features/Map/stores/mapStore.ts";
 import {useSuspenseQueries} from "@tanstack/react-query";
 import {DisrictsQueryOptions} from "../../../queries/districts.query.tsx";
 import {SubdisrictsQueryOptions} from "../../../queries/subdistricts.query.tsx";
@@ -14,6 +13,7 @@ import LayersControl from "../../widgets/LayersControl";
 
 import {FeaturesGroupsData, OnlyFeatures, OnlyGraphics,} from "../../../types/map.type.ts";
 import {featuresLayersComponents, graphicLayersComponents} from "@/features/Map/data/layers.tsx";
+import {useMapStore} from "@/features/Map/stores/mapStore.ts";
 
 
 const Layers = () => {
