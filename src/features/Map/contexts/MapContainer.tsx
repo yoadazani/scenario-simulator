@@ -42,7 +42,7 @@ function MapContainer({ children }: { children?: ReactNode }) {
 
   useEffect(() => {
     viewRef.current.container = mapEleRef.current;
-  }, [mapEleRef.current]);
+  }, []);
 
   return (
     <MapContext.Provider value={{ mapView: viewRef }}>

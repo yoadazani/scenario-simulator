@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import BasemapGalleryViewModel from "@arcgis/core/widgets/BasemapGallery/BasemapGalleryViewModel";
 import BasemapGalleryItem from "@arcgis/core/widgets/BasemapGallery/support/BasemapGalleryItem";
 import { useWidget } from "@/features/Map/hooks/useWidget.ts";
-import { useMap } from "@/contexts/MapContainer.tsx";
+import { useMap } from "@/features/Map/contexts/MapContainer.tsx";
 import Basemap from "@arcgis/core/Basemap";
 import TileLayer from "@arcgis/core/layers/TileLayer";
 import MapGallery from "@/assets/map-gallery.svg?react";

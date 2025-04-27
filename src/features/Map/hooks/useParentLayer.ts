@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { useMap } from "@/contexts/MapContainer";
-import { groupLayerContext } from "@/contexts/GroupLayer";
+import { useMap } from "@/features/Map/contexts/MapContainer";
+import { groupLayerContext } from "@/features/Map/contexts/GroupLayer";
 
 export const useParentLayer = () => {
   const layer = useContext(groupLayerContext);

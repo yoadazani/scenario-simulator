@@ -1,6 +1,6 @@
 import GroupLayer from "@arcgis/core/layers/GroupLayer";
 import { createContext, ReactNode, useEffect, useRef } from "react";
-import { useParentLayer } from "@/features/Map/hooks/useParentLayer";
+import { useParentLayer } from "@/features/Map/hooks/useParentLayer.ts";
 
 interface GroupChildProps {
   groupLayer: GroupLayer;
@@ -8,7 +8,7 @@ interface GroupChildProps {
 
 export const groupLayerContext = createContext<GroupChildProps | null>(null);
 
-export const GroupsLayer = ({
+const GroupsLayer = ({
   children,
   id,
   title = null,
@@ -32,11 +32,12 @@ export const GroupsLayer = ({
   }, [visible]);
 
   useEffect(() => {
-    parentLayer.add(groupLayer.current);
+    const { current: layer } = groupLayer;
+    parentLayer.add(layer);
     return () => {
-      parentLayer.remove(groupLayer.current);
+      parentLayer.remove(layer);
     };
-  }, [groupLayer.current.id]);
+  }, [groupLayer.current.id, parentLayer]);
 
   return (
     <groupLayerContext.Provider value={{ groupLayer: groupLayer.current }}>
@@ -45,4 +46,4 @@ export const GroupsLayer = ({
   );
 };
 
-export default GroupLayer;
+export default GroupsLayer;

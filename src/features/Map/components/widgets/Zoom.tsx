@@ -1,5 +1,5 @@
 import { Minus, Plus } from "lucide-react";
-import { useMap } from "@/contexts/MapContainer";
+import { useMap } from "@/features/Map/contexts/MapContainer";
 import { useWidget } from "@/features/Map/hooks/useWidget";
 import { Position } from "@/features/Map/types";
 import { useCallback } from "react";

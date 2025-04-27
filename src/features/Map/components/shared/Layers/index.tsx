@@ -1,5 +1,3 @@
-import {GroupsLayer} from "@/contexts/GroupLayer.tsx";
-
 import {useMapStore} from "@/features/Map/stores/mapStore.ts";
 import {useSuspenseQueries} from "@tanstack/react-query";
 import {DisrictsQueryOptions} from "../../../queries/districts.query.tsx";
@@ -9,8 +7,9 @@ import {EllipsesQueryOptions} from "../../../queries/ellipses.query.tsx";
 import {useShallow} from "zustand/shallow";
 import {destrictSymbol, ellipseSymbol, markerSymbol, subdestrictSymbol,} from "../../../constants/symbols.ts";
 
-import GraphicLayer from "@/contexts/GraphicLayer.tsx";
-import FeaturesLayer from "@/contexts/FeatureLayer.tsx";
+import GroupsLayer from "@/features/Map/contexts/GroupLayer.tsx";
+import GraphicLayer from "@/features/Map/contexts/GraphicLayer.tsx";
+import FeaturesLayer from "@/features/Map/contexts/FeatureLayer.tsx";
 import LayersControl from "../../widgets/LayersControl";
 
 import {FeaturesGroupsData, OnlyFeatures, OnlyGraphics,} from "../../../types/map.type.ts";

@@ -1,19 +1,12 @@
-import { useParentLayer } from "@/features/Map/hooks/useParentLayer";
+import {useParentLayer} from "@/features/Map/hooks/useParentLayer.ts";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 import FeatureReductionCluster from "@arcgis/core/layers/support/FeatureReductionCluster";
 import FeatureReductionSelection from "@arcgis/core/layers/support/FeatureReductionSelection";
-import {
-  ReactNode,
-  useRef,
-  createContext,
-  useEffect,
-  useContext,
-  RefObject,
-} from "react";
+import {createContext, ReactNode, RefObject, useEffect, useRef,} from "react";
 import SimpleMarkerSymbol from "@arcgis/core/symbols/SimpleMarkerSymbol";
 import Graphic from "@arcgis/core/Graphic";
 import PictureMarkerSymbol from "@arcgis/core/symbols/PictureMarkerSymbol";
-import { labelSymbol, markerSymbol } from "@/features/Map/constants/symbols";
+import {labelSymbol, markerSymbol} from "@/features/Map/constants/symbols.ts";
 import TextSymbol from "@arcgis/core/symbols/TextSymbol";
 
 interface FeatureChildProps {
@@ -47,7 +40,7 @@ const FeaturesLayer = ({
     updateFeatures: new Set<Graphic>(),
     deleteFeatures: new Set<Graphic>(),
   });
-  const featureReducationCluster = useRef<FeatureReductionCluster>(
+  const featureReductionCluster = useRef<FeatureReductionCluster>(
     new FeatureReductionCluster({
       clusterRadius: 100,
       clusterMinSize: 24,
@@ -77,7 +70,7 @@ const FeaturesLayer = ({
     })
   )
 
-  const featureReducationSelection = useRef<FeatureReductionSelection>(
+  const featureReductionSelection = useRef<FeatureReductionSelection>(
     new FeatureReductionSelection()
   )
 
@@ -114,9 +107,9 @@ const FeaturesLayer = ({
 
   useEffect(() => {
     if (isCluster) {
-      featuresLayer.current.featureReduction = featureReducationCluster.current;
+      featuresLayer.current.featureReduction = featureReductionCluster.current;
     } else {
-      featuresLayer.current.featureReduction = featureReducationSelection.current;
+      featuresLayer.current.featureReduction = featureReductionSelection.current;
     }
   }, [isCluster]);
 
@@ -124,32 +117,38 @@ const FeaturesLayer = ({
     if (order) {
       parentLayer.reorder(featuresLayer.current, order);
     }
-  }, [order]);
+  }, [order, parentLayer]);
 
   useEffect(() => {
     featuresLayer.current.visible = visible;
   }, [visible]);
 
   useEffect(() => {
-    parentLayer.add(featuresLayer.current);
-    const interval = setInterval(() => {
-      featuresLayer.current.applyEdits({
+    const { current: layer } = featuresLayer;
+
+    parentLayer.add(layer);
+
+    const interval = setInterval(async () => {
+
+      await layer.applyEdits({
         addFeatures: [...featureLayer.current.addFeatures],
         updateFeatures: [...featureLayer.current.updateFeatures],
         deleteFeatures: [...featureLayer.current.deleteFeatures],
       });
+
       featureLayer.current = {
         addFeatures: new Set<Graphic>(),
         updateFeatures: new Set<Graphic>(),
         deleteFeatures: new Set<Graphic>(),
       };
+
     }, 100);
 
     return () => {
-      parentLayer.remove(featuresLayer.current);
+      parentLayer.remove(layer);
       clearInterval(interval);
     };
-  }, [featuresLayer.current.id]);
+  }, [featuresLayer.current.id, parentLayer]);
 
   return (
     <featureLayerContext.Provider
@@ -161,20 +160,3 @@ const FeaturesLayer = ({
 };
 
 export default FeaturesLayer;
-
-export const useFeatureLayer = () => {
-  const featureLayer = useContext(featureLayerContext);
-  if (!featureLayer)
-    throw new Error("useFeatureLayer must be used within a FeatureLayer");
-  return {
-    add: (graphic: Graphic) => {
-      featureLayer.featureLayer.current.addFeatures.add(graphic);
-    },
-    update: (graphic: Graphic) => {
-      featureLayer.featureLayer.current.updateFeatures.add(graphic);
-    },
-    delete: (graphic: Graphic) => {
-      featureLayer.featureLayer.current.deleteFeatures.add(graphic);
-    },
-  };
-};

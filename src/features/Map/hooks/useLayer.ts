@@ -1,22 +1,22 @@
-import { featureLayerContext } from "@/contexts/FeatureLayer";
-import { graphicsLayerContext } from "@/contexts/GraphicLayer";
+import { featureLayerContext } from "@/features/Map/contexts/FeatureLayer";
+import { graphicsLayerContext } from "@/features/Map/contexts/GraphicLayer";
 import Graphic from "@arcgis/core/Graphic";
 import { useContext } from "react";
 
 export const useLayer = () => {
   const graphicsLayer = useContext(graphicsLayerContext);
-  const featureLayer = useContext(featureLayerContext);
+  const featuresLayer = useContext(featureLayerContext);
 
-  if (featureLayer) {
+  if (featuresLayer) {
     return {
       add: (graphic: Graphic) => {
-        featureLayer.featureLayer.current.addFeatures.add(graphic);
+        featuresLayer.featureLayer.current.addFeatures.add(graphic);
       },
       update: (graphic: Graphic) => {
-        featureLayer.featureLayer.current.updateFeatures.add(graphic);
+        featuresLayer.featureLayer.current.updateFeatures.add(graphic);
       },
       remove: (graphic: Graphic) => {
-        featureLayer.featureLayer.current.deleteFeatures.add(graphic);
+        featuresLayer.featureLayer.current.deleteFeatures.add(graphic);
       },
     };
   }
