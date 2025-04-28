@@ -1,6 +1,6 @@
 import {useSuspenseQueries} from "@tanstack/react-query";
-import {DisrictsQueryOptions} from "../../../queries/districts.query.tsx";
-import {SubdisrictsQueryOptions} from "../../../queries/subdistricts.query.tsx";
+import {DistrictsQueryOptions} from "../../../queries/districts.query.tsx";
+import {SubDistrictsQueryOptions} from "../../../queries/subdistricts.query.tsx";
 import {EventsQueryOptions} from "../../../queries/events.query.tsx";
 import {EllipsesQueryOptions} from "../../../queries/ellipses.query.tsx";
 import {useShallow} from "zustand/shallow";
@@ -25,8 +25,8 @@ const Layers = () => {
         {data: ellipses = []},
     ] = useSuspenseQueries({
         queries: [
-            DisrictsQueryOptions,
-            SubdisrictsQueryOptions,
+            DistrictsQueryOptions,
+            SubDistrictsQueryOptions,
             EventsQueryOptions,
             EllipsesQueryOptions,
         ],

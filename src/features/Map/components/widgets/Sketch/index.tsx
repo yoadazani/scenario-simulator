@@ -5,7 +5,6 @@ import {Position, SketchTool, Symbols, Tools} from "@/features/Map/types";
 import {useMap} from "@/features/Map/contexts/MapContainer.tsx";
 import PictureMarkerSymbol from "@arcgis/core/symbols/PictureMarkerSymbol";
 import SimpleFillSymbol from "@arcgis/core/symbols/SimpleFillSymbol";
-import SimpleLineSymbol from "@arcgis/core/symbols/SimpleLineSymbol";
 import {useGraphicsLayer} from "@/features/Map/contexts/GraphicLayer.tsx";
 import {sketchTools} from "@/features/Map/data/sketch_tools.ts";
 import Pencil from "@/assets/pencil.svg?react";
@@ -13,6 +12,11 @@ import Trash from "@/assets/trash.svg?react";
 import {projectedGeometry} from "@/features/Map/utils";
 import ToolButton from "./ToolButton.tsx";
 import UndoRedoButtons from "./UndoRedoButtons.tsx";
+import {useMapStore} from "@/features/Map/stores/mapStore.ts";
+import {useShallow} from "zustand/shallow";
+import Collection from "@arcgis/core/core/Collection";
+import {SKETCH_TOOLS} from "@/features/Map/constants";
+import SimpleLineSymbol from "@arcgis/core/symbols/SimpleLineSymbol";
 
 interface SketchProps {
     symbols: Symbols;
@@ -42,7 +46,7 @@ const Sketch = (props: SketchProps) => {
         onSketchCreate,
         onSketchUpdate,
         onSketchDelete,
-        availableTools,
+        availableTools = SKETCH_TOOLS,
         defaultCreateMode = "click",
         updateTool = "transform",
         creationMode = "single",
@@ -53,6 +57,13 @@ const Sketch = (props: SketchProps) => {
     const [canUndo, setCanUndo] = useState(false);
     const [canRedo, setCanRedo] = useState(false);
     const [graphicSelected, setGraphicSelected] = useState(false);
+    const {getGraphic} = useMapStore(
+        useShallow((state) => {
+            return {
+                getGraphic: state.getGraphic,
+            };
+        })
+    );
 
     const {mapView} = useMap();
     const {graphicsLayer} = useGraphicsLayer();
@@ -143,9 +154,6 @@ const Sketch = (props: SketchProps) => {
             updateUndoRedoState();
             if (event.state !== "complete") return;
 
-            event.graphic.attributes = {toolType: prevActiveTool.current};
-            event.graphic.geometry = await projectedGeometry(event.graphic);
-
             if (sketchRef.current.creationMode === "update") {
                 await sketchRef.current.update(event.graphic);
             } else if (sketchRef.current.creationMode !== "continuous") {
@@ -154,6 +162,8 @@ const Sketch = (props: SketchProps) => {
 
             setActiveTool(undefined);
 
+            event.graphic.attributes = {toolType: prevActiveTool.current};
+            event.graphic.geometry = await projectedGeometry(event.graphic);
             onSketchCreate?.(event, event.graphic.attributes.toolType);
         },
         [onSketchCreate, updateUndoRedoState]
@@ -179,6 +189,20 @@ const Sketch = (props: SketchProps) => {
 
     const handleUndo = useCallback(() => sketchRef.current.undo(), []);
     const handleRedo = useCallback(() => sketchRef.current.redo(), []);
+
+    useEffect(() => {
+        const {layer: sketchLayers} = sketchRef.current
+        const graphicsCollection = new Collection();
+        (availableTools ?? SKETCH_TOOLS).forEach(type => {
+            const graphic = getGraphic(type);
+            graphicsCollection.add(graphic);
+        });
+        sketchLayers.graphics.addMany(graphicsCollection)
+
+        return () => {
+            sketchLayers.graphics.removeMany(graphicsCollection)
+        }
+    }, [getGraphic, availableTools]);
 
     useEffect(() => {
         if (activeTool) {

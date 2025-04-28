@@ -1,17 +1,17 @@
 import * as projection from "@arcgis/core/geometry/operators/projectOperator.js";
-import SpetialReference from "@arcgis/core/geometry/SpatialReference";
+import SpatialReference from "@arcgis/core/geometry/SpatialReference";
 
 export const projectedGeometry = async (graphic: __esri.Graphic): Promise<__esri.Geometry | undefined> => {
   if (!graphic.geometry) return;
-  
-  if (SpetialReference.WGS84.equals(graphic.geometry.spatialReference))
+
+  if (SpatialReference.WGS84.equals(graphic.geometry.spatialReference))
     return graphic.geometry;
 
   if (!projection.isLoaded()) await projection.load();
 
   return projection.execute(
     graphic.geometry as __esri.Point,
-    SpetialReference.WGS84
+      SpatialReference.WGS84
   );
 };
 

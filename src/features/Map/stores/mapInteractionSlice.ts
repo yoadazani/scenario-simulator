@@ -119,6 +119,6 @@ export const mapInteractionSlice: StateCreator<
         });
     },
     getGraphic: (type) => {
-        return get().graphics[type];
+        return Graphic.fromJSON(get().graphics[type])
     },
 });

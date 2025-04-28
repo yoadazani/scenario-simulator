@@ -1,18 +1,9 @@
-import { queryOptions } from "@tanstack/react-query";
-import { DistrictAndSubdistrict } from "../types/map.type.ts";
-import axios from "axios";
-import { tryCatch } from "@/lib/utils";
+import {queryOptions} from "@tanstack/react-query";
+import {getDistricts} from "@/features/Map/api/districts.ts";
 
-
-const getDistricts = async () => {
-  const [error, result] = await tryCatch(axios.get("http://localhost:3000/districts"));
-  if (error) throw error;
-  return result.data as DistrictAndSubdistrict[];
-}
-
-const DisrictsQueryOptions = queryOptions({
+const DistrictsQueryOptions = queryOptions({
   queryKey: ["districts"],
-  queryFn: getDistricts,
+  queryFn: getDistricts
 });
 
-export { DisrictsQueryOptions };
+export { DistrictsQueryOptions };

@@ -1,13 +1,9 @@
-import { queryOptions } from "@tanstack/react-query";
-import { Event } from "../types/map.type.ts";
+import {queryOptions} from "@tanstack/react-query";
+import {getEvents} from "@/features/Map/api/events.ts";
 
 const EventsQueryOptions = queryOptions({
-  queryKey: ["events"],
-  queryFn: async () => {
-    const response = await fetch("http://localhost:3000/events");
-    const data = (await response.json()) as Event[];
-    return data;
-  },
+    queryKey: ["events"],
+    queryFn: getEvents,
 });
 
-export { EventsQueryOptions };
+export {EventsQueryOptions};
