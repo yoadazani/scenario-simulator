@@ -2,8 +2,8 @@ import {create} from "zustand";
 import {immer} from "zustand/middleware/immer";
 import {persist} from "zustand/middleware";
 import {mapLayersSlice, MapLayersSlice} from "@/features/Map/stores/mapLayersSlice.ts";
-import {MapGallerySlice, mapGallerySlice} from "@/features/Map/stores/mapGalleryStore.ts";
-import {MapInteractionSlice, mapInteractionSlice} from "@/features/Map/stores/mapInteractionStore.ts";
+import {MapGallerySlice, mapGallerySlice} from "@/features/Map/stores/mapGallerySlice.ts";
+import {MapInteractionSlice, mapInteractionSlice} from "@/features/Map/stores/mapInteractionSlice.ts";
 
 
 export type MapStore = MapLayersSlice & MapGallerySlice & MapInteractionSlice
