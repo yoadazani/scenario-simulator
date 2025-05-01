@@ -14,6 +14,7 @@ import {
 } from "@/features/Map/constants/symbols";
 import {useShallow} from "zustand/shallow";
 import {useMapStore} from "@/features/Map/stores/mapStore.ts";
+import Measurement from "@/features/Map/components/widgets/Measurement";
 
 function App() {
     const {updateGraphic, removeGraphic} = useMapStore(
@@ -61,6 +62,10 @@ function App() {
             <BaseMapGallery/>
 
             <Layers/>
+
+            <GraphicLayer>
+                <Measurement />
+            </GraphicLayer>
         </MapContainer>
     );
 }

@@ -26,8 +26,7 @@ function MapContainer({ children }: { children?: ReactNode }) {
   const viewRef = useRef(
     new MapView({
       map: mapRef.current,
-      center: [34.93408203124999, 
-        31.6209716796875],
+      center: [34.93408203124999, 31.6209716796875],
       zoom: 7,
       constraints: {
         rotationEnabled: true,
