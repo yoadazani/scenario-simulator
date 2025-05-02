@@ -9,7 +9,13 @@ import {useGraphic} from "@/features/Map/hooks/useGraphic.ts";
 import {useGraphicsLayer} from "@/features/Map/contexts/GraphicLayer.tsx";
 import Ruler from "@/assets/ruler.svg?react";
 import Collection from "@arcgis/core/core/Collection";
-import {calcDistance, formatDistance} from "@/features/Map/utils";
+import {
+    calcDistance,
+    calculateAngleDegrees,
+    calculateMidPoint,
+    calculateOffset,
+    formatDistance
+} from "@/features/Map/utils";
 import CIMSymbol from "@arcgis/core/symbols/CIMSymbol";
 import {labelSymbol, rulerSymbol} from "@/features/Map/constants/symbols.ts";
 
@@ -27,32 +33,33 @@ const Measurement = () => {
     const rulerLength = useRef(1);
     const distances = useRef(new Collection())
 
+    const handleVertexAdd = useCallback(async (e: __esri.PolylineDrawActionVertexAddEvent) => {
+        const polyline = new Polyline({
+            paths: [e.vertices],
+            spatialReference: mapView.current.spatialReference
+        });
+
+        const length = await calcDistance(polyline, "meters");
+        setTotalDistance(length);
+
+        graphicsRef.current.geometry = polyline
+        graphicsRef.current.symbol = rulerSymbolRef.current;
+
+        await calculateAndDisplaySegmentLengths(e);
+
+        graphicsLayer.add(distances.current.at(distances.current.length - 1));
+    },[])
+
     const startMeasurement = useCallback(() => {
         if (!isActive) return resetMeasurement();
 
-        // TODO : fix cursor to be only on css
-        document.body.style.cursor = "crosshair";
+        document.body.classList.add('cursor-crosshair');
+
 
         const action = drawRef.current.create("polyline");
 
-        action.on("vertex-add", async (e: __esri.PolylineDrawActionVertexAddEvent) => {
-            const polyline = new Polyline({
-                paths: [e.vertices],
-                spatialReference: mapView.current.spatialReference
-            });
-
-            const length = await calcDistance(polyline, "meters");
-            setTotalDistance(length);
-
-            graphicsRef.current.geometry = polyline
-            graphicsRef.current.symbol = rulerSymbolRef.current;
-
-            await calculateAndDisplaySegmentLengths(e);
-
-            graphicsLayer.add(distances.current.at(distances.current.length - 1));
-        });
-    }, [graphicsLayer, graphicsRef, isActive]);
-
+        action.on("vertex-add", handleVertexAdd);
+    }, [isActive]);
 
     async function calculateAndDisplaySegmentLengths(e: __esri.PolylineDrawActionVertexAddEvent) {
         while (rulerLength.current < e.vertices.length) {
@@ -66,9 +73,9 @@ const Measurement = () => {
 
             const segmentLength = await calcDistance(segmentPolyline, "meters");
 
-            const midPoint = getMidpoint(startPoint, endPoint);
+            const midPoint = calculateMidPoint(startPoint, endPoint);
             const angle = calculateAngleDegrees(startPoint, endPoint);
-            const {offsetX, offsetY} = getOffset(startPoint, endPoint);
+            const {offsetX, offsetY} = calculateOffset(startPoint, endPoint);
 
             const textGraphic = createSegmentLengthLabel(segmentLength, offsetX, offsetY, angle, midPoint);
 
@@ -86,8 +93,7 @@ const Measurement = () => {
         rulerLength.current = 1;
         setTotalDistance(0)
 
-        // TODO : fix cursor to be only on css
-        document.body.style.cursor = "default";
+        document.body.classList.remove('cursor-crosshair');
     }
 
     function createSegmentLengthLabel(segmentLength: number, offsetX: number, offsetY: number, angle: number, midPoint: number[]) {
@@ -111,33 +117,6 @@ const Measurement = () => {
             },
             symbol: textSymbol
         });
-    }
-
-    function calculateAngleDegrees(startPoint: number[], endPoint: number[]): number {
-        const deltaY = endPoint[1] - startPoint[1];
-        const deltaX = endPoint[0] - startPoint[0];
-
-        const angleInRadians = Math.atan2(deltaY, deltaX);
-        return angleInRadians * (180 / Math.PI);
-    }
-
-    function getOffset(startPoint: number[], endPoint: number[]) {
-        const deltaX = endPoint[0] - startPoint[0];
-        const deltaY = endPoint[1] - startPoint[1];
-
-        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        const offsetAmount = 15;
-
-        const offsetX = (-deltaY / distance) * offsetAmount;
-        const offsetY = (deltaX / distance) * offsetAmount;
-
-        return {offsetX, offsetY};
-    }
-
-    function getMidpoint(startPoint: number[], endPoint: number[]): number[] {
-        const midX = (startPoint[0] + endPoint[0]) / 2;
-        const midY = (startPoint[1] + endPoint[1]) / 2;
-        return [midX, midY];
     }
 
     useEffect(() => {

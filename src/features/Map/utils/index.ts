@@ -17,7 +17,7 @@ export const projectedGeometry = async (graphic: __esri.Graphic): Promise<__esri
 export const calcDistance = async (geometry: __esri.Polyline, unit: __esri.LengthUnit) => {
     if (!geodeticLengthOperator.isLoaded()) await geodeticLengthOperator.load();
 
-    return geodeticLengthOperator.execute(geometry, { unit });
+    return geodeticLengthOperator.execute(geometry, {unit});
 }
 
 export const formatDistance = (meters: number) => {
@@ -26,6 +26,32 @@ export const formatDistance = (meters: number) => {
     return `${(meters / 1000).toFixed(2)} km`;
 };
 
+export const calculateOffset = (startPoint: number[], endPoint: number[]) => {
+    const deltaX = endPoint[0] - startPoint[0];
+    const deltaY = endPoint[1] - startPoint[1];
+
+    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    const offsetAmount = 15;
+
+    const offsetX = (-deltaY / distance) * offsetAmount;
+    const offsetY = (deltaX / distance) * offsetAmount;
+
+    return {offsetX, offsetY};
+}
+
+export const calculateAngleDegrees = (startPoint: number[], endPoint: number[]): number => {
+    const deltaY = endPoint[1] - startPoint[1];
+    const deltaX = endPoint[0] - startPoint[0];
+
+    const angleInRadians = Math.atan2(deltaY, deltaX);
+    return angleInRadians * (180 / Math.PI);
+}
+
+export const calculateMidPoint = (startPoint: number[], endPoint: number[]): number[] => {
+    const midX = (startPoint[0] + endPoint[0]) / 2;
+    const midY = (startPoint[1] + endPoint[1]) / 2;
+    return [midX, midY];
+}
 export const inside = (
     point: [number, number],
     polygon: [number, number][],
