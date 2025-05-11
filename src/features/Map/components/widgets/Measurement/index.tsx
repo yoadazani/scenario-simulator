@@ -18,6 +18,8 @@ import {
 } from "@/features/Map/utils";
 import CIMSymbol from "@arcgis/core/symbols/CIMSymbol";
 import {labelSymbol, rulerSymbol} from "@/features/Map/constants/symbols.ts";
+import {Input} from "@/components/ui/input.tsx";
+import {Label} from "@/components/ui/label.tsx";
 
 const Measurement = () => {
     const {mapView} = useMap();
@@ -48,12 +50,11 @@ const Measurement = () => {
         await calculateAndDisplaySegmentLengths(e);
 
         graphicsLayer.add(distances.current.at(distances.current.length - 1));
-    },[])
+    }, [])
 
     const startMeasurement = useCallback(() => {
         if (!isActive) return resetMeasurement();
 
-        document.body.classList.add('cursor-crosshair');
 
 
         const action = drawRef.current.create("polyline");
@@ -93,7 +94,6 @@ const Measurement = () => {
         rulerLength.current = 1;
         setTotalDistance(0)
 
-        document.body.classList.remove('cursor-crosshair');
     }
 
     function createSegmentLengthLabel(segmentLength: number, offsetX: number, offsetY: number, angle: number, midPoint: number[]) {
@@ -124,8 +124,12 @@ const Measurement = () => {
     }, [startMeasurement]);
 
     return (
-        <div ref={elementRef} onClick={() => setIsActive(prev => !prev)}>
-            <Ruler className={`btn ${isActive ? "active" : ""}`}/>
+        <div ref={elementRef}>
+            <Label>
+                <Ruler className={`btn ${isActive ? "active" : ""}`}/>
+                <Input className="hidden" type="checkbox" checked={isActive}
+                       onChange={e => setIsActive(e.target.checked)} id="measurement"/>
+            </Label>
             <div className={
                 `
                     bg-white p-4 border border-blue-800 rounded-lg 

@@ -96,7 +96,7 @@ const BaseMapGallery = ({ position }: { position?: Position }) => {
     const toggleGallery = () => setIsOpen(!isOpen);
 
     return (
-        <div ref={elementRef} className="flex gap-x-2">
+        <div ref={elementRef} className="flex gap-x-2 relative">
             <MapGallery
                 className={`btn ${isOpen ? "active" : ""}`}
                 onClick={toggleGallery}
