@@ -15,6 +15,7 @@ import {
 import {useShallow} from "zustand/shallow";
 import {useMapStore} from "@/features/Map/stores/mapStore.ts";
 import Measurement from "@/features/Map/components/widgets/Measurement";
+import Search from "@/features/Map/components/widgets/Search";
 
 function App() {
     const {updateGraphic, removeGraphic} = useMapStore(
@@ -30,6 +31,7 @@ function App() {
         <MapContainer>
             <MapZoom position="top-left"/>
 
+            <Search />
             <GraphicLayer>
                 <Sketch
                     position="top-left"

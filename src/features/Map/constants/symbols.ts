@@ -1,4 +1,6 @@
 import marker from "@/assets/marker.png";
+import endTarget from "@/assets/end-target.svg";
+import target from "@/assets/target.svg";
 
 export const polylineSymbol = {
   color: [62, 176, 144],
@@ -109,65 +111,63 @@ export const rulerSymbol = {
       type: "CIMLineSymbol",
       symbolLayers: [
         {
-          type: "CIMVectorMarker",
+          type: "CIMPictureMarker",
           enable: true,
-          size: 32,
+          size: 22,
           frame: {
             xmin: 0,
             ymin: 0,
             xmax: 16,
             ymax: 16
           },
-          markerGraphics: [
-            {
-              type: "CIMMarkerGraphic",
-              geometry: {
-                rings: [
-                  [
-                    [12.5, 8.5],
-                    [12.36, 9.28],
-                    [12.0, 10.0],
-                    [11.45, 10.61],
-                    [10.73, 11.05],
-                    [9.94, 11.28],
-                    [9.09, 11.3],
-                    [8.25, 11.11],
-                    [7.5, 10.73],
-                    [6.89, 10.18],
-                    [6.45, 9.45],
-                    [6.22, 8.66],
-                    [6.2, 7.81],
-                    [6.39, 6.97],
-                    [6.77, 6.22],
-                    [7.32, 5.61],
-                    [8.05, 5.17],
-                    [8.84, 4.94],
-                    [9.69, 4.92],
-                    [10.53, 5.11],
-                    [11.28, 5.5],
-                    [11.89, 6.05],
-                    [12.33, 6.77],
-                    [12.56, 7.56],
-                    [12.5, 8.5]
-                  ]
-                ]
-              },
-              symbol: {
-                type: "CIMPolygonSymbol",
-                symbolLayers: [
-                  {
-                    type: "CIMSolidFill",
-                    enable: true,
-                    color: [109, 188, 223, 255]
-                  }
-                ]
-              }
-            }
-          ],
+          url: endTarget,
+          rotation: 45,
+          rotateClockwise: false,
+          markerPlacement: {
+            type: "CIMMarkerPlacementAtExtremities",
+            angleToLine: true,
+            extremityPlacement: "JustEnd",
+          },
+          scaleSymbolsProportionally: true,
+          respectFrame: true,
+        },
+        {
+          type: "CIMPictureMarker",
+          enable: true,
+          size: 18,
+          frame: {
+            xmin: 0,
+            ymin: 0,
+            xmax: 16,
+            ymax: 16
+          },
+          url: target,
+          tintColor: [109, 188, 223, 255],
+          markerPlacement: {
+            type: "CIMMarkerPlacementAtExtremities",
+            angleToLine: true,
+            extremityPlacement: "JustBegin"
+          },
+          scaleSymbolsProportionally: true,
+          respectFrame: true,
+        },
+        {
+          type: "CIMPictureMarker",
+          enable: true,
+          size: 18,
+          frame: {
+            xmin: 0,
+            ymin: 0,
+            xmax: 16,
+            ymax: 16
+          },
+          url: target,
+          tintColor: [109, 188, 223, 255],
           markerPlacement: {
             type: "CIMMarkerPlacementOnVertices",
             primitiveName: "Circle",
-            angleToLine: true
+            angleToLine: true,
+            placeOnEndPoints: false
           },
           scaleSymbolsProportionally: true,
           respectFrame: true,
