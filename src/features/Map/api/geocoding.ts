@@ -13,12 +13,12 @@ const reverseGeocodingApiBaseUrl = import.meta.env.VITE_REVERSE_GEOCODING_API_BA
 
 export const autocomplete = async (query?: string) => {
     if (!query) return [];
-    const [err, result] = await tryCatch(axios.get(`${autoCompleteApiBaseUrl}?key=${privateKey}&q=${query}&countrycodes=IL&dedupe=1&format=json`));
+    const [err, result] = await tryCatch(axios.get<AutoCompleteLocation[]>(`${autoCompleteApiBaseUrl}?key=${privateKey}&q=${query}&countrycodes=IL&dedupe=1&format=json`));
     if (err) {
         if (err.message.includes("404")) return [];
         throw err
     }
-    return result.data as AutoCompleteLocation[];
+    return result.data;
 }
 
 export const geocoding = async (query: string) => {

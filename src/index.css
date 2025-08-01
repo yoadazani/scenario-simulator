@@ -1,4 +1,4 @@
-@import "https://js.arcgis.com/4.32/@arcgis/core/assets/esri/themes/dark/main.css";
+@import "https://js.arcgis.com/4.32/@arcgis/core/assets/esri/themes/light/main.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -258,4 +258,13 @@ body {
 
 .map:has(#measurement:checked) {
   cursor: crosshair;
+}
+
+.esri-popup, .esri-popup__main-container {
+  border-radius: 16px !important;
+}
+
+.esri-feature__content-node, .esri-features__container:not(:empty) {
+  padding: 0 !important;
+  margin: 0 !important;
 }
