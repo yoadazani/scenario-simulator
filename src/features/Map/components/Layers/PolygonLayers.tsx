@@ -1,5 +1,5 @@
 import {DistrictAndSubdistrict} from "@/features/Map/types/map.type.ts";
-import MapPolygon from "@/features/Map/components/Layers/Polygon.tsx";
+import MapPolygon from "@/features/Map/components/Graphics/Polygon.tsx";
 import {labelSymbol} from "@/features/Map/constants/symbols.ts";
 
 export const PolygonLayers = (props: {

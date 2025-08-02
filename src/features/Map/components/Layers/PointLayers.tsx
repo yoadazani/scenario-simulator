@@ -1,5 +1,5 @@
 import {Event} from "@/features/Map/types/map.type.ts";
-import MapMarker from "@/features/Map/components/Layers/Marker.tsx";
+import MapMarker from "@/features/Map/components/Graphics/Marker.tsx";
 
 export const PointLayers = (props: {
     featureData: Event[],

@@ -1,7 +1,7 @@
 import {DistrictAndSubdistrict, Ellipse, Event, OnlyFeatures, OnlyGraphics} from "@/features/Map/types/map.type.ts";
-import {PolygonLayers} from "@/features/Map/components/shared/Layers/PolygonLayers.tsx";
-import {EllipseLayers} from "@/features/Map/components/shared/Layers/EllipseLayers.tsx";
-import {PointLayers} from "@/features/Map/components/shared/Layers/PointLayers.tsx";
+import {PolygonLayers} from "@/features/Map/components/Layers/PolygonLayers.tsx";
+import {EllipseLayers} from "@/features/Map/components/Layers/EllipseLayers.tsx";
+import {PointLayers} from "@/features/Map/components/Layers/PointLayers.tsx";
 
 
 const graphicLayersComponents = {

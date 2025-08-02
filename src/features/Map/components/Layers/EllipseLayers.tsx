@@ -1,5 +1,5 @@
 import {Ellipse} from "@/features/Map/types/map.type.ts";
-import MapEllipse from "@/features/Map/components/Layers/Ellipse.tsx";
+import MapEllipse from "@/features/Map/components/Graphics/Ellipse.tsx";
 
 export const EllipseLayers = (props: {
     featureData: Ellipse[],

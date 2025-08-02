@@ -2,7 +2,7 @@ import GraphicLayer from "@/features/Map/contexts/GraphicLayer";
 import MapContainer from "@/features/Map/contexts/MapContainer";
 import MapZoom from "@/features/Map/components/widgets/Zoom";
 import Sketch from "@/features/Map/components/widgets/Sketch";
-import Layers from "@/features/Map/components/shared/Layers";
+import Layers from "@/features/Map/components/Layers";
 import BaseMapGallery from "@/features/Map/components/widgets/BaseMapGallery";
 import {
     ellipseSymbol,
