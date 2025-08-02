@@ -30,7 +30,7 @@ const LayersControl = (props: LayersControl) => {
         <SheetTrigger asChild>
           <Layers className="btn" />
         </SheetTrigger>
-        <SheetContent container={elementRef.current} className="bg-accent">
+        <SheetContent container={elementRef.current}>
           <SheetHeader>
             <SheetTitle className="text-xl font-bold text-zinc-700 text-center border-b-1 border-blue-800 pt-6 pb-3">
               ניהול שכבות

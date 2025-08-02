@@ -52,16 +52,6 @@ const Measurement = () => {
         graphicsLayer.add(distances.current.at(distances.current.length - 1));
     }, [])
 
-    const startMeasurement = useCallback(() => {
-        if (!isActive) return resetMeasurement();
-
-
-
-        const action = drawRef.current.create("polyline");
-
-        action.on("vertex-add", handleVertexAdd);
-    }, [isActive]);
-
     async function calculateAndDisplaySegmentLengths(e: __esri.PolylineDrawActionVertexAddEvent) {
         while (rulerLength.current < e.vertices.length) {
             const startPoint = e.vertices[rulerLength.current - 1];
@@ -87,13 +77,11 @@ const Measurement = () => {
     }
 
     function resetMeasurement() {
-        drawRef.current.complete();
         graphicsRef.current.geometry = undefined;
         graphicsLayer.graphics.removeMany(distances.current);
         distances.current.removeAll();
         rulerLength.current = 1;
         setTotalDistance(0)
-
     }
 
     function createSegmentLengthLabel(segmentLength: number, offsetX: number, offsetY: number, angle: number, midPoint: number[]) {
@@ -120,8 +108,18 @@ const Measurement = () => {
     }
 
     useEffect(() => {
-        startMeasurement();
-    }, [startMeasurement]);
+        if (!isActive) {
+            resetMeasurement();
+            return;
+        }
+
+        const action = drawRef.current.create("polyline");
+        const vertexAddHandler = action.on("vertex-add", handleVertexAdd);
+
+        return () => {
+            vertexAddHandler.remove();
+        };
+    }, [isActive, handleVertexAdd]);
 
     return (
         <div ref={elementRef}>
