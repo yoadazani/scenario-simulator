@@ -137,7 +137,6 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 
-/* cursor crosshair */
 .cursor-crosshair {
   cursor: crosshair;
 }
