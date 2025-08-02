@@ -1,50 +1,80 @@
-# React + TypeScript + Vite
+# Scenario Simulator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive mapping application built with React, TypeScript, and ArcGIS that allows users to create and manipulate geographic scenarios.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Map**: Built on ArcGIS for powerful mapping capabilities
+- **Drawing Tools**: Create points, lines, polygons, and ellipses on the map
+- **Measurement Tools**: Measure distances and areas on the map
+- **Search Functionality**: Find locations and addresses
+- **Base Map Gallery**: Choose from different map styles
+- **Layer Management**: Control visibility of different map layers
+- **Persistent State**: Map configurations and drawings are saved between sessions
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- ArcGIS JavaScript API
+- Zustand for state management
+- TailwindCSS for styling
+- Radix UI for accessible components
+- React Query for data fetching
+- JSON Server for mock API
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Prerequisites
+
+- Node.js (latest LTS version recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+### Running the Application
+
+Start both the development server and the mock API server:
+
+```
+npm start
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+This will concurrently run:
+- The Vite development server at http://localhost:5173 (or another port if 5173 is in use)
+- The JSON Server mock API at http://localhost:3000
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Building for Production
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm run build
+```
+
+## Usage
+
+1. **Navigation**: Use the zoom controls or mouse wheel to navigate the map
+2. **Drawing**: Select a drawing tool and click on the map to create shapes
+3. **Measurement**: Use the measurement tool to calculate distances or areas
+4. **Base Maps**: Click the base map gallery to change the map style
+5. **Layers**: Toggle different map layers on/off using the layers control
+
+## Project Structure
+
+- `src/features/Map`: Core mapping functionality
+  - `components`: UI components including widgets and shared elements
+  - `contexts`: React contexts for map functionality
+  - `stores`: Zustand state management
+  - `constants`: Configuration constants
+  - `hooks`: Custom React hooks
+  - `utils`: Utility functions
+
+## License
+
+This project is proprietary and confidential.
