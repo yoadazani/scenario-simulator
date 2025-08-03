@@ -297,8 +297,12 @@ body {
   transition-delay: 300ms;
 }
 
-.map:has(#measurement:checked) {
+.map:has(#measurement:checked):not(.drawing-complete) {
   cursor: crosshair;
+}
+
+.map.drawing-complete {
+  cursor: default;
 }
 
 .esri-popup, .esri-popup__main-container {

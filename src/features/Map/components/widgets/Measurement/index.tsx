@@ -28,6 +28,7 @@ const Measurement = () => {
     const {graphicsLayer} = useGraphicsLayer()
     const [isActive, setIsActive] = useState(false);
     const [totalDistance, setTotalDistance] = useState(0);
+    const [isDrawingComplete, setIsDrawingComplete] = useState(false);
     const drawRef = useRef<Draw>(new Draw({
         view: mapView.current
     }));
@@ -43,6 +44,7 @@ const Measurement = () => {
 
         const length = await calcDistance(polyline, "meters");
         setTotalDistance(length);
+        setIsDrawingComplete(false);
 
         graphicsRef.current.geometry = polyline
         graphicsRef.current.symbol = rulerSymbolRef.current;
@@ -50,6 +52,10 @@ const Measurement = () => {
         await calculateAndDisplaySegmentLengths(e);
 
         graphicsLayer.add(distances.current.at(distances.current.length - 1));
+    }, [])
+
+    const handleDrawComplete = useCallback(() => {
+        setIsDrawingComplete(true);
     }, [])
 
     async function calculateAndDisplaySegmentLengths(e: __esri.PolylineDrawActionVertexAddEvent) {
@@ -81,7 +87,8 @@ const Measurement = () => {
         graphicsLayer.graphics.removeMany(distances.current);
         distances.current.removeAll();
         rulerLength.current = 1;
-        setTotalDistance(0)
+        setTotalDistance(0);
+        setIsDrawingComplete(false);
     }
 
     function createSegmentLengthLabel(segmentLength: number, offsetX: number, offsetY: number, angle: number, midPoint: number[]) {
@@ -115,18 +122,36 @@ const Measurement = () => {
 
         const action = drawRef.current.create("polyline");
         const vertexAddHandler = action.on("vertex-add", handleVertexAdd);
+        const drawCompleteHandler = mapView.current.on("double-click", handleDrawComplete);
 
         return () => {
             vertexAddHandler.remove();
+            drawCompleteHandler.remove();
         };
-    }, [isActive, handleVertexAdd]);
+    }, [isActive, handleVertexAdd, handleDrawComplete]);
+
+
+    useEffect(() => {
+        if (mapView.current && mapView.current.container) {
+            if (isDrawingComplete) {
+                mapView.current.container.classList.add("drawing-complete");
+            } else {
+                mapView.current.container.classList.remove("drawing-complete");
+            }
+        }
+    }, [isDrawingComplete]);
 
     return (
         <div ref={elementRef}>
             <Label>
                 <Ruler className={`btn ${isActive ? "active" : ""}`}/>
-                <Input className="hidden" type="checkbox" checked={isActive}
-                       onChange={e => setIsActive(e.target.checked)} id="measurement"/>
+                <Input
+                    className="hidden"
+                    type="checkbox"
+                    checked={isActive}
+                    onChange={e => setIsActive(e.target.checked)}
+                    id="measurement"
+                />
             </Label>
             <div className={
                 `
