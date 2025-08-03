@@ -33,7 +33,7 @@ function MapContainer({children}: { children?: ReactNode }) {
                 visibleElements: {
                     collapseButton: false,
                     heading: true,
-                    actionBar: true,
+                    actionBar: false,
                     closeButton: false,
                     featureMenuHeading: false,
                     featureListLayerTitle: false,
