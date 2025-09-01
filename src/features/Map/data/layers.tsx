@@ -1,6 +1,5 @@
 import {
     DistrictAndSubdistrict,
-    Event,
     OnlyFeatures,
     OnlyGraphics,
     RocketAttack
@@ -8,6 +7,7 @@ import {
 import {PolygonLayers} from "@/features/Map/components/Layers/PolygonLayers.tsx";
 import {EllipseLayers} from "@/features/Map/components/Layers/EllipseLayers.tsx";
 import {PointLayers} from "@/features/Map/components/Layers/PointLayers.tsx";
+import {Event} from "@/features/Events/types";
 
 
 const graphicLayersComponents = {

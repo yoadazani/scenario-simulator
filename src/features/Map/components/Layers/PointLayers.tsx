@@ -1,6 +1,6 @@
-import {Event} from "@/features/Map/types/map.type.ts";
 import MapMarker from "@/features/Map/components/Graphics/Marker.tsx";
 import {uuidToInt} from "@/features/Map/utils";
+import {Event} from "@/features/Events/types";
 
 export const PointLayers = (props: {
     featureData: Event[],

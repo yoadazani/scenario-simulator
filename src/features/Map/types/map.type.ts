@@ -1,8 +1,9 @@
 import {MapLayersState} from "@/features/Map/stores/mapLayersSlice.ts";
-import {KeyOfType} from "@/types";
+import {KeyOfType, SendingStatusEnum} from "@/types";
 import SimpleFillSymbolProperties = __esri.SimpleFillSymbolProperties;
 import SimpleMarkerSymbolProperties = __esri.SimpleMarkerSymbolProperties;
 import PictureMarkerSymbolProperties = __esri.PictureMarkerSymbolProperties;
+import {Event} from "@/features/Events/types";
 
 export type BaseLayer = {
     id: string;
@@ -43,50 +44,6 @@ type BaseItem = {
         id: number;
     } & Record<string, unknown>;
 };
-
-export enum SendingStatusEnum {
-    Pending = "Pending",
-    Sent = "Sent",
-    Failed = "Failed",
-    On_Hold = "On_Hold"
-}
-
-export type Event = {
-    event: {
-        id: string;
-        cityId: number;
-        name: string;
-        location: { latitude: number, longitude: number };
-        startDate: Date;
-        responsibleJournal: number;
-        status: number;
-        generator: number;
-        eventType: number;
-        isUrbanArea: boolean;
-
-        // optional fields
-        description?: string;
-        endDate?: Date;
-        damageLevel?: number;
-        lifeSavingPotential?: number;
-        allocatedStatus?: number;
-        classification?: number;
-        permittedJournal?: string;
-        permittedEditingJournalsIds?: string;
-
-        seriousInjuries?: number; // חרדה
-        minorInjuries?: number; // קל
-        moderateInjuries?: number; // בינוני
-        severeInjuries?: number; // קשה
-        trappedInjuries?: number; // לכודים
-        fatalInjuries?: number; // הרוגים
-    }
-    address?: string;
-    scheduling_sending_time: Date;
-    sendingStatus: SendingStatusEnum;
-    source: number;
-    isVibe?: boolean | null;
-}
 
 export type Location = {
     latitude: number;
