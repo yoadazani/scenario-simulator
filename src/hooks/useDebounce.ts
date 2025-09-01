@@ -1,17 +1,15 @@
-import { useState, useEffect } from 'react';
+import {useState, useRef, useCallback} from 'react';
 
-export const useDebounce = (value: string | number, delay: number) => {
-    const [debouncedValue, setDebouncedValue] = useState(value);
+export const useDebounce = <T>(value: T, delay: number) => {
+    const [debouncedValue, _setDebouncedValue] = useState(value);
+    const timeoutHandlerRef = useRef<NodeJS.Timeout>(undefined);
 
-    useEffect(() => {
-        const handler = setTimeout(() => {
-            setDebouncedValue(value);
+    const setDebouncedValue=useCallback( (value:T)=>{
+        clearTimeout(timeoutHandlerRef.current)
+        timeoutHandlerRef.current = setTimeout(() => {
+            _setDebouncedValue(value);
         }, delay);
+    },[delay])
 
-        return () => {
-            clearTimeout(handler);
-        };
-    }, [value, delay]);
-
-    return debouncedValue;
+    return [debouncedValue, setDebouncedValue] as const;
 }

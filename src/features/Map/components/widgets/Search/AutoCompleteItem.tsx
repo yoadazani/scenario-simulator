@@ -1,7 +1,7 @@
-import {AutoCompleteLocation} from "@/features/Map/types/geocoding.type.ts";
 import Marker from "@/assets/marker.svg?react";
+import Event from "@/assets/event.svg?react";
 
-export const AutoCompleteItem = (props: { onClick: () => Promise<void>, item: AutoCompleteLocation }) => {
+export const AutoCompleteItem = (props: { onClick: () => Promise<void>, item: __esri.SuggestResult}) => {
     return <div
         className="
             px-3 py-2 hover:bg-gray-100 cursor-pointer transition-colors
@@ -9,10 +9,10 @@ export const AutoCompleteItem = (props: { onClick: () => Promise<void>, item: Au
         "
         onClick={props.onClick}
     >
-        <Marker className="size-5 stroke-blue-800"/>
+        {props.item.sourceIndex === 0 ? <Marker className="size-5 stroke-blue-800"/> : <Event className="size-5 stroke-red-800"/>}
         <div className="flex flex-1 overflow-hidden flex-col text-right w-full">
-            <span dir="rtl" className="font-medium text-gray-800">{props.item.display_place}</span>
-            <span dir="rtl" className="text-xs text-gray-500 truncate">{props.item.display_address}</span>
+            <span dir="rtl" className="font-medium text-gray-800 truncate">{props.item.text}</span>
+            <span dir="rtl" className="text-xs text-gray-500">{props.item.sourceIndex === 1 ? "אירוע" : "כתובת"}</span>
         </div>
     </div>;
 }

@@ -1,4 +1,4 @@
-export const searchLocationPopupContent = `
+export const PopupContentTemplate = (geometry: __esri.Point, text: string, title: string = "כתובת") => `
                 <div dir="rtl" class="bg-white rounded-lg shadow-md w-full overflow-hidden">
                     <div class="p-4 border-b border-gray-100">
                         <div class="flex items-center gap-3">
@@ -9,8 +9,8 @@ export const searchLocationPopupContent = `
                                 </svg>
                             </div>
                             <div class="text-right">
-                                <p class="text-sm font-medium text-gray-500">כתובת</p>
-                                <p class="text-lg font-semibold text-gray-900">{LongLabel}</p>
+                                <p class="text-sm font-medium text-gray-500">${title}</p>
+                                <p class="text-lg font-semibold text-gray-900">${text}</p>
                             </div>
                         </div>
                     </div>
@@ -20,11 +20,11 @@ export const searchLocationPopupContent = `
                         <div class="grid grid-cols-2 gap-2">
                             <div class="bg-white p-2 rounded border border-gray-200">
                                 <p class="text-xs text-gray-500">קו רוחב</p>
-                                <p class="font-mono text-sm font-medium">{InputX}</p>
+                                <p class="font-mono text-sm font-medium">${geometry.latitude?.toFixed(6) || 'N/A'}</p>
                             </div>
                             <div class="bg-white p-2 rounded border border-gray-200">
                                 <p class="text-xs text-gray-500">קו אורך</p>
-                                <p class="font-mono text-sm font-medium">{InputY}</p>
+                                <p class="font-mono text-sm font-medium">${geometry.longitude?.toFixed(6) || 'N/A'}</p>
                             </div>
                         </div>
                     </div>

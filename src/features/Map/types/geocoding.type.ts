@@ -12,9 +12,18 @@ export type AutoCompleteLocation = {
     display_place: string;
     display_address: string;
     address: {
-        name: string;
-        country: string;
-        country_code: string;
+        name?: string
+        road?: string
+        neighbourhood?: string
+        attraction?: string;
+        house_number?: string
+        suburb?: string
+        city?: string
+        county?: string
+        state?: string
+        postcode?: string
+        country?: string
+        country_code?: string
     };
 };
 

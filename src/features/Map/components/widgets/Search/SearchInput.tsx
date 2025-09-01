@@ -1,66 +1,113 @@
-import {useEffect, useMemo, useRef, useState} from 'react'
+import {ChangeEvent, useCallback, useEffect, useRef, useState} from 'react'
 import {Input} from "@/components/ui/input.tsx";
-import {AutoCompleteLocation} from "@/features/Map/types/geocoding.type.ts";
 import {useMap} from "@/features/Map/contexts/MapContainer.tsx";
-import {useDebounce} from "@/hooks/useDebounce.ts";
-import {useQuery} from "@tanstack/react-query";
-import {getAutocompleteQueryOptions} from "@/features/Map/queries/autoComplete.query.tsx";
+import {PopupContentTemplate} from "@/features/Map/constants/popup_templates.ts";
+import {useLayerById} from "@/features/Map/hooks/useLayerById.ts";
+import {markerSymbol} from "@/features/Map/constants/symbols.ts";
+
+import AutoComplete from "@/features/Map/components/widgets/Search/AutoComplete.tsx";
+import ClearBtn from "@/features/Map/components/widgets/Search/ClearBtn.tsx";
+import SelectSearchSource from "@/features/Map/components/widgets/Search/SelectSearchSource.tsx";
+
 import Search from "@/assets/search.svg?react";
 import SearchViewModel from "@arcgis/core/widgets/Search/SearchViewModel";
 import PictureMarkerSymbol from "@arcgis/core/symbols/PictureMarkerSymbol";
-import {markerSymbol} from "@/features/Map/constants/symbols.ts";
-import {AutoComplete} from "@/features/Map/components/widgets/Search/AutoComplete.tsx";
-import Point from "@arcgis/core/geometry/Point";
-import {searchLocationPopupContent} from "@/features/Map/constants/popup_templates.ts";
+import {SEARCH_PLACEHOLDERS} from "@/features/Map/constants";
+import {useSearchSources} from "@/features/Map/hooks/useSearchSources.ts";
+import {useSearchSuggestions} from "@/features/Map/hooks/useSearchSuggestion.ts";
 
 const SearchInput = ({isOpen}: { isOpen: boolean }) => {
     const {mapView} = useMap();
-    const [location, setLocation] = useState<string>('');
-    const deferredLocation = useDebounce(location, 500) as string;
+    const inputRef = useRef<HTMLInputElement>(null);
+    const eventsLayer = useLayerById("events")
+    const [selectedSource, setSelectedSource] = useState<number>(-1)
+    const [selectSourcesOpen, setSelectSourcesOpen] = useState(false)
 
-    const queryOptions = useMemo(() =>
-            getAutocompleteQueryOptions(deferredLocation as string),
-        [deferredLocation]
-    );
-
-    const {data, isLoading, refetch} = useQuery(queryOptions);
+    const {sources, eventsSource, locationSource} = useSearchSources(eventsLayer!)
+    const { suggestions, updateSuggestions, clearSuggestions } = useSearchSuggestions()
 
     const SearchViewModelRef = useRef(new SearchViewModel({
         view: mapView.current,
-        defaultSymbols: {
-            point: new PictureMarkerSymbol(markerSymbol)
-        },
         popupEnabled: true,
-        popupTemplate: {
-            content: searchLocationPopupContent,
+        searchAllEnabled: true,
+        suggestionDelay: 1000,
+        activeSourceIndex: selectedSource,
+        includeDefaultSources: false,
+        allPlaceholder: SEARCH_PLACEHOLDERS.all,
+        defaultSymbols: {
+            point: new PictureMarkerSymbol(markerSymbol),
         },
+        popupTemplate: {
+            content: ({graphic}: { graphic: __esri.Graphic }) => {
+                const geometry = graphic.geometry as __esri.Point;
+                const {Match_addr, StAddr, City} = graphic.attributes
+                return PopupContentTemplate(geometry, `${Match_addr} ${StAddr} ${City}`)
+            },
+        },
+        sources: [
+            locationSource,
+            eventsSource
+        ],
     }))
 
+    const handleClear = useCallback(() => SearchViewModelRef.current.clear(), [])
+
+    const handleSelectItem = useCallback(async (item: __esri.SuggestResult) =>
+        await SearchViewModelRef.current.search(item.text), [])
+
+    const handleChange = useCallback(async (event: ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+        SearchViewModelRef.current.searchTerm = value;
+        await updateSuggestions(SearchViewModelRef.current, value );
+    }, [])
+
+    const handleSelectActiveSource = useCallback((sourceIndex: number) => {
+        setSelectedSource(sourceIndex)
+        SearchViewModelRef.current.activeSourceIndex = sourceIndex
+    }, [])
+
+    const handleSelectResult = useCallback(async (event: __esri.SearchViewModelSelectResultEvent) => {
+        const {result} = event;
+        if (result.feature.layer) {
+            const {feature} = result
+            feature.symbol = new PictureMarkerSymbol(markerSymbol)
+            SearchViewModelRef.current.view?.graphics.add(feature)
+        }
+    }, [])
+
+    const handleSearchClear = useCallback(() => {
+        if (inputRef.current) {
+            inputRef.current.value = "";
+        }
+        clearSuggestions();
+    }, [clearSuggestions]);
+
     useEffect(() => {
-        (async () => {
-            if (deferredLocation) await refetch()
-        })();
-    }, [deferredLocation, refetch]);
+        const selectResultHandler = SearchViewModelRef.current.on("select-result", handleSelectResult)
+        const searchClearHandler = SearchViewModelRef.current.on("search-clear", handleSearchClear)
+        return () => {
+            selectResultHandler.remove()
+            searchClearHandler.remove()
+        }
+    }, [handleSelectResult, handleSearchClear]);
+    
 
     useEffect(() => {
         if (!isOpen) {
-            setLocation("");
-            SearchViewModelRef.current.clear()
+            handleClear()
+            return;
         }
-    }, [isOpen]);
+        setTimeout(() => {
+            if (inputRef.current) {
+                inputRef.current.focus();
+            }
+        }, 50);
+    }, [handleClear, isOpen]);
 
-    const handleSelectItem = async (item: AutoCompleteLocation) => {
-        await SearchViewModelRef.current.search(new Point({
-            latitude: parseFloat(item.lat),
-            longitude: parseFloat(item.lon)
-        }));
-    }
-
-    const showAutocomplete = isOpen && data && deferredLocation.trim() !== "";
+    const showAutocomplete = isOpen && !selectSourcesOpen && SearchViewModelRef.current.searchTerm.trim() !== ''
 
     return (
         <div className="relative">
-            {/* Search input */}
             <div className={`
                 flex items-center space-x-2 bg-white border-background focus-within:border-blue-800 
                 border rounded-lg px-2 transition-all duration-300 ease-in-out
@@ -68,21 +115,27 @@ const SearchInput = ({isOpen}: { isOpen: boolean }) => {
             `}>
                 <Search/>
                 <Input
+                    ref={inputRef}
                     type="text"
-                    placeholder="חיפוש"
+                    placeholder={SearchViewModelRef.current.placeholder}
                     dir="rtl"
-                    value={location}
                     className="shadow-none outline-none border-none bg-transparent focus:outline-none
                                focus-visible:border-none focus:ring-0 focus-visible:ring-0
                                focus-visible:ring-offset-0 rtl:placeholder:text-right"
-                    onChange={(e) => setLocation(e.target.value)}
+                    onChange={handleChange}
+                />
+
+                <ClearBtn handleClear={handleClear}/>
+                <SelectSearchSource
+                    sources={sources}
+                    activeSourceIndex={selectedSource}
+                    handleSelect={handleSelectActiveSource}
+                    setSelectSourcesOpen={setSelectSourcesOpen}
                 />
             </div>
-
             <AutoComplete
                 showAutocomplete={showAutocomplete}
-                loading={isLoading}
-                data={data}
+                data={suggestions}
                 handleSelectItem={handleSelectItem}
             />
         </div>
