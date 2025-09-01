@@ -1,4 +1,10 @@
-import {DistrictAndSubdistrict, Ellipse, Event, OnlyFeatures, OnlyGraphics} from "@/features/Map/types/map.type.ts";
+import {
+    DistrictAndSubdistrict,
+    Event,
+    OnlyFeatures,
+    OnlyGraphics,
+    RocketAttack
+} from "@/features/Map/types/map.type.ts";
 import {PolygonLayers} from "@/features/Map/components/Layers/PolygonLayers.tsx";
 import {EllipseLayers} from "@/features/Map/components/Layers/EllipseLayers.tsx";
 import {PointLayers} from "@/features/Map/components/Layers/PointLayers.tsx";
@@ -12,7 +18,7 @@ const graphicLayersComponents = {
             symbol={symbol as __esri.SimpleFillSymbolProperties}
         />
     ),
-    ellipse: (key: OnlyGraphics, data: Ellipse[], symbol: __esri.SymbolProperties) => (
+    ellipse: (key: OnlyGraphics, data: RocketAttack[], symbol: __esri.SymbolProperties) => (
         <EllipseLayers
             key={key}
             featureData={data}

@@ -3,6 +3,7 @@ import Basemap from "@arcgis/core/Basemap";
 import Map from "@arcgis/core/Map";
 import MapView from "@arcgis/core/views/MapView";
 import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
+import Point from "@arcgis/core/geometry/Point";
 
 const mapUrl = import.meta.env.VITE_VECTOR_MAP_URL;
 
@@ -26,8 +27,12 @@ function MapContainer({children}: { children?: ReactNode }) {
     const viewRef = useRef(
         new MapView({
             map: mapRef.current,
-            center: [34.93408203124999, 31.6209716796875],
+            center: new Point({
+                longitude: 34.93408203124999,
+                latitude: 31.6209716796875,
+            }),
             zoom: 7,
+            scale: 10000000,
             popup: {
                 dockEnabled: false,
                 visibleElements: {

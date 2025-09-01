@@ -842360,2656 +842360,931 @@
   ],
   "events": [
     {
-      "id": 620849,
-      "point": {
-        "latitude": 31.36586680972795,
-        "longitude": 35.05639294877584
-      },
-      "attributes": {
-        "id": 620849,
-        "name": "Marker 620849"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 724697,
-      "point": {
-        "latitude": 30.318156694321406,
-        "longitude": 34.702412410351364
-      },
-      "attributes": {
-        "id": 724697,
-        "name": "Marker 724697"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 185714,
-      "point": {
-        "latitude": 32.73127262716793,
-        "longitude": 35.181769416557096
-      },
-      "attributes": {
-        "id": 185714,
-        "name": "Marker 185714"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 725214,
-      "point": {
-        "latitude": 31.296376333551354,
-        "longitude": 35.035859881052694
-      },
-      "attributes": {
-        "id": 725214,
-        "name": "Marker 725214"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 477523,
-      "point": {
-        "latitude": 31.955759040956536,
-        "longitude": 35.3190424722773
-      },
-      "attributes": {
-        "id": 477523,
-        "name": "Marker 477523"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 735973,
-      "point": {
-        "latitude": 31.247782742939503,
-        "longitude": 34.677001527149315
-      },
-      "attributes": {
-        "id": 735973,
-        "name": "Marker 735973"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 693419,
-      "point": {
-        "latitude": 32.171251043869354,
-        "longitude": 35.204029484847084
-      },
-      "attributes": {
-        "id": 693419,
-        "name": "Marker 693419"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 747493,
-      "point": {
-        "latitude": 31.788060197243535,
-        "longitude": 35.380698793488186
-      },
-      "attributes": {
-        "id": 747493,
-        "name": "Marker 747493"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 63535,
-      "point": {
-        "latitude": 31.29936631304759,
-        "longitude": 35.41099687292731
-      },
-      "attributes": {
-        "id": 63535,
-        "name": "Marker 63535"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 703458,
-      "point": {
-        "latitude": 31.043098709815467,
-        "longitude": 34.39947186150532
-      },
-      "attributes": {
-        "id": 703458,
-        "name": "Marker 703458"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 252775,
-      "point": {
-        "latitude": 31.359628668877047,
-        "longitude": 34.82506168639381
-      },
-      "attributes": {
-        "id": 252775,
-        "name": "Marker 252775"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 493064,
-      "point": {
-        "latitude": 30.795546563406003,
-        "longitude": 34.91822321012214
-      },
-      "attributes": {
-        "id": 493064,
-        "name": "Marker 493064"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 543756,
-      "point": {
-        "latitude": 31.940843930229924,
-        "longitude": 35.2777865507948
-      },
-      "attributes": {
-        "id": 543756,
-        "name": "Marker 543756"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 42161,
-      "point": {
-        "latitude": 31.752116655008084,
-        "longitude": 35.227957734179746
-      },
-      "attributes": {
-        "id": 42161,
-        "name": "Marker 42161"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 142855,
-      "point": {
-        "latitude": 30.320910803653327,
-        "longitude": 34.8142871463655
-      },
-      "attributes": {
-        "id": 142855,
-        "name": "Marker 142855"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 588414,
-      "point": {
-        "latitude": 32.18553971788409,
-        "longitude": 35.038318279160926
-      },
-      "attributes": {
-        "id": 588414,
-        "name": "Marker 588414"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 346773,
-      "point": {
-        "latitude": 30.598121256153004,
-        "longitude": 35.09508451472055
-      },
-      "attributes": {
-        "id": 346773,
-        "name": "Marker 346773"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 24992,
-      "point": {
-        "latitude": 33.081850451390295,
-        "longitude": 35.50123537054082
-      },
-      "attributes": {
-        "id": 24992,
-        "name": "Marker 24992"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 608621,
-      "point": {
-        "latitude": 31.94837538771758,
-        "longitude": 34.99217338946188
-      },
-      "attributes": {
-        "id": 608621,
-        "name": "Marker 608621"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 709657,
-      "point": {
-        "latitude": 32.633893920651616,
-        "longitude": 34.95120058415738
-      },
-      "attributes": {
-        "id": 709657,
-        "name": "Marker 709657"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 549627,
-      "point": {
-        "latitude": 30.67473202421612,
-        "longitude": 34.5105606164713
-      },
-      "attributes": {
-        "id": 549627,
-        "name": "Marker 549627"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 131210,
-      "point": {
-        "latitude": 30.91570562824117,
-        "longitude": 35.07993340216927
-      },
-      "attributes": {
-        "id": 131210,
-        "name": "Marker 131210"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 621024,
-      "point": {
-        "latitude": 31.163901130549966,
-        "longitude": 34.63204143155821
-      },
-      "attributes": {
-        "id": 621024,
-        "name": "Marker 621024"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 565204,
-      "point": {
-        "latitude": 31.636040092358026,
-        "longitude": 35.2508633053872
-      },
-      "attributes": {
-        "id": 565204,
-        "name": "Marker 565204"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 795807,
-      "point": {
-        "latitude": 31.747053273456697,
-        "longitude": 35.31496605897081
-      },
-      "attributes": {
-        "id": 795807,
-        "name": "Marker 795807"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 395372,
-      "point": {
-        "latitude": 32.010795241567244,
-        "longitude": 34.923596049706546
-      },
-      "attributes": {
-        "id": 395372,
-        "name": "Marker 395372"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 723946,
-      "point": {
-        "latitude": 29.899132528017084,
-        "longitude": 34.846901289096095
-      },
-      "attributes": {
-        "id": 723946,
-        "name": "Marker 723946"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 137736,
-      "point": {
-        "latitude": 31.43186461803429,
-        "longitude": 35.00107433951928
-      },
-      "attributes": {
-        "id": 137736,
-        "name": "Marker 137736"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 168194,
-      "point": {
-        "latitude": 30.640887482495053,
-        "longitude": 34.755905606727005
-      },
-      "attributes": {
-        "id": 168194,
-        "name": "Marker 168194"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 884541,
-      "point": {
-        "latitude": 30.83619640465954,
-        "longitude": 34.60546724911823
-      },
-      "attributes": {
-        "id": 884541,
-        "name": "Marker 884541"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 415968,
-      "point": {
-        "latitude": 30.202050665387535,
-        "longitude": 35.050116526422315
-      },
-      "attributes": {
-        "id": 415968,
-        "name": "Marker 415968"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 141031,
-      "point": {
-        "latitude": 30.318728722650985,
-        "longitude": 34.661841407081766
-      },
-      "attributes": {
-        "id": 141031,
-        "name": "Marker 141031"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 946779,
-      "point": {
-        "latitude": 32.854042196430655,
-        "longitude": 35.25571928065732
-      },
-      "attributes": {
-        "id": 946779,
-        "name": "Marker 946779"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 484437,
-      "point": {
-        "latitude": 30.805969713860687,
-        "longitude": 35.195498401103514
-      },
-      "attributes": {
-        "id": 484437,
-        "name": "Marker 484437"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 19553,
-      "point": {
-        "latitude": 32.156756803006864,
-        "longitude": 35.38852451976482
-      },
-      "attributes": {
-        "id": 19553,
-        "name": "Marker 19553"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 590237,
-      "point": {
-        "latitude": 31.432840874819604,
-        "longitude": 34.93619505304101
-      },
-      "attributes": {
-        "id": 590237,
-        "name": "Marker 590237"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 762979,
-      "point": {
-        "latitude": 32.37701542745513,
-        "longitude": 35.0330155807008
-      },
-      "attributes": {
-        "id": 762979,
-        "name": "Marker 762979"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 770504,
-      "point": {
-        "latitude": 32.217655813587186,
-        "longitude": 35.37175642142217
-      },
-      "attributes": {
-        "id": 770504,
-        "name": "Marker 770504"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 184112,
-      "point": {
-        "latitude": 31.92342275997919,
-        "longitude": 35.479674901928064
-      },
-      "attributes": {
-        "id": 184112,
-        "name": "Marker 184112"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 534174,
-      "point": {
-        "latitude": 32.310000706640544,
-        "longitude": 35.4308433553755
-      },
-      "attributes": {
-        "id": 534174,
-        "name": "Marker 534174"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 438784,
-      "point": {
-        "latitude": 31.34223619085727,
-        "longitude": 34.615595952805045
-      },
-      "attributes": {
-        "id": 438784,
-        "name": "Marker 438784"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 426091,
-      "point": {
-        "latitude": 32.16670311726365,
-        "longitude": 35.52730280253226
-      },
-      "attributes": {
-        "id": 426091,
-        "name": "Marker 426091"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 994022,
-      "point": {
-        "latitude": 31.892874822325908,
-        "longitude": 34.769723575197375
-      },
-      "attributes": {
-        "id": 994022,
-        "name": "Marker 994022"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 689419,
-      "point": {
-        "latitude": 30.155749881220796,
-        "longitude": 34.871528555011
-      },
-      "attributes": {
-        "id": 689419,
-        "name": "Marker 689419"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 410442,
-      "point": {
-        "latitude": 30.86965822437795,
-        "longitude": 35.1393084547453
-      },
-      "attributes": {
-        "id": 410442,
-        "name": "Marker 410442"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 647279,
-      "point": {
-        "latitude": 32.3796198721882,
-        "longitude": 35.43009307930679
-      },
-      "attributes": {
-        "id": 647279,
-        "name": "Marker 647279"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 110858,
-      "point": {
-        "latitude": 31.54646437722002,
-        "longitude": 34.58990704609492
-      },
-      "attributes": {
-        "id": 110858,
-        "name": "Marker 110858"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 560769,
-      "point": {
-        "latitude": 32.610196508369754,
-        "longitude": 35.568442398940746
-      },
-      "attributes": {
-        "id": 560769,
-        "name": "Marker 560769"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 163409,
-      "point": {
-        "latitude": 31.612690918647512,
-        "longitude": 35.221147000681874
-      },
-      "attributes": {
-        "id": 163409,
-        "name": "Marker 163409"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 984965,
-      "point": {
-        "latitude": 31.774466245875384,
-        "longitude": 34.65589362407728
-      },
-      "attributes": {
-        "id": 984965,
-        "name": "Marker 984965"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 200403,
-      "point": {
-        "latitude": 32.43119646203236,
-        "longitude": 35.357925269424186
-      },
-      "attributes": {
-        "id": 200403,
-        "name": "Marker 200403"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 389918,
-      "point": {
-        "latitude": 30.11663218785156,
-        "longitude": 35.1185581143421
-      },
-      "attributes": {
-        "id": 389918,
-        "name": "Marker 389918"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 925026,
-      "point": {
-        "latitude": 31.323482748826336,
-        "longitude": 34.38030287512695
-      },
-      "attributes": {
-        "id": 925026,
-        "name": "Marker 925026"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 825138,
-      "point": {
-        "latitude": 30.72651561918616,
-        "longitude": 35.18136915538048
-      },
-      "attributes": {
-        "id": 825138,
-        "name": "Marker 825138"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 422325,
-      "point": {
-        "latitude": 30.819654677155008,
-        "longitude": 34.87280028313479
-      },
-      "attributes": {
-        "id": 422325,
-        "name": "Marker 422325"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 65004,
-      "point": {
-        "latitude": 32.83147324013495,
-        "longitude": 35.39375428413364
-      },
-      "attributes": {
-        "id": 65004,
-        "name": "Marker 65004"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 490302,
-      "point": {
-        "latitude": 32.69554891256327,
-        "longitude": 35.52907460110094
-      },
-      "attributes": {
-        "id": 490302,
-        "name": "Marker 490302"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 895973,
-      "point": {
-        "latitude": 31.83382037800783,
-        "longitude": 35.53344658670111
-      },
-      "attributes": {
-        "id": 895973,
-        "name": "Marker 895973"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 252687,
-      "point": {
-        "latitude": 32.41901401336015,
-        "longitude": 35.04902232125229
-      },
-      "attributes": {
-        "id": 252687,
-        "name": "Marker 252687"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 827151,
-      "point": {
-        "latitude": 33.041471690332635,
-        "longitude": 35.21635635883325
-      },
-      "attributes": {
-        "id": 827151,
-        "name": "Marker 827151"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 184809,
-      "point": {
-        "latitude": 31.891395402977274,
-        "longitude": 34.76055173021311
-      },
-      "attributes": {
-        "id": 184809,
-        "name": "Marker 184809"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 620278,
-      "point": {
-        "latitude": 30.218222522186153,
-        "longitude": 34.82118981338693
-      },
-      "attributes": {
-        "id": 620278,
-        "name": "Marker 620278"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 13672,
-      "point": {
-        "latitude": 30.60280612539449,
-        "longitude": 35.185884038168744
-      },
-      "attributes": {
-        "id": 13672,
-        "name": "Marker 13672"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 610464,
-      "point": {
-        "latitude": 30.905956680583138,
-        "longitude": 35.10155505598636
-      },
-      "attributes": {
-        "id": 610464,
-        "name": "Marker 610464"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 413870,
-      "point": {
-        "latitude": 31.369466347114987,
-        "longitude": 35.03390720290854
-      },
-      "attributes": {
-        "id": 413870,
-        "name": "Marker 413870"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 155908,
-      "point": {
-        "latitude": 32.86887164633921,
-        "longitude": 35.18280477072818
-      },
-      "attributes": {
-        "id": 155908,
-        "name": "Marker 155908"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 867004,
-      "point": {
-        "latitude": 31.041303020534315,
-        "longitude": 34.73946417512474
-      },
-      "attributes": {
-        "id": 867004,
-        "name": "Marker 867004"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 323068,
-      "point": {
-        "latitude": 30.08021886631105,
-        "longitude": 34.9911766720162
-      },
-      "attributes": {
-        "id": 323068,
-        "name": "Marker 323068"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 287613,
-      "point": {
-        "latitude": 30.631612163889113,
-        "longitude": 34.819020852688546
-      },
-      "attributes": {
-        "id": 287613,
-        "name": "Marker 287613"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 534357,
-      "point": {
-        "latitude": 31.460627892991283,
-        "longitude": 34.48817530613704
-      },
-      "attributes": {
-        "id": 534357,
-        "name": "Marker 534357"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 757547,
-      "point": {
-        "latitude": 31.637719304546223,
-        "longitude": 35.154351815580256
-      },
-      "attributes": {
-        "id": 757547,
-        "name": "Marker 757547"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 921499,
-      "point": {
-        "latitude": 32.87242000079339,
-        "longitude": 35.31097503002462
-      },
-      "attributes": {
-        "id": 921499,
-        "name": "Marker 921499"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 587878,
-      "point": {
-        "latitude": 30.234971470324354,
-        "longitude": 34.97006989720986
-      },
-      "attributes": {
-        "id": 587878,
-        "name": "Marker 587878"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 745574,
-      "point": {
-        "latitude": 31.62289272597812,
-        "longitude": 35.20990174632872
-      },
-      "attributes": {
-        "id": 745574,
-        "name": "Marker 745574"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 54447,
-      "point": {
-        "latitude": 31.061555117977445,
-        "longitude": 34.42358546185316
-      },
-      "attributes": {
-        "id": 54447,
-        "name": "Marker 54447"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 479967,
-      "point": {
-        "latitude": 33.02044394204629,
-        "longitude": 35.74267540330467
-      },
-      "attributes": {
-        "id": 479967,
-        "name": "Marker 479967"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 849427,
-      "point": {
-        "latitude": 32.55442588344018,
-        "longitude": 35.38470034320177
-      },
-      "attributes": {
-        "id": 849427,
-        "name": "Marker 849427"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 182163,
-      "point": {
-        "latitude": 32.15089243399537,
-        "longitude": 35.368493118449216
-      },
-      "attributes": {
-        "id": 182163,
-        "name": "Marker 182163"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 724830,
-      "point": {
-        "latitude": 32.88658946900114,
-        "longitude": 35.42142348604185
-      },
-      "attributes": {
-        "id": 724830,
-        "name": "Marker 724830"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 730200,
-      "point": {
-        "latitude": 30.255520590434063,
-        "longitude": 34.81182755975001
-      },
-      "attributes": {
-        "id": 730200,
-        "name": "Marker 730200"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 967920,
-      "point": {
-        "latitude": 31.311955646684684,
-        "longitude": 34.760493724438476
-      },
-      "attributes": {
-        "id": 967920,
-        "name": "Marker 967920"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 423470,
-      "point": {
-        "latitude": 30.321623087697063,
-        "longitude": 34.800294542881026
-      },
-      "attributes": {
-        "id": 423470,
-        "name": "Marker 423470"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 352620,
-      "point": {
-        "latitude": 31.999837253714592,
-        "longitude": 35.21983325278343
-      },
-      "attributes": {
-        "id": 352620,
-        "name": "Marker 352620"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 112577,
-      "point": {
-        "latitude": 30.381293191958004,
-        "longitude": 34.632323790811604
-      },
-      "attributes": {
-        "id": 112577,
-        "name": "Marker 112577"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 889248,
-      "point": {
-        "latitude": 31.079597954644786,
-        "longitude": 35.036303871533725
-      },
-      "attributes": {
-        "id": 889248,
-        "name": "Marker 889248"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 547125,
-      "point": {
-        "latitude": 32.88635303415192,
-        "longitude": 35.318340273135256
-      },
-      "attributes": {
-        "id": 547125,
-        "name": "Marker 547125"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 270556,
-      "point": {
-        "latitude": 31.10067210710435,
-        "longitude": 34.34051848839369
-      },
-      "attributes": {
-        "id": 270556,
-        "name": "Marker 270556"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 443230,
-      "point": {
-        "latitude": 31.15131639805616,
-        "longitude": 34.93111241912583
-      },
-      "attributes": {
-        "id": 443230,
-        "name": "Marker 443230"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 630966,
-      "point": {
-        "latitude": 30.479086094604515,
-        "longitude": 34.7073157614289
-      },
-      "attributes": {
-        "id": 630966,
-        "name": "Marker 630966"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 92506,
-      "point": {
-        "latitude": 32.63596552713896,
-        "longitude": 35.50653706400044
-      },
-      "attributes": {
-        "id": 92506,
-        "name": "Marker 92506"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 810269,
-      "point": {
-        "latitude": 31.688503245285652,
-        "longitude": 35.49854929048191
-      },
-      "attributes": {
-        "id": 810269,
-        "name": "Marker 810269"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 136862,
-      "point": {
-        "latitude": 32.99466523798288,
-        "longitude": 35.828513980536414
-      },
-      "attributes": {
-        "id": 136862,
-        "name": "Marker 136862"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 515806,
-      "point": {
-        "latitude": 30.824314609060515,
-        "longitude": 34.607478215757304
-      },
-      "attributes": {
-        "id": 515806,
-        "name": "Marker 515806"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 82251,
-      "point": {
-        "latitude": 32.211281948981586,
-        "longitude": 35.211877618520894
-      },
-      "attributes": {
-        "id": 82251,
-        "name": "Marker 82251"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 937613,
-      "point": {
-        "latitude": 31.850266105887336,
-        "longitude": 35.04870077610634
-      },
-      "attributes": {
-        "id": 937613,
-        "name": "Marker 937613"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 223314,
-      "point": {
-        "latitude": 31.82197946523508,
-        "longitude": 34.83951079664082
-      },
-      "attributes": {
-        "id": 223314,
-        "name": "Marker 223314"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 890859,
-      "point": {
-        "latitude": 31.592294986255613,
-        "longitude": 34.663642776288434
-      },
-      "attributes": {
-        "id": 890859,
-        "name": "Marker 890859"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 466411,
-      "point": {
-        "latitude": 32.025842446275526,
-        "longitude": 35.27413425035717
-      },
-      "attributes": {
-        "id": 466411,
-        "name": "Marker 466411"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 713374,
-      "point": {
-        "latitude": 32.79163256413524,
-        "longitude": 35.28955164572787
-      },
-      "attributes": {
-        "id": 713374,
-        "name": "Marker 713374"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 21788,
-      "point": {
-        "latitude": 30.355990731000322,
-        "longitude": 34.70957109303666
-      },
-      "attributes": {
-        "id": 21788,
-        "name": "Marker 21788"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 434283,
-      "point": {
-        "latitude": 31.899950611124584,
-        "longitude": 35.305187388904464
-      },
-      "attributes": {
-        "id": 434283,
-        "name": "Marker 434283"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 479011,
-      "point": {
-        "latitude": 33.234980234847924,
-        "longitude": 35.72742439079904
-      },
-      "attributes": {
-        "id": 479011,
-        "name": "Marker 479011"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 260493,
-      "point": {
-        "latitude": 32.18924037787457,
-        "longitude": 35.21562237256041
-      },
-      "attributes": {
-        "id": 260493,
-        "name": "Marker 260493"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 728742,
-      "point": {
-        "latitude": 32.245543488570355,
-        "longitude": 34.911896784738346
-      },
-      "attributes": {
-        "id": 728742,
-        "name": "Marker 728742"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 303726,
-      "point": {
-        "latitude": 29.898944296665814,
-        "longitude": 34.82449746980037
-      },
-      "attributes": {
-        "id": 303726,
-        "name": "Marker 303726"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 503036,
-      "point": {
-        "latitude": 31.74630658494081,
-        "longitude": 35.34224459769332
-      },
-      "attributes": {
-        "id": 503036,
-        "name": "Marker 503036"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 151237,
-      "point": {
-        "latitude": 31.54133434860877,
-        "longitude": 34.97659213536216
-      },
-      "attributes": {
-        "id": 151237,
-        "name": "Marker 151237"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 994631,
-      "point": {
-        "latitude": 31.19074566376793,
-        "longitude": 34.920461337681346
-      },
-      "attributes": {
-        "id": 994631,
-        "name": "Marker 994631"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 483347,
-      "point": {
-        "latitude": 30.87690275809734,
-        "longitude": 34.71033853891412
-      },
-      "attributes": {
-        "id": 483347,
-        "name": "Marker 483347"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 861893,
-      "point": {
-        "latitude": 31.2750452649899,
-        "longitude": 35.146566888733936
-      },
-      "attributes": {
-        "id": 861893,
-        "name": "Marker 861893"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 91596,
-      "point": {
-        "latitude": 31.055918404325354,
-        "longitude": 34.73057432855108
-      },
-      "attributes": {
-        "id": 91596,
-        "name": "Marker 91596"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 520273,
-      "point": {
-        "latitude": 31.932910428578186,
-        "longitude": 34.96991316102136
-      },
-      "attributes": {
-        "id": 520273,
-        "name": "Marker 520273"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 567642,
-      "point": {
-        "latitude": 31.239223745989452,
-        "longitude": 34.4451015861603
-      },
-      "attributes": {
-        "id": 567642,
-        "name": "Marker 567642"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 61457,
-      "point": {
-        "latitude": 30.365729751097362,
-        "longitude": 34.744880997459425
-      },
-      "attributes": {
-        "id": 61457,
-        "name": "Marker 61457"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 153513,
-      "point": {
-        "latitude": 31.33002347367327,
-        "longitude": 35.09368930212386
-      },
-      "attributes": {
-        "id": 153513,
-        "name": "Marker 153513"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 389348,
-      "point": {
-        "latitude": 29.721737304346824,
-        "longitude": 35.007210085118075
-      },
-      "attributes": {
-        "id": 389348,
-        "name": "Marker 389348"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 336216,
-      "point": {
-        "latitude": 30.93892563143922,
-        "longitude": 35.14458699789141
-      },
-      "attributes": {
-        "id": 336216,
-        "name": "Marker 336216"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 738148,
-      "point": {
-        "latitude": 30.40957674540406,
-        "longitude": 34.63124092434151
-      },
-      "attributes": {
-        "id": 738148,
-        "name": "Marker 738148"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 948116,
-      "point": {
-        "latitude": 31.70664246965815,
-        "longitude": 34.5742810105299
-      },
-      "attributes": {
-        "id": 948116,
-        "name": "Marker 948116"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 396243,
-      "point": {
-        "latitude": 33.190084374733374,
-        "longitude": 35.68064788170551
-      },
-      "attributes": {
-        "id": 396243,
-        "name": "Marker 396243"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 91272,
-      "point": {
-        "latitude": 32.08884349577504,
-        "longitude": 35.084501252578676
-      },
-      "attributes": {
-        "id": 91272,
-        "name": "Marker 91272"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 7349,
-      "point": {
-        "latitude": 31.358565673035336,
-        "longitude": 34.766573475350285
-      },
-      "attributes": {
-        "id": 7349,
-        "name": "Marker 7349"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 465921,
-      "point": {
-        "latitude": 30.590415430990564,
-        "longitude": 34.92878834033321
-      },
-      "attributes": {
-        "id": 465921,
-        "name": "Marker 465921"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 24,
-      "point": {
-        "latitude": 31.568626501943452,
-        "longitude": 34.87551610065225
-      },
-      "attributes": {
-        "id": 24,
-        "name": "Marker 24"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 146073,
-      "point": {
-        "latitude": 31.731343608481005,
-        "longitude": 35.113585995666924
-      },
-      "attributes": {
-        "id": 146073,
-        "name": "Marker 146073"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 363709,
-      "point": {
-        "latitude": 31.528335071088318,
-        "longitude": 34.991727406207836
-      },
-      "attributes": {
-        "id": 363709,
-        "name": "Marker 363709"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 346695,
-      "point": {
-        "latitude": 31.814059354306064,
-        "longitude": 35.24445936767333
-      },
-      "attributes": {
-        "id": 346695,
-        "name": "Marker 346695"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 212690,
-      "point": {
-        "latitude": 31.5212086581085,
-        "longitude": 35.11312557251017
-      },
-      "attributes": {
-        "id": 212690,
-        "name": "Marker 212690"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 257687,
-      "point": {
-        "latitude": 31.435048039976763,
-        "longitude": 35.09608990281663
-      },
-      "attributes": {
-        "id": 257687,
-        "name": "Marker 257687"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 900379,
-      "point": {
-        "latitude": 32.6250412708941,
-        "longitude": 35.51433567557281
-      },
-      "attributes": {
-        "id": 900379,
-        "name": "Marker 900379"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 600772,
-      "point": {
-        "latitude": 30.709785287498644,
-        "longitude": 35.07101577807093
-      },
-      "attributes": {
-        "id": 600772,
-        "name": "Marker 600772"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 5507,
-      "point": {
-        "latitude": 30.05448072400109,
-        "longitude": 34.804260851292305
-      },
-      "attributes": {
-        "id": 5507,
-        "name": "Marker 5507"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 558190,
-      "point": {
-        "latitude": 32.688203915890256,
-        "longitude": 35.22449621029424
-      },
-      "attributes": {
-        "id": 558190,
-        "name": "Marker 558190"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 770239,
-      "point": {
-        "latitude": 32.98570710954357,
-        "longitude": 35.51939857405271
-      },
-      "attributes": {
-        "id": 770239,
-        "name": "Marker 770239"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 539389,
-      "point": {
-        "latitude": 30.122370481937367,
-        "longitude": 35.00842833940518
-      },
-      "attributes": {
-        "id": 539389,
-        "name": "Marker 539389"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 943063,
-      "point": {
-        "latitude": 32.11560371557769,
-        "longitude": 35.54254528234046
-      },
-      "attributes": {
-        "id": 943063,
-        "name": "Marker 943063"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 813072,
-      "point": {
-        "latitude": 31.169600659198963,
-        "longitude": 35.404221812451894
-      },
-      "attributes": {
-        "id": 813072,
-        "name": "Marker 813072"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 830685,
-      "point": {
-        "latitude": 31.31247952493108,
-        "longitude": 35.35764253475199
-      },
-      "attributes": {
-        "id": 830685,
-        "name": "Marker 830685"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 151033,
-      "point": {
-        "latitude": 31.28295157640482,
-        "longitude": 34.33068576048965
-      },
-      "attributes": {
-        "id": 151033,
-        "name": "Marker 151033"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 57288,
-      "point": {
-        "latitude": 29.629384017993516,
-        "longitude": 34.925986245047284
-      },
-      "attributes": {
-        "id": 57288,
-        "name": "Marker 57288"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 724049,
-      "point": {
-        "latitude": 29.93035897307415,
-        "longitude": 34.89974733618604
-      },
-      "attributes": {
-        "id": 724049,
-        "name": "Marker 724049"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 119562,
-      "point": {
-        "latitude": 30.695253529582736,
-        "longitude": 34.757713624177164
-      },
-      "attributes": {
-        "id": 119562,
-        "name": "Marker 119562"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 834556,
-      "point": {
-        "latitude": 30.755149757426825,
-        "longitude": 35.0031782393863
-      },
-      "attributes": {
-        "id": 834556,
-        "name": "Marker 834556"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 873159,
-      "point": {
-        "latitude": 31.3279796568324,
-        "longitude": 34.73202157931115
-      },
-      "attributes": {
-        "id": 873159,
-        "name": "Marker 873159"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 595055,
-      "point": {
-        "latitude": 30.62326258436688,
-        "longitude": 34.692167673923024
-      },
-      "attributes": {
-        "id": 595055,
-        "name": "Marker 595055"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 369323,
-      "point": {
-        "latitude": 30.3932401163433,
-        "longitude": 34.623694344645166
-      },
-      "attributes": {
-        "id": 369323,
-        "name": "Marker 369323"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 543165,
-      "point": {
-        "latitude": 31.272892344360905,
-        "longitude": 35.159161116489884
-      },
-      "attributes": {
-        "id": 543165,
-        "name": "Marker 543165"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 197505,
-      "point": {
-        "latitude": 31.540953882690072,
-        "longitude": 34.7191151259223
-      },
-      "attributes": {
-        "id": 197505,
-        "name": "Marker 197505"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 374535,
-      "point": {
-        "latitude": 30.939260842056306,
-        "longitude": 35.00434062615252
-      },
-      "attributes": {
-        "id": 374535,
-        "name": "Marker 374535"
-      },
-      "width": "30px",
-      "height": "30px"
-    },
-    {
-      "id": 859544,
-      "point": {
-        "latitude": 31.180876749805993,
-        "longitude": 34.555336814596146
-      },
-      "attributes": {
-        "id": 859544,
-        "name": "Marker 859544"
-      },
-      "width": "30px",
-      "height": "30px"
+      "event": {
+        "id": "01156d87-7a48-414b-b1b1-48138fc99bb6",
+        "cityId": 2500,
+        "name": "שריפה במבנה מגורים",
+        "location": {
+          "latitude": 32.0853,
+          "longitude": 34.7818
+        },
+        "startDate": "2025-08-06T08:30:00.000Z",
+        "endDate": "2025-08-06T11:45:00.000Z",
+        "responsibleJournal": 101,
+        "status": 2,
+        "generator": 4,
+        "eventType": 6,
+        "isUrbanArea": true,
+        "description": "שריפה פרצה בדירה בקומה השלישית, תושבים פונו מהמבנה",
+        "damageLevel": 3,
+        "lifeSavingPotential": 4,
+        "allocatedStatus": 4,
+        "classification": 2,
+        "seriousInjuries": 0,
+        "minorInjuries": 2,
+        "moderateInjuries": 1,
+        "severeInjuries": 0,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "רחוב דיזנגוף 145, תל אביב",
+      "scheduling_sending_time": "2025-08-06T08:35:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 1,
+      "isVibe": false
+    },
+    {
+      "event": {
+        "id": "f58e99c4-1c75-4b79-8e06-cb95eab7bd6e",
+        "cityId": 2400,
+        "name": "תאונת דרכים קטלנית",
+        "location": {
+          "latitude": 32.794,
+          "longitude": 34.9896
+        },
+        "startDate": "2025-08-06T14:20:00.000Z",
+        "responsibleJournal": 102,
+        "status": 1,
+        "generator": 4,
+        "eventType": 13,
+        "isUrbanArea": true,
+        "description": "התנגשות חזיתית בין שני כלי רכב בכביש 4",
+        "damageLevel": 5,
+        "lifeSavingPotential": 2,
+        "allocatedStatus": 3,
+        "classification": 4,
+        "permittedJournal": "102,103,104",
+        "seriousInjuries": 1,
+        "minorInjuries": 0,
+        "moderateInjuries": 2,
+        "severeInjuries": 2,
+        "trappedInjuries": 1,
+        "fatalInjuries": 2
+      },
+      "address": "כביש 4, צומת קריות",
+      "scheduling_sending_time": "2025-08-06T14:25:00.000Z",
+      "sendingStatus": "Pending",
+      "source": 2,
+      "isVibe": true
+    },
+    {
+      "event": {
+        "id": "f84def60-2f43-4324-976a-aded2a7e3550",
+        "cityId": 2600,
+        "name": "אירוע טרור",
+        "location": {
+          "latitude": 31.7683,
+          "longitude": 35.2137
+        },
+        "startDate": "2025-08-06T16:45:00.000Z",
+        "responsibleJournal": 105,
+        "status": 1,
+        "generator": 3,
+        "eventType": 4,
+        "isUrbanArea": true,
+        "description": "פיגוע דקירה ברחוב יפו",
+        "damageLevel": 4,
+        "lifeSavingPotential": 3,
+        "allocatedStatus": 2,
+        "classification": 5,
+        "permittedJournal": "105,106",
+        "permittedEditingJournalsIds": "105",
+        "seriousInjuries": 3,
+        "minorInjuries": 1,
+        "moderateInjuries": 2,
+        "severeInjuries": 1,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "רחוב יפו 120, ירושלים",
+      "scheduling_sending_time": "2025-08-06T16:50:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 1,
+      "isVibe": null
+    },
+    {
+      "event": {
+        "id": "4b464bc2-c2cd-4917-9121-21f660785e32",
+        "cityId": 2300,
+        "name": "שברי ירוט",
+        "location": {
+          "latitude": 33.2074,
+          "longitude": 35.5614
+        },
+        "startDate": "2025-08-06T20:30:00.000Z",
+        "responsibleJournal": 107,
+        "status": 1,
+        "generator": 6,
+        "eventType": 5,
+        "isUrbanArea": false,
+        "description": "נפילת שברי ירוט בשטח פתוח",
+        "damageLevel": 2,
+        "lifeSavingPotential": 2,
+        "allocatedStatus": 1,
+        "classification": 1,
+        "seriousInjuries": 0,
+        "minorInjuries": 0,
+        "moderateInjuries": 0,
+        "severeInjuries": 0,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "שטח פתוח ליד קרית שמונה",
+      "scheduling_sending_time": "2025-08-06T20:35:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 3,
+      "isVibe": false
+    },
+    {
+      "event": {
+        "id": "aa8fc2e7-d15f-4ba2-8933-c1832a67f053",
+        "cityId": 2700,
+        "name": "תקיפת רקטות",
+        "location": {
+          "latitude": 31.2518,
+          "longitude": 34.7915
+        },
+        "startDate": "2025-08-06T22:15:00.000Z",
+        "responsibleJournal": 108,
+        "status": 1,
+        "generator": 1,
+        "eventType": 4,
+        "isUrbanArea": true,
+        "description": "פגיעה ישירה בבניין מגורים",
+        "damageLevel": 5,
+        "lifeSavingPotential": 5,
+        "allocatedStatus": 3,
+        "classification": 5,
+        "permittedJournal": "108,109,110",
+        "seriousInjuries": 5,
+        "minorInjuries": 3,
+        "moderateInjuries": 4,
+        "severeInjuries": 3,
+        "trappedInjuries": 2,
+        "fatalInjuries": 1
+      },
+      "address": "שכונת רמות, באר שבע",
+      "scheduling_sending_time": "2025-08-06T22:20:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 1,
+      "isVibe": true
+    },
+    {
+      "event": {
+        "id": "64c07630-1097-4539-abf7-dd5f97c91cc3",
+        "cityId": 2500,
+        "name": "דליפת גז",
+        "location": {
+          "latitude": 32.0668,
+          "longitude": 34.7647
+        },
+        "startDate": "2025-08-07T07:00:00.000Z",
+        "responsibleJournal": 111,
+        "status": 1,
+        "generator": 4,
+        "eventType": 1,
+        "isUrbanArea": true,
+        "description": "דליפת גז טבעי מצינור ראשי",
+        "damageLevel": 3,
+        "lifeSavingPotential": 4,
+        "allocatedStatus": 2,
+        "classification": 3,
+        "permittedJournal": "111,112",
+        "seriousInjuries": 0,
+        "minorInjuries": 0,
+        "moderateInjuries": 0,
+        "severeInjuries": 0,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "שדרות רוטשילד 45, תל אביב",
+      "scheduling_sending_time": "2025-08-07T07:05:00.000Z",
+      "sendingStatus": "Pending",
+      "source": 2,
+      "isVibe": false
+    },
+    {
+      "event": {
+        "id": "bb61fe57-8c64-4364-8340-bdbd7c70bdaf",
+        "cityId": 2400,
+        "name": "קריסת מבנה",
+        "location": {
+          "latitude": 32.8156,
+          "longitude": 35.0063
+        },
+        "startDate": "2025-08-07T10:30:00.000Z",
+        "endDate": "2025-08-07T18:45:00.000Z",
+        "responsibleJournal": 113,
+        "status": 2,
+        "generator": 4,
+        "eventType": 4,
+        "isUrbanArea": true,
+        "description": "קריסה חלקית של מבנה בבניה",
+        "damageLevel": 6,
+        "lifeSavingPotential": 5,
+        "allocatedStatus": 4,
+        "classification": 5,
+        "seriousInjuries": 2,
+        "minorInjuries": 1,
+        "moderateInjuries": 3,
+        "severeInjuries": 4,
+        "trappedInjuries": 3,
+        "fatalInjuries": 2
+      },
+      "address": "רחוב הנביאים 78, חיפה",
+      "scheduling_sending_time": "2025-08-07T10:35:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 1,
+      "isVibe": true
+    },
+    {
+      "event": {
+        "id": "86b28635-2233-4069-92b9-6fcd61861d20",
+        "cityId": 2600,
+        "name": "אירוע רפואי המוני",
+        "location": {
+          "latitude": 31.7964,
+          "longitude": 35.2042
+        },
+        "startDate": "2025-08-07T13:20:00.000Z",
+        "responsibleJournal": 114,
+        "status": 1,
+        "generator": 7,
+        "eventType": 13,
+        "isUrbanArea": true,
+        "description": "הרעלת מזון באירוע המוני",
+        "damageLevel": 4,
+        "lifeSavingPotential": 4,
+        "allocatedStatus": 3,
+        "classification": 3,
+        "seriousInjuries": 8,
+        "minorInjuries": 15,
+        "moderateInjuries": 5,
+        "severeInjuries": 2,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "אולמי האומה, ירושלים",
+      "scheduling_sending_time": "2025-08-07T13:25:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 3,
+      "isVibe": false
+    },
+    {
+      "event": {
+        "id": "b48916af-7479-456d-8d41-fd75dbb2ca29",
+        "cityId": 2300,
+        "name": "שריפת יער",
+        "location": {
+          "latitude": 32.9692,
+          "longitude": 35.3033
+        },
+        "startDate": "2025-08-07T15:45:00.000Z",
+        "responsibleJournal": 115,
+        "status": 1,
+        "generator": 5,
+        "eventType": 6,
+        "isUrbanArea": false,
+        "description": "שריפה נרחבת ביער הכרמל",
+        "damageLevel": 5,
+        "lifeSavingPotential": 3,
+        "allocatedStatus": 2,
+        "classification": 4,
+        "permittedJournal": "115,116,117",
+        "seriousInjuries": 0,
+        "minorInjuries": 0,
+        "moderateInjuries": 0,
+        "severeInjuries": 0,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "יער הכרמל, ליד דליה",
+      "scheduling_sending_time": "2025-08-07T15:50:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 2,
+      "isVibe": null
+    },
+    {
+      "event": {
+        "id": "8f511aee-0325-4292-9663-549a9c17bb59",
+        "cityId": 2700,
+        "name": "תאונה תעשייתית",
+        "location": {
+          "latitude": 31.0461,
+          "longitude": 34.8516
+        },
+        "startDate": "2025-08-07T18:10:00.000Z",
+        "responsibleJournal": 118,
+        "status": 1,
+        "generator": 4,
+        "eventType": 2,
+        "isUrbanArea": false,
+        "description": "דליפת כימיקלים במפעל פטרוכימי",
+        "damageLevel": 4,
+        "lifeSavingPotential": 4,
+        "allocatedStatus": 2,
+        "classification": 4,
+        "permittedJournal": "118,119",
+        "seriousInjuries": 3,
+        "minorInjuries": 2,
+        "moderateInjuries": 1,
+        "severeInjuries": 0,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "אזור תעשייה רמת חובב",
+      "scheduling_sending_time": "2025-08-07T18:15:00.000Z",
+      "sendingStatus": "Pending",
+      "source": 1,
+      "isVibe": false
+    },
+    {
+      "event": {
+        "id": "3544fa70-534b-49f6-af95-497b0bc43352",
+        "cityId": 2500,
+        "name": "הצפה עירונית",
+        "location": {
+          "latitude": 32.1133,
+          "longitude": 34.8044
+        },
+        "startDate": "2025-08-08T09:30:00.000Z",
+        "responsibleJournal": 120,
+        "status": 1,
+        "generator": 5,
+        "eventType": 7,
+        "isUrbanArea": true,
+        "description": "הצפה כתוצאה מגשמים כבדים",
+        "damageLevel": 3,
+        "lifeSavingPotential": 3,
+        "allocatedStatus": 2,
+        "classification": 2,
+        "seriousInjuries": 0,
+        "minorInjuries": 1,
+        "moderateInjuries": 0,
+        "severeInjuries": 0,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "רחוב ז'בוטינסקי, רמת גן",
+      "scheduling_sending_time": "2025-08-08T09:35:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 2,
+      "isVibe": true
+    },
+    {
+      "event": {
+        "id": "898b364c-10da-4e0b-9ace-92f6e3e199dd",
+        "cityId": 2400,
+        "name": "אירוע ביולוגי",
+        "location": {
+          "latitude": 32.7767,
+          "longitude": 35.0231
+        },
+        "startDate": "2025-08-08T12:15:00.000Z",
+        "responsibleJournal": 121,
+        "status": 1,
+        "generator": 7,
+        "eventType": 8,
+        "isUrbanArea": true,
+        "description": "חשש לחומר ביולוגי במעבדה",
+        "damageLevel": 1,
+        "lifeSavingPotential": 1,
+        "allocatedStatus": 1,
+        "classification": 3,
+        "permittedJournal": "121",
+        "permittedEditingJournalsIds": "121",
+        "seriousInjuries": 0,
+        "minorInjuries": 0,
+        "moderateInjuries": 0,
+        "severeInjuries": 0,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "הטכניון, חיפה",
+      "scheduling_sending_time": "2025-08-08T12:20:00.000Z",
+      "sendingStatus": "On_Hold",
+      "source": 3,
+      "isVibe": false
+    },
+    {
+      "event": {
+        "id": "ba767a34-f07d-4ebf-a41b-54891136e322",
+        "cityId": 2600,
+        "name": "פגיעה במתקן תשתית",
+        "location": {
+          "latitude": 32.0878,
+          "longitude": 34.8878
+        },
+        "startDate": "2025-08-08T16:40:00.000Z",
+        "responsibleJournal": 122,
+        "status": 1,
+        "generator": 2,
+        "eventType": 7,
+        "isUrbanArea": true,
+        "description": "פגיעה בתחנת כוח - הפסקות חשמל נרחבות",
+        "damageLevel": 4,
+        "lifeSavingPotential": 4,
+        "allocatedStatus": 2,
+        "classification": 4,
+        "permittedJournal": "122,123,124",
+        "seriousInjuries": 0,
+        "minorInjuries": 0,
+        "moderateInjuries": 0,
+        "severeInjuries": 0,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "תחנת כוח רדינג, פתח תקווה",
+      "scheduling_sending_time": "2025-08-08T16:45:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 1,
+      "isVibe": true
+    },
+    {
+      "event": {
+        "id": "91156f58-4c21-4dcc-9891-7b10f694bde6",
+        "cityId": 2300,
+        "name": "רעידת אדמה",
+        "location": {
+          "latitude": 32.6947,
+          "longitude": 35.3035
+        },
+        "startDate": "2025-08-08T19:22:00.000Z",
+        "responsibleJournal": 125,
+        "status": 1,
+        "generator": 5,
+        "eventType": 4,
+        "isUrbanArea": false,
+        "description": "רעידת אדמה בעוצמה 4.2 באזור הכנרת",
+        "damageLevel": 3,
+        "lifeSavingPotential": 3,
+        "allocatedStatus": 2,
+        "classification": 3,
+        "seriousInjuries": 1,
+        "minorInjuries": 3,
+        "moderateInjuries": 1,
+        "severeInjuries": 0,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "אזור הכנרת, טבריה",
+      "scheduling_sending_time": "2025-08-08T19:27:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 2,
+      "isVibe": false
+    },
+    {
+      "event": {
+        "id": "a7f978d1-607f-4a24-b1fe-014fe01ca028",
+        "cityId": 2700,
+        "name": "אירוע רדיולוגי",
+        "location": {
+          "latitude": 31.3963,
+          "longitude": 34.3668
+        },
+        "startDate": "2025-08-08T21:55:00.000Z",
+        "responsibleJournal": 126,
+        "status": 1,
+        "generator": 4,
+        "eventType": 9,
+        "isUrbanArea": false,
+        "description": "חשש לזיהום רדיואקטיבי במתקן מחקר",
+        "damageLevel": 1,
+        "lifeSavingPotential": 1,
+        "allocatedStatus": 1,
+        "classification": 5,
+        "permittedJournal": "126",
+        "permittedEditingJournalsIds": "126",
+        "seriousInjuries": 0,
+        "minorInjuries": 0,
+        "moderateInjuries": 0,
+        "severeInjuries": 0,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "מתקן מחקר, דימונה",
+      "scheduling_sending_time": "2025-08-08T22:00:00.000Z",
+      "sendingStatus": "On_Hold",
+      "source": 1,
+      "isVibe": null
+    },
+    {
+      "event": {
+        "id": "36d980ed-dfb8-4a5f-8fdb-2223bf05e929",
+        "cityId": 2500,
+        "name": "תקיפה אווירית",
+        "location": {
+          "latitude": 32.0464,
+          "longitude": 34.8516
+        },
+        "startDate": "2025-08-09T05:30:00.000Z",
+        "responsibleJournal": 127,
+        "status": 1,
+        "generator": 1,
+        "eventType": 4,
+        "isUrbanArea": true,
+        "description": "פגיעה באזור הנמל",
+        "damageLevel": 5,
+        "lifeSavingPotential": 4,
+        "allocatedStatus": 3,
+        "classification": 5,
+        "permittedJournal": "127,128,129",
+        "seriousInjuries": 4,
+        "minorInjuries": 2,
+        "moderateInjuries": 3,
+        "severeInjuries": 2,
+        "trappedInjuries": 1,
+        "fatalInjuries": 1
+      },
+      "address": "נמל תל אביב",
+      "scheduling_sending_time": "2025-08-09T05:35:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 1,
+      "isVibe": true
+    },
+    {
+      "event": {
+        "id": "1cb060b7-e1d8-4a4a-920a-1a5c292c1aa3",
+        "cityId": 2400,
+        "name": "אירוע ים",
+        "location": {
+          "latitude": 32.823,
+          "longitude": 35.0025
+        },
+        "startDate": "2025-08-09T08:45:00.000Z",
+        "responsibleJournal": 130,
+        "status": 1,
+        "generator": 4,
+        "eventType": 13,
+        "isUrbanArea": false,
+        "description": "טביעה בחוף הכרמל",
+        "damageLevel": 4,
+        "lifeSavingPotential": 5,
+        "allocatedStatus": 3,
+        "classification": 3,
+        "seriousInjuries": 0,
+        "minorInjuries": 0,
+        "moderateInjuries": 0,
+        "severeInjuries": 1,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "חוף הכרמל, חיפה",
+      "scheduling_sending_time": "2025-08-09T08:50:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 2,
+      "isVibe": false
+    },
+    {
+      "event": {
+        "id": "4a21893a-df52-4feb-94f7-59010ccc9984",
+        "cityId": 2600,
+        "name": "אירוע רב מוקדי",
+        "location": {
+          "latitude": 31.8044,
+          "longitude": 35.2122
+        },
+        "startDate": "2025-08-09T11:20:00.000Z",
+        "responsibleJournal": 131,
+        "status": 1,
+        "generator": 9,
+        "eventType": 4,
+        "isUrbanArea": true,
+        "description": "מספר פיצוצים סימולטניים ברחבי העיר",
+        "damageLevel": 6,
+        "lifeSavingPotential": 5,
+        "allocatedStatus": 2,
+        "classification": 5,
+        "permittedJournal": "131,132,133,134,135",
+        "permittedEditingJournalsIds": "131,132",
+        "seriousInjuries": 12,
+        "minorInjuries": 8,
+        "moderateInjuries": 15,
+        "severeInjuries": 7,
+        "trappedInjuries": 5,
+        "fatalInjuries": 3
+      },
+      "address": "מרכז ירושלים - מספר מוקדים",
+      "scheduling_sending_time": "2025-08-09T11:25:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 1,
+      "isVibe": true
+    },
+    {
+      "event": {
+        "id": "2bde9f0f-b1c9-4cd3-bfeb-e35972316937",
+        "cityId": 2700,
+        "name": "סופת חול",
+        "location": {
+          "latitude": 30.8274,
+          "longitude": 34.7881
+        },
+        "startDate": "2025-08-09T14:30:00.000Z",
+        "responsibleJournal": 136,
+        "status": 1,
+        "generator": 5,
+        "eventType": 7,
+        "isUrbanArea": true,
+        "description": "סופת חול חריגה באילת",
+        "damageLevel": 2,
+        "lifeSavingPotential": 2,
+        "allocatedStatus": 1,
+        "classification": 2,
+        "seriousInjuries": 0,
+        "minorInjuries": 0,
+        "moderateInjuries": 0,
+        "severeInjuries": 0,
+        "trappedInjuries": 0,
+        "fatalInjuries": 0
+      },
+      "address": "אילת - כל העיר",
+      "scheduling_sending_time": "2025-08-09T14:35:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 3,
+      "isVibe": false
+    },
+    {
+      "event": {
+        "id": "dc1206eb-647d-40c8-88ef-022f301b9516",
+        "cityId": 2300,
+        "name": "תאונת אוטובוס",
+        "location": {
+          "latitude": 33.0184,
+          "longitude": 35.1053
+        },
+        "startDate": "2025-08-09T17:10:00.000Z",
+        "endDate": "2025-08-09T21:30:00.000Z",
+        "responsibleJournal": 137,
+        "status": 2,
+        "generator": 4,
+        "eventType": 13,
+        "isUrbanArea": false,
+        "description": "התהפכות אוטובוס בכביש 90",
+        "damageLevel": 5,
+        "lifeSavingPotential": 4,
+        "allocatedStatus": 4,
+        "classification": 4,
+        "seriousInjuries": 8,
+        "minorInjuries": 12,
+        "moderateInjuries": 6,
+        "severeInjuries": 3,
+        "trappedInjuries": 4,
+        "fatalInjuries": 1
+      },
+      "address": "כביש 90, ליד מטולה",
+      "scheduling_sending_time": "2025-08-09T17:15:00.000Z",
+      "sendingStatus": "Sent",
+      "source": 2,
+      "isVibe": true
     }
   ],
   "ellipses": [
     {
-      "id": 7756,
-      "center": {
-        "latitude": 32.96959955185112,
-        "longitude": 35.30383813895937
-      },
-      "attributes": {
-        "id": 7756,
-        "name": "Ellipse 7756"
-      },
-      "xaxsis": 8,
-      "yaxsis": 26,
-      "rotation": 102
+        "id": "b2c3d4e5-f6a7-4890-b123-234567890def",
+        "scheduling_sending_time": "2024-08-18T09:15:00Z",
+        "sendingStatus": "Pending",
+        "MissileType": 4,
+        "MissileTypeName": "קאסם",
+        "missileCategory": 2,
+        "missileCategoryName": "טק\"ק",
+        "source": 2006,
+        "sourceName": "רצועת עזה",
+        "location": { "latitude": 31.5, "longitude": 34.75 },
+        "radiusXMeters": 40,
+        "radiusYMeters": 35,
+        "azimut": 120
     },
     {
-      "id": 9270,
-      "center": {
-        "latitude": 31.5633848706004,
-        "longitude": 34.77323241257688
-      },
-      "attributes": {
-        "id": 9270,
-        "name": "Ellipse 9270"
-      },
-      "xaxsis": 23,
-      "yaxsis": 35,
-      "rotation": 36
+        "id": "c3d4e5f6-a7b8-4901-c234-345678901abc",
+        "scheduling_sending_time": "2024-08-18T10:00:00Z",
+        "sendingStatus": "Failed",
+        "MissileType": 2,
+        "MissileTypeName": "רפיגי",
+        "missileCategory": 1,
+        "missileCategoryName": "רק\"ק",
+        "source": 2003,
+        "sourceName": "לבנון",
+        "location": { "latitude": 33.1, "longitude": 35.6 },
+        "radiusXMeters": 20,
+        "radiusYMeters": 25,
+        "azimut": 200,
+        "vibeBarrages": [
+            { "latitude": 33.0950, "longitude": 35.5950 }
+        ],
+        "barrageRadius": 100,
+        "numbervibeBarrages": 1,
+        "eventsNumber": 2
     },
     {
-      "id": 1870,
-      "center": {
-        "latitude": 31.34388120979808,
-        "longitude": 34.352161615122604
-      },
-      "attributes": {
-        "id": 1870,
-        "name": "Ellipse 1870"
-      },
-      "xaxsis": 10,
-      "yaxsis": 1,
-      "rotation": 79
+        "id": "d4e5f6a7-b8c9-4012-d345-456789012def",
+        "scheduling_sending_time": "2024-08-18T11:30:00Z",
+        "sendingStatus": "On_Hold",
+        "MissileType": 3,
+        "MissileTypeName": "זילזאל",
+        "missileCategory": 2,
+        "missileCategoryName": "טק\"ק",
+        "source": 2016,
+        "sourceName": "איראן",
+        "location": { "latitude": 32.0853, "longitude": 34.7818 },
+        "radiusXMeters": 45,
+        "radiusYMeters": 45,
+        "azimut": 270
     },
     {
-      "id": 3031,
-      "center": {
-        "latitude": 30.39332252671698,
-        "longitude": 34.95030417698318
-      },
-      "attributes": {
-        "id": 3031,
-        "name": "Ellipse 3031"
-      },
-      "xaxsis": 40,
-      "yaxsis": 38,
-      "rotation": 6
+        "id": "a7b8c9d0-e1f2-4345-a678-789012345abc",
+        "scheduling_sending_time": "2024-08-18T14:10:00Z",
+        "sendingStatus": "Sent",
+        "MissileType": 4,
+        "MissileTypeName": "קאסם",
+        "missileCategory": 1,
+        "missileCategoryName": "רק\"ק",
+        "source": 2005,
+        "sourceName": "ירדן",
+        "location": { "latitude": 31.7683, "longitude": 35.2137 },
+        "radiusXMeters": 28,
+        "radiusYMeters": 32,
+        "azimut": 180,
+        "eventsNumber": 1
     },
     {
-      "id": 4349,
-      "center": {
-        "latitude": 30.809391541206914,
-        "longitude": 34.44671407513929
-      },
-      "attributes": {
-        "id": 4349,
-        "name": "Ellipse 4349"
-      },
-      "xaxsis": 29,
-      "yaxsis": 39,
-      "rotation": 356
+        "id": "c9d0e1f2-a3b4-4567-c890-901234567abc",
+        "scheduling_sending_time": "2024-08-18T16:30:00Z",
+        "sendingStatus": "On_Hold",
+        "MissileType": 3,
+        "MissileTypeName": "זילזאל",
+        "missileCategory": 1,
+        "missileCategoryName": "רק\"ק",
+        "source": 2006,
+        "sourceName": "רצועת עזה",
+        "location": { "latitude": 31.3547, "longitude": 34.3088 },
+        "radiusXMeters": 38,
+        "radiusYMeters": 42,
+        "azimut": 150,
+        "vibeBarrages": [
+            { "latitude": 31.3600, "longitude": 34.3100 }
+        ],
+        "barrageRadius": 120,
+        "numbervibeBarrages": 1,
+        "eventsNumber": 4
     },
     {
-      "id": 4880,
-      "center": {
-        "latitude": 30.521343735790033,
-        "longitude": 34.72109759601884
-      },
-      "attributes": {
-        "id": 4880,
-        "name": "Ellipse 4880"
-      },
-      "xaxsis": 24,
-      "yaxsis": 37,
-      "rotation": 263
+        "id": "d0e1f2a3-b4c5-4678-d901-012345678def",
+        "scheduling_sending_time": "2024-08-18T17:45:00Z",
+        "sendingStatus": "Sent",
+        "MissileType": 5,
+        "MissileTypeName": "יירוט",
+        "missileCategory": 2,
+        "missileCategoryName": "טק\"ק",
+        "source": 2016,
+        "sourceName": "איראן",
+        "location": { "latitude": 31.9522, "longitude": 34.8013 },
+        "radiusXMeters": 33,
+        "radiusYMeters": 29,
+        "azimut": 240
     },
     {
-      "id": 9154,
-      "center": {
-        "latitude": 32.03483595664998,
-        "longitude": 35.114042196473164
-      },
-      "attributes": {
-        "id": 9154,
-        "name": "Ellipse 9154"
-      },
-      "xaxsis": 5,
-      "yaxsis": 12,
-      "rotation": 115
+        "id": "e1f2a3b4-c5d6-4789-e012-123456789abc",
+        "scheduling_sending_time": "2024-08-18T18:15:00Z",
+        "sendingStatus": "Pending",
+        "MissileType": 1,
+        "MissileTypeName": "פאגאר",
+        "missileCategory": 1,
+        "missileCategoryName": "רק\"ק",
+        "source": 2004,
+        "sourceName": "סוריה",
+        "location": { "latitude": 32.7940, "longitude": 35.2045 },
+        "radiusXMeters": 27,
+        "radiusYMeters": 31,
+        "azimut": 75,
+        "vibeBarrages": [
+            { "latitude": 32.8000, "longitude": 35.2100 },
+            { "latitude": 32.7880, "longitude": 35.1990 }
+        ],
+        "barrageRadius": 180,
+        "numbervibeBarrages": 2,
+        "eventsNumber": 3
     },
     {
-      "id": 509,
-      "center": {
-        "latitude": 31.63573181591235,
-        "longitude": 34.78703400315891
-      },
-      "attributes": {
-        "id": 509,
-        "name": "Ellipse 509"
-      },
-      "xaxsis": 39,
-      "yaxsis": 7,
-      "rotation": 245
+        "id": "f2a3b4c5-d6e7-4890-f123-234567890def",
+        "scheduling_sending_time": "2024-08-18T19:20:00Z",
+        "sendingStatus": "Failed",
+        "MissileType": 4,
+        "MissileTypeName": "קאסם",
+        "missileCategory": 2,
+        "missileCategoryName": "טק\"ק",
+        "source": 2001,
+        "sourceName": "תימן",
+        "location": { "latitude": 31.0461, "longitude": 34.8516 },
+        "radiusXMeters": 41,
+        "radiusYMeters": 37,
+        "azimut": 300
     },
     {
-      "id": 9490,
-      "center": {
-        "latitude": 31.256872925422208,
-        "longitude": 34.61929722088138
-      },
-      "attributes": {
-        "id": 9490,
-        "name": "Ellipse 9490"
-      },
-      "xaxsis": 36,
-      "yaxsis": 26,
-      "rotation": 25
+        "id": "a3b4c5d6-e7f8-4901-a234-345678901abc",
+        "scheduling_sending_time": "2024-08-18T20:00:00Z",
+        "sendingStatus": "Sent",
+        "MissileType": 2,
+        "MissileTypeName": "רפיגי",
+        "missileCategory": 1,
+        "missileCategoryName": "רק\"ק",
+        "source": 2005,
+        "sourceName": "ירדן",
+        "location": { "latitude": 31.4117, "longitude": 35.0818 },
+        "radiusXMeters": 19,
+        "radiusYMeters": 23,
+        "azimut": 135,
+        "eventsNumber": 2
     },
     {
-      "id": 3601,
-      "center": {
-        "latitude": 32.852003512641616,
-        "longitude": 35.67141931952068
-      },
-      "attributes": {
-        "id": 3601,
-        "name": "Ellipse 3601"
-      },
-      "xaxsis": 23,
-      "yaxsis": 31,
-      "rotation": 85
+        "id": "b4c5d6e7-f8a9-4012-b345-456789012def",
+        "scheduling_sending_time": "2024-08-18T21:10:00Z",
+        "sendingStatus": "On_Hold",
+        "MissileType": 3,
+        "MissileTypeName": "זילזאל",
+        "missileCategory": 2,
+        "missileCategoryName": "טק\"ק",
+        "source": 2003,
+        "sourceName": "לבנון",
+        "location": { "latitude": 33.0522, "longitude": 35.3829 },
+        "radiusXMeters": 44,
+        "radiusYMeters": 39,
+        "azimut": 25
     },
     {
-      "id": 6044,
-      "center": {
-        "latitude": 32.25650579273442,
-        "longitude": 35.46415315544863
-      },
-      "attributes": {
-        "id": 6044,
-        "name": "Ellipse 6044"
-      },
-      "xaxsis": 13,
-      "yaxsis": 13,
-      "rotation": 111
+        "id": "c5d6e7f8-a9b0-4123-c456-567890123abc",
+        "scheduling_sending_time": "2024-08-18T22:30:00Z",
+        "sendingStatus": "Pending",
+        "MissileType": 5,
+        "MissileTypeName": "יירוט",
+        "missileCategory": 1,
+        "missileCategoryName": "רק\"ק",
+        "source": 2006,
+        "sourceName": "רצועת עזה",
+        "location": { "latitude": 31.6890, "longitude": 34.5712 },
+        "radiusXMeters": 36,
+        "radiusYMeters": 34,
+        "azimut": 210,
+        "vibeBarrages": [
+            { "latitude": 31.6950, "longitude": 34.5750 },
+            { "latitude": 31.6830, "longitude": 34.5674 },
+            { "latitude": 31.6910, "longitude": 34.5800 },
+            { "latitude": 31.6870, "longitude": 34.5624 }
+        ],
+        "barrageRadius": 250,
+        "numbervibeBarrages": 4,
+        "eventsNumber": 6
     },
     {
-      "id": 8254,
-      "center": {
-        "latitude": 33.00204641802577,
-        "longitude": 35.84996330619237
-      },
-      "attributes": {
-        "id": 8254,
-        "name": "Ellipse 8254"
-      },
-      "xaxsis": 36,
-      "yaxsis": 12,
-      "rotation": 303
+        "id": "d6e7f8a9-b0c1-4234-d567-678901234def",
+        "scheduling_sending_time": "2024-08-18T23:45:00Z",
+        "sendingStatus": "Sent",
+        "MissileType": 1,
+        "MissileTypeName": "פאגאר",
+        "missileCategory": 2,
+        "missileCategoryName": "טק\"ק",
+        "source": 2016,
+        "sourceName": "איראן",
+        "location": { "latitude": 32.1624, "longitude": 34.8441 },
+        "radiusXMeters": 21,
+        "radiusYMeters": 27,
+        "azimut": 165
     },
     {
-      "id": 7132,
-      "center": {
-        "latitude": 32.625883800957574,
-        "longitude": 35.080435609696956
-      },
-      "attributes": {
-        "id": 7132,
-        "name": "Ellipse 7132"
-      },
-      "xaxsis": 16,
-      "yaxsis": 4,
-      "rotation": 33
+        "id": "e7f8a9b0-c1d2-4345-e678-789012345abc",
+        "scheduling_sending_time": "2024-08-19T00:20:00Z",
+        "sendingStatus": "Failed",
+        "MissileType": 4,
+        "MissileTypeName": "קאסם",
+        "missileCategory": 1,
+        "missileCategoryName": "רק\"ק",
+        "source": 2004,
+        "sourceName": "סוריה",
+        "location": { "latitude": 32.9283, "longitude": 35.1045 },
+        "radiusXMeters": 30,
+        "radiusYMeters": 33,
+        "azimut": 285,
+        "eventsNumber": 1
     },
     {
-      "id": 1798,
-      "center": {
-        "latitude": 32.75981043060902,
-        "longitude": 35.5220151324436
-      },
-      "attributes": {
-        "id": 1798,
-        "name": "Ellipse 1798"
-      },
-      "xaxsis": 28,
-      "yaxsis": 1,
-      "rotation": 197
-    },
-    {
-      "id": 1046,
-      "center": {
-        "latitude": 31.974621371482122,
-        "longitude": 35.41199759095847
-      },
-      "attributes": {
-        "id": 1046,
-        "name": "Ellipse 1046"
-      },
-      "xaxsis": 30,
-      "yaxsis": 39,
-      "rotation": 250
-    },
-    {
-      "id": 5057,
-      "center": {
-        "latitude": 32.96769188249175,
-        "longitude": 35.75147345623644
-      },
-      "attributes": {
-        "id": 5057,
-        "name": "Ellipse 5057"
-      },
-      "xaxsis": 39,
-      "yaxsis": 17,
-      "rotation": 261
-    },
-    {
-      "id": 168,
-      "center": {
-        "latitude": 31.730492831092082,
-        "longitude": 35.2386078960311
-      },
-      "attributes": {
-        "id": 168,
-        "name": "Ellipse 168"
-      },
-      "xaxsis": 9,
-      "yaxsis": 28,
-      "rotation": 149
-    },
-    {
-      "id": 4332,
-      "center": {
-        "latitude": 32.441258908964215,
-        "longitude": 35.13837446292148
-      },
-      "attributes": {
-        "id": 4332,
-        "name": "Ellipse 4332"
-      },
-      "xaxsis": 9,
-      "yaxsis": 12,
-      "rotation": 154
-    },
-    {
-      "id": 6456,
-      "center": {
-        "latitude": 33.18291986471102,
-        "longitude": 35.76864089039543
-      },
-      "attributes": {
-        "id": 6456,
-        "name": "Ellipse 6456"
-      },
-      "xaxsis": 34,
-      "yaxsis": 11,
-      "rotation": 358
-    },
-    {
-      "id": 4613,
-      "center": {
-        "latitude": 32.952043501614035,
-        "longitude": 35.853828763948556
-      },
-      "attributes": {
-        "id": 4613,
-        "name": "Ellipse 4613"
-      },
-      "xaxsis": 11,
-      "yaxsis": 17,
-      "rotation": 298
-    },
-    {
-      "id": 9548,
-      "center": {
-        "latitude": 32.44242287075315,
-        "longitude": 35.20823929666602
-      },
-      "attributes": {
-        "id": 9548,
-        "name": "Ellipse 9548"
-      },
-      "xaxsis": 16,
-      "yaxsis": 22,
-      "rotation": 284
-    },
-    {
-      "id": 6791,
-      "center": {
-        "latitude": 31.445106766407193,
-        "longitude": 35.06115205498608
-      },
-      "attributes": {
-        "id": 6791,
-        "name": "Ellipse 6791"
-      },
-      "xaxsis": 35,
-      "yaxsis": 13,
-      "rotation": 208
-    },
-    {
-      "id": 3324,
-      "center": {
-        "latitude": 31.85648087719832,
-        "longitude": 35.21915012870994
-      },
-      "attributes": {
-        "id": 3324,
-        "name": "Ellipse 3324"
-      },
-      "xaxsis": 25,
-      "yaxsis": 7,
-      "rotation": 17
-    },
-    {
-      "id": 3132,
-      "center": {
-        "latitude": 31.956118455547575,
-        "longitude": 34.754738090187885
-      },
-      "attributes": {
-        "id": 3132,
-        "name": "Ellipse 3132"
-      },
-      "xaxsis": 5,
-      "yaxsis": 29,
-      "rotation": 138
-    },
-    {
-      "id": 6406,
-      "center": {
-        "latitude": 31.419680910266372,
-        "longitude": 34.55336208322245
-      },
-      "attributes": {
-        "id": 6406,
-        "name": "Ellipse 6406"
-      },
-      "xaxsis": 8,
-      "yaxsis": 7,
-      "rotation": 67
-    },
-    {
-      "id": 1129,
-      "center": {
-        "latitude": 29.994568040073048,
-        "longitude": 34.94139950808922
-      },
-      "attributes": {
-        "id": 1129,
-        "name": "Ellipse 1129"
-      },
-      "xaxsis": 11,
-      "yaxsis": 14,
-      "rotation": 201
-    },
-    {
-      "id": 7221,
-      "center": {
-        "latitude": 31.392792440850123,
-        "longitude": 35.198246747716524
-      },
-      "attributes": {
-        "id": 7221,
-        "name": "Ellipse 7221"
-      },
-      "xaxsis": 35,
-      "yaxsis": 1,
-      "rotation": 352
-    },
-    {
-      "id": 7210,
-      "center": {
-        "latitude": 31.748474983059918,
-        "longitude": 34.635502579169106
-      },
-      "attributes": {
-        "id": 7210,
-        "name": "Ellipse 7210"
-      },
-      "xaxsis": 34,
-      "yaxsis": 3,
-      "rotation": 269
-    },
-    {
-      "id": 8426,
-      "center": {
-        "latitude": 29.959524750542506,
-        "longitude": 34.93555504506713
-      },
-      "attributes": {
-        "id": 8426,
-        "name": "Ellipse 8426"
-      },
-      "xaxsis": 24,
-      "yaxsis": 37,
-      "rotation": 251
-    },
-    {
-      "id": 1576,
-      "center": {
-        "latitude": 30.43507072844178,
-        "longitude": 34.845540244302015
-      },
-      "attributes": {
-        "id": 1576,
-        "name": "Ellipse 1576"
-      },
-      "xaxsis": 5,
-      "yaxsis": 15,
-      "rotation": 289
-    },
-    {
-      "id": 9181,
-      "center": {
-        "latitude": 32.98256232124992,
-        "longitude": 35.76271415246761
-      },
-      "attributes": {
-        "id": 9181,
-        "name": "Ellipse 9181"
-      },
-      "xaxsis": 28,
-      "yaxsis": 13,
-      "rotation": 84
-    },
-    {
-      "id": 6987,
-      "center": {
-        "latitude": 32.681596112873706,
-        "longitude": 35.4097107521902
-      },
-      "attributes": {
-        "id": 6987,
-        "name": "Ellipse 6987"
-      },
-      "xaxsis": 18,
-      "yaxsis": 24,
-      "rotation": 92
-    },
-    {
-      "id": 7183,
-      "center": {
-        "latitude": 30.26876065382427,
-        "longitude": 34.95089934577627
-      },
-      "attributes": {
-        "id": 7183,
-        "name": "Ellipse 7183"
-      },
-      "xaxsis": 39,
-      "yaxsis": 22,
-      "rotation": 1
-    },
-    {
-      "id": 2830,
-      "center": {
-        "latitude": 30.761908773204414,
-        "longitude": 35.05393284863064
-      },
-      "attributes": {
-        "id": 2830,
-        "name": "Ellipse 2830"
-      },
-      "xaxsis": 33,
-      "yaxsis": 7,
-      "rotation": 87
-    },
-    {
-      "id": 5885,
-      "center": {
-        "latitude": 31.315809101725463,
-        "longitude": 35.36310844965577
-      },
-      "attributes": {
-        "id": 5885,
-        "name": "Ellipse 5885"
-      },
-      "xaxsis": 3,
-      "yaxsis": 14,
-      "rotation": 165
-    },
-    {
-      "id": 5268,
-      "center": {
-        "latitude": 31.21418815773973,
-        "longitude": 34.970750487044995
-      },
-      "attributes": {
-        "id": 5268,
-        "name": "Ellipse 5268"
-      },
-      "xaxsis": 20,
-      "yaxsis": 9,
-      "rotation": 324
-    },
-    {
-      "id": 9465,
-      "center": {
-        "latitude": 30.59675801046682,
-        "longitude": 34.7734546890564
-      },
-      "attributes": {
-        "id": 9465,
-        "name": "Ellipse 9465"
-      },
-      "xaxsis": 14,
-      "yaxsis": 19,
-      "rotation": 341
-    },
-    {
-      "id": 4020,
-      "center": {
-        "latitude": 31.379720574498077,
-        "longitude": 34.795209031040606
-      },
-      "attributes": {
-        "id": 4020,
-        "name": "Ellipse 4020"
-      },
-      "xaxsis": 30,
-      "yaxsis": 15,
-      "rotation": 88
-    },
-    {
-      "id": 7126,
-      "center": {
-        "latitude": 31.999187706827463,
-        "longitude": 34.80784486902163
-      },
-      "attributes": {
-        "id": 7126,
-        "name": "Ellipse 7126"
-      },
-      "xaxsis": 4,
-      "yaxsis": 17,
-      "rotation": 148
-    },
-    {
-      "id": 9921,
-      "center": {
-        "latitude": 32.92563386574765,
-        "longitude": 35.18759498910669
-      },
-      "attributes": {
-        "id": 9921,
-        "name": "Ellipse 9921"
-      },
-      "xaxsis": 15,
-      "yaxsis": 5,
-      "rotation": 226
-    },
-    {
-      "id": 7551,
-      "center": {
-        "latitude": 31.731596656093362,
-        "longitude": 34.853326695600465
-      },
-      "attributes": {
-        "id": 7551,
-        "name": "Ellipse 7551"
-      },
-      "xaxsis": 18,
-      "yaxsis": 2,
-      "rotation": 87
-    },
-    {
-      "id": 9335,
-      "center": {
-        "latitude": 32.314532870646154,
-        "longitude": 35.308323354434094
-      },
-      "attributes": {
-        "id": 9335,
-        "name": "Ellipse 9335"
-      },
-      "xaxsis": 3,
-      "yaxsis": 21,
-      "rotation": 359
-    },
-    {
-      "id": 1784,
-      "center": {
-        "latitude": 31.339698861677366,
-        "longitude": 35.16687201029955
-      },
-      "attributes": {
-        "id": 1784,
-        "name": "Ellipse 1784"
-      },
-      "xaxsis": 20,
-      "yaxsis": 3,
-      "rotation": 232
-    },
-    {
-      "id": 8622,
-      "center": {
-        "latitude": 33.18394472417519,
-        "longitude": 35.79410763203542
-      },
-      "attributes": {
-        "id": 8622,
-        "name": "Ellipse 8622"
-      },
-      "xaxsis": 34,
-      "yaxsis": 25,
-      "rotation": 164
-    },
-    {
-      "id": 2248,
-      "center": {
-        "latitude": 31.844417786333782,
-        "longitude": 35.379471654200565
-      },
-      "attributes": {
-        "id": 2248,
-        "name": "Ellipse 2248"
-      },
-      "xaxsis": 40,
-      "yaxsis": 28,
-      "rotation": 332
-    },
-    {
-      "id": 3895,
-      "center": {
-        "latitude": 31.427792559850108,
-        "longitude": 35.0658257993275
-      },
-      "attributes": {
-        "id": 3895,
-        "name": "Ellipse 3895"
-      },
-      "xaxsis": 16,
-      "yaxsis": 21,
-      "rotation": 230
-    },
-    {
-      "id": 1459,
-      "center": {
-        "latitude": 31.18024839698745,
-        "longitude": 35.1879843115026
-      },
-      "attributes": {
-        "id": 1459,
-        "name": "Ellipse 1459"
-      },
-      "xaxsis": 3,
-      "yaxsis": 19,
-      "rotation": 80
-    },
-    {
-      "id": 72,
-      "center": {
-        "latitude": 30.745495492970004,
-        "longitude": 34.58350746489144
-      },
-      "attributes": {
-        "id": 72,
-        "name": "Ellipse 72"
-      },
-      "xaxsis": 13,
-      "yaxsis": 15,
-      "rotation": 202
-    },
-    {
-      "id": 9427,
-      "center": {
-        "latitude": 31.001359679124832,
-        "longitude": 35.326233720330464
-      },
-      "attributes": {
-        "id": 9427,
-        "name": "Ellipse 9427"
-      },
-      "xaxsis": 4,
-      "yaxsis": 14,
-      "rotation": 220
-    },
-    {
-      "id": 9716,
-      "center": {
-        "latitude": 32.842126460362145,
-        "longitude": 35.77540351452359
-      },
-      "attributes": {
-        "id": 9716,
-        "name": "Ellipse 9716"
-      },
-      "xaxsis": 3,
-      "yaxsis": 19,
-      "rotation": 254
+        "id": "a9b0c1d2-e3f4-4567-a890-901234567abc",
+        "scheduling_sending_time": "2024-08-19T02:00:00Z",
+        "sendingStatus": "Pending",
+        "MissileType": 3,
+        "MissileTypeName": "זילזאל",
+        "missileCategory": 1,
+        "missileCategoryName": "רק\"ק",
+        "source": 2005,
+        "sourceName": "ירדן",
+        "location": { "latitude": 31.2456, "longitude": 35.2096 },
+        "radiusXMeters": 24,
+        "radiusYMeters": 28,
+        "azimut": 110,
+        "vibeBarrages": [
+            { "latitude": 31.2500, "longitude": 35.2150 }
+        ],
+        "barrageRadius": 90,
+        "numbervibeBarrages": 1,
+        "eventsNumber": 2
     }
-  ]
+]
 }

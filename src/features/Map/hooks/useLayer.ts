@@ -10,13 +10,13 @@ export const useLayer = () => {
   if (featuresLayer) {
     return {
       add: (graphic: Graphic) => {
-        featuresLayer.featureLayer.current.addFeatures.add(graphic);
+        return featuresLayer.featureLayer.current.addFeatures.add(graphic);
       },
       update: (graphic: Graphic) => {
-        featuresLayer.featureLayer.current.updateFeatures.add(graphic);
+        return featuresLayer.featureLayer.current.updateFeatures.add(graphic);
       },
       remove: (graphic: Graphic) => {
-        featuresLayer.featureLayer.current.deleteFeatures.add(graphic);
+        return featuresLayer.featureLayer.current.deleteFeatures.add(graphic);
       },
     };
   }

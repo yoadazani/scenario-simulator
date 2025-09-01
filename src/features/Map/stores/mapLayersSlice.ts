@@ -58,6 +58,12 @@ export const mapLayersSlice: StateCreator<
             visible: false,
             order: 3,
             isCluster: false,
+            fields: [
+                { name: "objectId", type: "oid" },
+                { name: "id", type: "integer" },
+                { name: "name", type: "string" },
+                { name: "location", type: "geometry" }
+            ]
         },
     },
     setVisibility: (layer, visible) => {

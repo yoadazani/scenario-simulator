@@ -2,7 +2,7 @@ import * as projection from "@arcgis/core/geometry/operators/projectOperator.js"
 import SpatialReference from "@arcgis/core/geometry/SpatialReference";
 import * as geodeticLengthOperator from "@arcgis/core/geometry/operators/geodeticLengthOperator.js"
 
-export const projectedGeometry = async (graphic: __esri.Graphic): Promise<__esri.Geometry | undefined> => {
+export const projectedGeometry = async (graphic: __esri.Graphic): Promise<__esri.GeometryUnion | nullish> => {
 
     if (!graphic.geometry) return;
 
@@ -52,6 +52,17 @@ export const calculateMidPoint = (startPoint: number[], endPoint: number[]): num
     const midY = (startPoint[1] + endPoint[1]) / 2;
     return [midX, midY];
 }
+
+export const uuidToInt = (uuid: string): number => {
+    let hash = 0;
+    for (let i = 0; i < uuid.length; i++) {
+        const char = uuid.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // Convert to 32-bit integer
+    }
+    return Math.abs(hash);
+};
+
 export const inside = (
     point: [number, number],
     polygon: [number, number][],

@@ -12,7 +12,7 @@ export const useGraphic = (properties: __esri.GraphicProperties) => {
         return () => {
             layer.remove(graphic);
         };
-    }, [layer]);
+    }, []);
 
     return graphicRef;
 };

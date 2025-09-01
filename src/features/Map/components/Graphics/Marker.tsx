@@ -10,8 +10,7 @@ export interface MarkerProps {
   };
   attributes: {
     id: number;
-    name?: string;
-  };
+  } & Record<string, unknown>;
   symbol?: __esri.PictureMarkerSymbolProperties;
   width?: string;
   height?: string;
@@ -26,7 +25,6 @@ function MapMarker(props: MarkerProps) {
     height = "30px",
   } = props;
   const graphic = useGraphic({ attributes });
-
   useEffect(() => {
     graphic.current.geometry = new Point(point);
     graphic.current.symbol = new PictureMarkerSymbol(symbol);

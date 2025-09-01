@@ -33,9 +33,9 @@ const GroupsLayer = ({
 
   useEffect(() => {
     const { current: layer } = groupLayer;
-    parentLayer.add(layer);
+    parentLayer?.add(layer);
     return () => {
-      parentLayer.remove(layer);
+      parentLayer?.remove(layer);
     };
   }, [groupLayer.current.id, parentLayer]);
 

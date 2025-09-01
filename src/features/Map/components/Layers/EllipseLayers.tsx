@@ -1,16 +1,22 @@
-import {Ellipse} from "@/features/Map/types/map.type.ts";
+import {RocketAttack} from "@/features/Map/types/map.type.ts";
 import MapEllipse from "@/features/Map/components/Graphics/Ellipse.tsx";
+import {uuidToInt} from "@/features/Map/utils";
 
 export const EllipseLayers = (props: {
-    featureData: Ellipse[],
+    featureData: RocketAttack[],
     symbol: __esri.SimpleFillSymbolProperties,
 }) => {
     const {featureData, symbol} = props;
-    return featureData.map((data) => (
-        <MapEllipse
+    return featureData.map((data) => {
+        const id = uuidToInt(data.id)
+        return <MapEllipse
             key={data.id}
             symbol={symbol}
-            {...data}
+            center={data.location}
+            xaxsis={data.radiusXMeters}
+            yaxsis={data.radiusYMeters}
+            attributes={{...data, id}}
+            rotation={data.azimut}
         />
-    ));
+    });
 }

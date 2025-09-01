@@ -2,6 +2,11 @@ import {Tools} from "@/features/Map/types";
 
 export const METERS_PER_DEGREE = 111319.9
 export const SKETCH_TOOLS: Tools[] = ["point", "polyline", "polygon", "ellipse"];
+export const SEARCH_PLACEHOLDERS = {
+    all: "חיפוש כללי",
+    geocoding: "חפש לפי שם עיר/רחוב",
+    events: "חפש לפי שם אירוע"
+}
 export const israelPolygon = [
     [35.101318, 33.094993],
     [35.123291, 33.094993],

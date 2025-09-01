@@ -32,7 +32,7 @@ const GraphicLayer = (
 
     useEffect(() => {
         if (order) {
-            parentLayer.reorder(graphicsLayer.current, order)
+            parentLayer?.reorder(graphicsLayer.current, order)
         }
     }, [order, parentLayer]);
 
@@ -42,9 +42,9 @@ const GraphicLayer = (
 
     useEffect(() => {
         const {current: graphics} = graphicsLayer;
-        parentLayer.add(graphics);
+        parentLayer?.add(graphics);
         return () => {
-            parentLayer.remove(graphics);
+            parentLayer?.remove(graphics);
         };
     }, [graphicsLayer.current.id, parentLayer]);
 

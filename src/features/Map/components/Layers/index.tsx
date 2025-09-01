@@ -92,6 +92,7 @@ const Layers = () => {
                             order={layer.order}
                             visible={layer.visible}
                             isCluster={layer.isCluster}
+                            fields={layer.fields}
                         >
                             {getFeaturesLayer(layerId, featuresGroups.features[layerId])}
                         </FeaturesLayer>

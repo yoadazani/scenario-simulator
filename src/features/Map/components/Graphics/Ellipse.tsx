@@ -11,8 +11,7 @@ interface EllipseProps {
   };
   attributes: {
     id: number;
-    name?: string;
-  };
+  } & Record<string, unknown>;
   xaxsis: number;
   yaxsis: number;
   rotation?: number;
