@@ -297,6 +297,10 @@ body {
   transition-delay: 300ms;
 }
 
+.map {
+    height: 100vh;
+}
+
 .map:has(#measurement:checked):not(.drawing-complete) {
   cursor: crosshair;
 }

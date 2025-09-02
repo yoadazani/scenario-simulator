@@ -111,7 +111,7 @@ const SearchInput = ({isOpen}: { isOpen: boolean }) => {
             <div className={`
                 flex items-center space-x-2 bg-white border-background focus-within:border-blue-800 
                 border rounded-lg px-2 transition-all duration-300 ease-in-out
-                ${isOpen ? 'visible opacity-100 translate-x-0' : 'invisible opacity-0 -translate-x-4'}     
+                ${isOpen ? 'visible opacity-100 translate-x-0' : 'invisible opacity-0 -translate-x-4 hidden'}     
             `}>
                 <Search/>
                 <Input

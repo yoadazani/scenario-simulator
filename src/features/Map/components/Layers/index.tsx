@@ -64,7 +64,7 @@ const Layers = () => {
 
     return (
         <GroupsLayer title="Layers" id="layers">
-            <LayersControl/>;
+            <LayersControl/>
             {Object.values(layers).map((layer) => {
 
                 if (layer.type === "graphic") {

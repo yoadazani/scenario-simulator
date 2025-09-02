@@ -23,7 +23,6 @@ function MapContainer({children}: { children?: ReactNode }) {
             }),
         })
     );
-
     const viewRef = useRef(
         new MapView({
             map: mapRef.current,
@@ -66,7 +65,7 @@ function MapContainer({children}: { children?: ReactNode }) {
 
     return (
         <MapContext.Provider value={{mapView: viewRef}}>
-            <div style={{height: "100vh"}} className="map" ref={mapEleRef}>
+            <div className="map" ref={mapEleRef}>
                 {children}
             </div>
         </MapContext.Provider>

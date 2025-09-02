@@ -16,7 +16,8 @@ import {useShallow} from "zustand/shallow";
 import {useMapStore} from "@/features/Map/stores/mapStore.ts";
 import Measurement from "@/features/Map/components/widgets/Measurement";
 import Search from "@/features/Map/components/widgets/Search";
-import {memo} from "react";
+import {memo, Suspense} from "react";
+import MapFallback from "@/components/shared/MapFallback.tsx";
 
 function Map() {
     const {updateGraphic, removeGraphic} = useMapStore(
@@ -29,47 +30,49 @@ function Map() {
     );
 
     return (
-        <MapContainer>
-            <MapZoom position="top-left"/>
+        <Suspense name="mapSuspense" fallback={<MapFallback/>}>
+            <MapContainer>
+                <MapZoom position="top-left"/>
 
-            <Search />
-            <GraphicLayer>
-                <Sketch
-                    position="top-left"
-                    symbols={{
-                        polylineSymbol,
-                        polygonSymbol,
-                        rectangleSymbol,
-                        circleSymbol,
-                        markerSymbol,
-                        ellipseSymbol,
-                    }}
-                    availableTools={["point", "polyline", "polygon", "ellipse"]}
-                    creationMode="update"
-                    onSketchCreate={(event, type) => {
-                        if (event.state === "complete") {
-                            updateGraphic(type, event.graphic);
-                        }
-                    }}
-                    onSketchUpdate={(event, type) => {
-                        if (event.state === "complete" && type) {
-                            updateGraphic(type, event.graphics[0]);
-                        }
-                    }}
-                    onSketchDelete={(_event, type) => {
-                        removeGraphic(type);
-                    }}
-                />
-            </GraphicLayer>
+                <Search/>
+                <GraphicLayer>
+                    <Sketch
+                        position="top-left"
+                        symbols={{
+                            polylineSymbol,
+                            polygonSymbol,
+                            rectangleSymbol,
+                            circleSymbol,
+                            markerSymbol,
+                            ellipseSymbol,
+                        }}
+                        availableTools={["point", "polyline", "polygon", "ellipse"]}
+                        creationMode="update"
+                        onSketchCreate={(event, type) => {
+                            if (event.state === "complete") {
+                                updateGraphic(type, event.graphic);
+                            }
+                        }}
+                        onSketchUpdate={(event, type) => {
+                            if (event.state === "complete" && type) {
+                                updateGraphic(type, event.graphics[0]);
+                            }
+                        }}
+                        onSketchDelete={(_event, type) => {
+                            removeGraphic(type);
+                        }}
+                    />
+                </GraphicLayer>
 
-            <BaseMapGallery/>
+                <BaseMapGallery/>
 
-            <Layers/>
+                <Layers/>
 
-            <GraphicLayer>
-                <Measurement />
-            </GraphicLayer>
-        </MapContainer>
+                <GraphicLayer>
+                    <Measurement/>
+                </GraphicLayer>
+            </MapContainer>
+        </Suspense>
     );
 }
 
