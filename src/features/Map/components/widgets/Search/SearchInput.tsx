@@ -9,7 +9,7 @@ import AutoComplete from "@/features/Map/components/widgets/Search/AutoComplete.
 import ClearBtn from "@/features/Map/components/widgets/Search/ClearBtn.tsx";
 import SelectSearchSource from "@/features/Map/components/widgets/Search/SelectSearchSource.tsx";
 
-import Search from "@/assets/search.svg?react";
+import Search from "@/assets/icons/search.svg?react";
 import SearchViewModel from "@arcgis/core/widgets/Search/SearchViewModel";
 import PictureMarkerSymbol from "@arcgis/core/symbols/PictureMarkerSymbol";
 import {SEARCH_PLACEHOLDERS} from "@/features/Map/constants";

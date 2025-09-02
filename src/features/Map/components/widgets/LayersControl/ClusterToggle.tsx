@@ -1,6 +1,6 @@
 import { Toggle } from "@/components/ui/toggle.tsx";
-import ClusterOn from "@/assets/cluster-on.svg?react";
-import ClusterOff from "@/assets/cluster-off.svg?react";
+import ClusterOn from "@/assets/icons/cluster-on.svg?react";
+import ClusterOff from "@/assets/icons/cluster-off.svg?react";
 
 interface ClusterToggleProps {
   isCluster: boolean;

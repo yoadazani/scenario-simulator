@@ -7,7 +7,7 @@ import TextSymbol from "@arcgis/core/symbols/TextSymbol";
 import Graphic from "@arcgis/core/Graphic";
 import {useGraphic} from "@/features/Map/hooks/useGraphic.ts";
 import {useGraphicsLayer} from "@/features/Map/contexts/GraphicLayer.tsx";
-import Ruler from "@/assets/ruler.svg?react";
+import Ruler from "@/assets/icons/ruler.svg?react";
 import Collection from "@arcgis/core/core/Collection";
 import {
     calcDistance,

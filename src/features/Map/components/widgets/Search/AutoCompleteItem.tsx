@@ -1,5 +1,5 @@
-import Marker from "@/assets/marker.svg?react";
-import Event from "@/assets/event.svg?react";
+import Marker from "@/assets/icons/marker.svg?react";
+import Event from "@/assets/icons/event.svg?react";
 
 export const AutoCompleteItem = (props: { onClick: () => Promise<void>, item: __esri.SuggestResult}) => {
     return <div

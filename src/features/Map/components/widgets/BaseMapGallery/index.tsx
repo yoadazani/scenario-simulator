@@ -5,7 +5,7 @@ import { useWidget } from "@/features/Map/hooks/useWidget.ts";
 import { useMap } from "@/features/Map/contexts/MapContainer.tsx";
 import Basemap from "@arcgis/core/Basemap";
 import TileLayer from "@arcgis/core/layers/TileLayer";
-import MapGallery from "@/assets/map-gallery.svg?react";
+import MapGallery from "@/assets/icons/map-gallery.svg?react";
 import { Position } from "@/features/Map/types";
 import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
 import { useShallow } from "zustand/shallow";

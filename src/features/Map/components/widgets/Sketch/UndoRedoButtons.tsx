@@ -1,6 +1,6 @@
 import {Tools} from "@/features/Map/types";
-import Undo from "@/assets/undo.svg?react";
-import Redo from "@/assets/redo.svg?react";
+import Undo from "@/assets/icons/undo.svg?react";
+import Redo from "@/assets/icons/redo.svg?react";
 
 interface UndoRedoButtonsProps {
     canUndo: boolean;

@@ -1,6 +1,6 @@
-import marker from "@/assets/marker.png";
-import endTarget from "@/assets/end-target.svg";
-import target from "@/assets/target.svg";
+import marker from "@/assets/icons/marker.png";
+import endTarget from "@/assets/icons/end-target.svg";
+import target from "@/assets/icons/target.svg";
 
 export const polylineSymbol = {
   color: [62, 176, 144],

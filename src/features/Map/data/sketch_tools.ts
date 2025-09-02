@@ -1,9 +1,9 @@
-import Location from "@/assets/location.svg?react";
-import Polygon from "@/assets/polygon.svg?react";
-import Polyline from "@/assets/polyline.svg?react";
-import Circle from "@/assets/circle.svg?react";
-import Ellipse from "@/assets/ellipse.svg?react";
-import Square from "@/assets/square.svg?react";
+import Location from "@/assets/icons/location.svg?react";
+import Polygon from "@/assets/icons/polygon.svg?react";
+import Polyline from "@/assets/icons/polyline.svg?react";
+import Circle from "@/assets/icons/circle.svg?react";
+import Ellipse from "@/assets/icons/ellipse.svg?react";
+import Square from "@/assets/icons/square.svg?react";
 import { SketchTool } from "@/features/Map/types";
 
 export const sketchTools: SketchTool[] = [

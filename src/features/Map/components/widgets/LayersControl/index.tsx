@@ -1,6 +1,6 @@
 import { useWidget } from "@/features/Map/hooks/useWidget.ts";
 import { Position } from "@/features/Map/types";
-import Layers from "@/assets/layers.svg?react";
+import Layers from "@/assets/icons/layers.svg?react";
 import { useState } from "react";
 import {
   Sheet,

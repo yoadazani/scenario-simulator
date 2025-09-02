@@ -1,4 +1,4 @@
-import MapSearch from "@/assets/map-search.svg?react";
+import MapSearch from "@/assets/icons/map-search.svg?react";
 import {useWidget} from "@/features/Map/hooks/useWidget.ts";
 import SearchInput from "@/features/Map/components/widgets/Search/SearchInput.tsx";
 import {useState} from "react";
