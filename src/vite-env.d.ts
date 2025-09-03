@@ -1,5 +1,20 @@
 /// <reference types="vite/client" />
-/// <reference types="@arcgis/map-components/types/react" />
+
+declare module '*.json' {
+  const value: Record<string, unknown>;
+  export default value;
+}
+
+declare module '../../package.json' {
+  export const version: string;
+  export const buildDate: string;
+  const value: {
+    version: string;
+    buildDate: string;
+    [key: string]: unknown;
+  };
+  export default value;
+}
 
 declare module '*.svg' {
     import * as React from 'react';

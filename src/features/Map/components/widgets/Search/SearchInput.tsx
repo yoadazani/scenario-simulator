@@ -109,7 +109,7 @@ const SearchInput = ({isOpen}: { isOpen: boolean }) => {
     return (
         <div className="relative">
             <div className={`
-                flex items-center space-x-2 bg-white border-background focus-within:border-blue-800 
+                flex items-center space-x-2 bg-white border-background focus-within:border-primary 
                 border rounded-lg px-2 transition-all duration-300 ease-in-out
                 ${isOpen ? 'visible opacity-100 translate-x-0' : 'invisible opacity-0 -translate-x-4 hidden'}     
             `}>

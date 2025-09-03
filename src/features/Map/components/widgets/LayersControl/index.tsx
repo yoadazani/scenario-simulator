@@ -32,7 +32,7 @@ const LayersControl = (props: LayersControl) => {
         </SheetTrigger>
         <SheetContent container={elementRef.current}>
           <SheetHeader>
-            <SheetTitle className="text-xl font-bold text-zinc-700 text-center border-b-1 border-blue-800 pt-6 pb-3">
+            <SheetTitle className="text-xl font-bold text-zinc-700 text-center border-b-1 border-primary pt-6 pb-3">
               ניהול שכבות
             </SheetTitle>
             {(Object.entries(layers) as [layerName, layer][]).map(

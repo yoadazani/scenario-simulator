@@ -155,7 +155,7 @@ const Measurement = () => {
             </Label>
             <div className={
                 `
-                    bg-white p-4 border border-blue-800 rounded-lg 
+                    bg-white p-4 border border-primary rounded-lg 
                     fixed bottom-4 left-4 space-y-2 shadow-lg
                     transition-all duration-500 ease-in-out
                     ${totalDistance > 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}

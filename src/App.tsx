@@ -7,19 +7,25 @@ import {
     ResizablePanel,
     ResizablePanelGroup,
 } from "@/components/ui/resizable"
+import AppSidebar from "@/components/shared/AppSidebar.tsx";
 
 function App() {
     return (
         <Suspense name="AppSuspense" fallback={<AppFallback/>}>
-            <ResizablePanelGroup direction="horizontal">
-                <ResizablePanel defaultSize={35} maxSize={50}>
-                    <Map/>
-                </ResizablePanel>
-                <ResizableHandle withHandle/>
-                <ResizablePanel defaultSize={65} maxSize={100}>
-                    <span className="font-semibold">Content</span>
-                </ResizablePanel>
-            </ResizablePanelGroup>
+            <div className="flex h-screen">
+                <ResizablePanelGroup direction="horizontal">
+                    <ResizablePanel defaultSize={35} maxSize={50}>
+                        <Map/>
+                    </ResizablePanel>
+                    <ResizableHandle withHandle/>
+                    <ResizablePanel defaultSize={65} maxSize={100}>
+                        <AppSidebar>
+                            <div className="flex flex-col items-center justify-center gap-2 p-4">
+                            </div>
+                        </AppSidebar>
+                    </ResizablePanel>
+                </ResizablePanelGroup>
+            </div>
         </Suspense>
     )
 }

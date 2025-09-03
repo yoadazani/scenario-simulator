@@ -12,7 +12,7 @@ const ClusterToggle = (props: ClusterToggleProps) => {
   return (
     <Toggle pressed={isCluster} onPressedChange={onToggle}>
       {isCluster ? (
-        <ClusterOn className="size-6 stroke-blue-800" />
+        <ClusterOn className="size-6 stroke-primary" />
       ) : (
         <ClusterOff className="size-6 stroke-zinc-500" />
       )}

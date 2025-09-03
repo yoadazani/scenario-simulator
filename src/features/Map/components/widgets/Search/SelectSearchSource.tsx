@@ -19,7 +19,7 @@ interface SelectSearchSourceProps {
 const SelectSearchSource = (props: SelectSearchSourceProps) => {
     const {sources, activeSourceIndex, handleSelect, setSelectSourcesOpen} = props;
     return <DropdownMenu dir="rtl" onOpenChange={setSelectSourcesOpen}>
-        <DropdownMenuTrigger className="data-[state=open]:text-blue-800 ">
+        <DropdownMenuTrigger className="data-[state=open]:text-primary ">
             <ChevronDown className="size-5"/>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-[290px] absolute -right-5 top-1.5">

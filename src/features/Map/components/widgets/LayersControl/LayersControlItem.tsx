@@ -24,7 +24,7 @@ const LayersControlItem = (props: LayersControlItemProps) => {
 
   return (
     <SheetDescription className="p-4 w-full">
-      <Label className="text-md font-bold text-blue-800 flex flex-row-reverse justify-between">
+      <Label className="text-md font-bold text-primary flex flex-row-reverse justify-between">
         {layer.title}
         <span className="flex flex-row-reverse gap-2 items-center">
           {layer.type === "feature" && (
@@ -36,7 +36,7 @@ const LayersControlItem = (props: LayersControlItemProps) => {
           <Switch
             checked={layer.visible}
             onCheckedChange={(value) => setVisibility(layerName, value)}
-            className="data-[state=checked]:bg-blue-800 focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:border-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:ring-offset-transparent"
+            className="data-[state=checked]:bg-primary focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:border-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:ring-offset-transparent"
           />
         </span>
       </Label>
