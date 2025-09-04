@@ -1,4 +1,4 @@
-import { Toggle } from "@/components/ui/toggle.tsx";
+import { Toggle } from "@/components/ui/toggle";
 import ClusterOn from "@/assets/icons/cluster-on.svg?react";
 import ClusterOff from "@/assets/icons/cluster-off.svg?react";
 

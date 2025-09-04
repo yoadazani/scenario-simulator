@@ -8,7 +8,7 @@ import {
     markerSymbol,
     polygonSymbol,
     polylineSymbol,
-} from "@/features/Map/constants/symbols.ts";
+} from "@/features/Map/constants/symbols";
 import Circle from "@arcgis/core/geometry/Circle";
 import Polyline from "@arcgis/core/geometry/Polyline";
 import Polygon from "@arcgis/core/geometry/Polygon";

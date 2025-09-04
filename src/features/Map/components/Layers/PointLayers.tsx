@@ -1,4 +1,4 @@
-import MapMarker from "@/features/Map/components/Graphics/Marker.tsx";
+import MapMarker from "@/features/Map/components/Graphics/Marker";
 import {uuidToInt} from "@/features/Map/utils";
 import {Event} from "@/features/Events/types";
 

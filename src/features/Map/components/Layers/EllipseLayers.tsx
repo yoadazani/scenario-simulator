@@ -1,5 +1,5 @@
-import {RocketAttack} from "@/features/Map/types/map.type.ts";
-import MapEllipse from "@/features/Map/components/Graphics/Ellipse.tsx";
+import {RocketAttack} from "@/features/Map/types/map.type";
+import MapEllipse from "@/features/Map/components/Graphics/Ellipse";
 import {uuidToInt} from "@/features/Map/utils";
 
 export const EllipseLayers = (props: {

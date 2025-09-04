@@ -1,8 +1,8 @@
 import MapSearch from "@/assets/icons/map-search.svg?react";
-import {useWidget} from "@/features/Map/hooks/useWidget.ts";
-import SearchInput from "@/features/Map/components/widgets/Search/SearchInput.tsx";
+import {useWidget} from "@/features/Map/hooks/useWidget";
+import SearchInput from "@/features/Map/components/widgets/Search/SearchInput";
 import {useState} from "react";
-import GraphicLayer from "@/features/Map/contexts/GraphicLayer.tsx";
+import GraphicLayer from "@/features/Map/contexts/GraphicLayer";
 
 const Search = () => {
     const {elementRef} = useWidget("top-left");

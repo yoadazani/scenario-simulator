@@ -1,20 +1,20 @@
 import {ChangeEvent, useCallback, useEffect, useRef, useState} from 'react'
-import {Input} from "@/components/ui/input.tsx";
-import {useMap} from "@/features/Map/contexts/MapContainer.tsx";
-import {PopupContentTemplate} from "@/features/Map/constants/popup_templates.ts";
-import {useLayerById} from "@/features/Map/hooks/useLayerById.ts";
-import {markerSymbol} from "@/features/Map/constants/symbols.ts";
+import {Input} from "@/components/ui/input";
+import {useMap} from "@/features/Map/contexts/MapContainer";
+import {PopupContentTemplate} from "@/features/Map/constants/popup_templates";
+import {useLayerById} from "@/features/Map/hooks/useLayerById";
+import {markerSymbol} from "@/features/Map/constants/symbols";
 
-import AutoComplete from "@/features/Map/components/widgets/Search/AutoComplete.tsx";
-import ClearBtn from "@/features/Map/components/widgets/Search/ClearBtn.tsx";
-import SelectSearchSource from "@/features/Map/components/widgets/Search/SelectSearchSource.tsx";
+import AutoComplete from "@/features/Map/components/widgets/Search/AutoComplete";
+import ClearBtn from "@/features/Map/components/widgets/Search/ClearBtn";
+import SelectSearchSource from "@/features/Map/components/widgets/Search/SelectSearchSource";
 
 import Search from "@/assets/icons/search.svg?react";
 import SearchViewModel from "@arcgis/core/widgets/Search/SearchViewModel";
 import PictureMarkerSymbol from "@arcgis/core/symbols/PictureMarkerSymbol";
 import {SEARCH_PLACEHOLDERS} from "@/features/Map/constants";
-import {useSearchSources} from "@/features/Map/hooks/useSearchSources.ts";
-import {useSearchSuggestions} from "@/features/Map/hooks/useSearchSuggestion.ts";
+import {useSearchSources} from "@/features/Map/hooks/useSearchSources";
+import {useSearchSuggestions} from "@/features/Map/hooks/useSearchSuggestion";
 
 const SearchInput = ({isOpen}: { isOpen: boolean }) => {
     const {mapView} = useMap();

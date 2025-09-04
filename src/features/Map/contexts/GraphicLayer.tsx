@@ -1,6 +1,6 @@
 import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import {createContext, ReactNode, useContext, useEffect, useRef} from "react";
-import {useParentLayer} from "@/features/Map/hooks/useParentLayer.ts";
+import {useParentLayer} from "@/features/Map/hooks/useParentLayer";
 
 interface GraphicChildProps {
     graphicsLayer: GraphicsLayer;

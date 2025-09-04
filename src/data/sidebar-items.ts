@@ -3,7 +3,7 @@ import RocketAttackIcon from "@/assets/images/RocketAttackIcon.png";
 import SirensIcon from "@/assets/images/SirensIcon.png";
 import ForcesIcon from "@/assets/images/ForcesIcon.png";
 
-type SidebarItem = {
+export type SidebarItem = {
     title: string;
     url: string;
     icon: string;
@@ -13,25 +13,25 @@ type SidebarItem = {
 export const sidebarItems: SidebarItem[] = [
     {
         title: "אירועים",
-        url: "events",
+        url: "/events",
         icon: EventsIcon,
         active: true,
     },
     {
         title: "מטחים",
-        url: "rocket-attack",
+        url: "/rocket-attack",
         icon: RocketAttackIcon,
         active: false,
     },
     {
         title: "צופרים",
-        url: "sirens",
+        url: "/sirens",
         icon: SirensIcon,
         active: false,
     },
     {
         title: "כוחות",
-        url: "forces",
+        url: "/forces",
         icon: ForcesIcon,
         active: false,
     }

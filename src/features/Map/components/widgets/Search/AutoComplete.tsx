@@ -1,5 +1,5 @@
-import {AutoCompleteItem} from "@/features/Map/components/widgets/Search/AutoCompleteItem.tsx";
-import {EmptyResults} from "@/features/Map/components/widgets/Search/EmptyResults.tsx";
+import {AutoCompleteItem} from "@/features/Map/components/widgets/Search/AutoCompleteItem";
+import {EmptyResults} from "@/features/Map/components/widgets/Search/EmptyResults";
 import {memo} from "react";
 
 interface AutoCompleteProps {

@@ -2,7 +2,7 @@ import {
     FeatureLayer,
     GraphicLayer,
     layerName,
-} from "@/features/Map/types/map.type.ts";
+} from "@/features/Map/types/map.type";
 import {StateCreator} from "zustand";
 import {MapStore} from "./mapStore";
 

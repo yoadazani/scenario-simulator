@@ -1,4 +1,4 @@
-import { useWidget } from "@/features/Map/hooks/useWidget.ts";
+import { useWidget } from "@/features/Map/hooks/useWidget";
 import { Position } from "@/features/Map/types";
 import Layers from "@/assets/icons/layers.svg?react";
 import { useState } from "react";
@@ -8,11 +8,11 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet.tsx";
+} from "@/components/ui/sheet";
 import { useShallow } from "zustand/shallow";
-import { layer, layerName } from "@/features/Map/types/map.type.ts";
+import { layer, layerName } from "@/features/Map/types/map.type";
 import LayersControlItem from "./LayersControlItem";
-import {useMapStore} from "@/features/Map/stores/mapStore.ts";
+import {useMapStore} from "@/features/Map/stores/mapStore";
 
 interface LayersControl {
   position?: Position;

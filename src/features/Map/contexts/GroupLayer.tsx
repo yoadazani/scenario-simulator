@@ -1,6 +1,6 @@
 import GroupLayer from "@arcgis/core/layers/GroupLayer";
 import { createContext, ReactNode, useEffect, useRef } from "react";
-import { useParentLayer } from "@/features/Map/hooks/useParentLayer.ts";
+import { useParentLayer } from "@/features/Map/hooks/useParentLayer";
 
 interface GroupChildProps {
   groupLayer: GroupLayer;

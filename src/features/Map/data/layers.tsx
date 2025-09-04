@@ -3,10 +3,10 @@ import {
     OnlyFeatures,
     OnlyGraphics,
     RocketAttack
-} from "@/features/Map/types/map.type.ts";
-import {PolygonLayers} from "@/features/Map/components/Layers/PolygonLayers.tsx";
-import {EllipseLayers} from "@/features/Map/components/Layers/EllipseLayers.tsx";
-import {PointLayers} from "@/features/Map/components/Layers/PointLayers.tsx";
+} from "@/features/Map/types/map.type";
+import {PolygonLayers} from "@/features/Map/components/Layers/PolygonLayers";
+import {EllipseLayers} from "@/features/Map/components/Layers/EllipseLayers";
+import {PointLayers} from "@/features/Map/components/Layers/PointLayers";
 import {Event} from "@/features/Events/types";
 
 

@@ -13,11 +13,11 @@ import {
     rectangleSymbol,
 } from "@/features/Map/constants/symbols";
 import {useShallow} from "zustand/shallow";
-import {useMapStore} from "@/features/Map/stores/mapStore.ts";
+import {useMapStore} from "@/features/Map/stores/mapStore";
 import Measurement from "@/features/Map/components/widgets/Measurement";
 import Search from "@/features/Map/components/widgets/Search";
 import {memo, Suspense} from "react";
-import MapFallback from "@/components/shared/MapFallback.tsx";
+import MapFallback from "@/components/shared/Skeletons/MapFallback.tsx";
 
 function Map() {
     const {updateGraphic, removeGraphic} = useMapStore(

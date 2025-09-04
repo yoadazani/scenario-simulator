@@ -2,7 +2,7 @@ import {StateCreator} from "zustand";
 import streetThumbnail from "@/assets/thumbnails/street.png";
 import satelliteThumbnail from "@/assets/thumbnails/satellite.png";
 import vectorThumbnail from "@/assets/thumbnails/vector.png";
-import {BaseMapGalleryItem} from "@/features/Map/types/map.type.ts";
+import {BaseMapGalleryItem} from "@/features/Map/types/map.type";
 import {MapStore} from "./mapStore";
 
 const streetUrl = import.meta.env.VITE_STREET_MAP_URL;

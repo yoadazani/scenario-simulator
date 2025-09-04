@@ -1,16 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import BasemapGalleryViewModel from "@arcgis/core/widgets/BasemapGallery/BasemapGalleryViewModel";
 import BasemapGalleryItem from "@arcgis/core/widgets/BasemapGallery/support/BasemapGalleryItem";
-import { useWidget } from "@/features/Map/hooks/useWidget.ts";
-import { useMap } from "@/features/Map/contexts/MapContainer.tsx";
+import { useWidget } from "@/features/Map/hooks/useWidget";
+import { useMap } from "@/features/Map/contexts/MapContainer";
 import Basemap from "@arcgis/core/Basemap";
 import TileLayer from "@arcgis/core/layers/TileLayer";
 import MapGallery from "@/assets/icons/map-gallery.svg?react";
 import { Position } from "@/features/Map/types";
 import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
 import { useShallow } from "zustand/shallow";
-import BasemapItem from "./BasemapItem.tsx";
-import {useMapStore} from "@/features/Map/stores/mapStore.ts";
+import BasemapItem from "./BasemapItem";
+import {useMapStore} from "@/features/Map/stores/mapStore";
 
 
 const createBaseLayer = (

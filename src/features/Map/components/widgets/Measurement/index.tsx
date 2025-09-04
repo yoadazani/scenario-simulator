@@ -1,12 +1,12 @@
-import {useMap} from "@/features/Map/contexts/MapContainer.tsx";
-import {useWidget} from "@/features/Map/hooks/useWidget.ts";
+import {useMap} from "@/features/Map/contexts/MapContainer";
+import {useWidget} from "@/features/Map/hooks/useWidget";
 import Draw from "@arcgis/core/views/draw/Draw";
 import {useCallback, useEffect, useRef, useState} from "react";
 import Polyline from "@arcgis/core/geometry/Polyline";
 import TextSymbol from "@arcgis/core/symbols/TextSymbol";
 import Graphic from "@arcgis/core/Graphic";
-import {useGraphic} from "@/features/Map/hooks/useGraphic.ts";
-import {useGraphicsLayer} from "@/features/Map/contexts/GraphicLayer.tsx";
+import {useGraphic} from "@/features/Map/hooks/useGraphic";
+import {useGraphicsLayer} from "@/features/Map/contexts/GraphicLayer";
 import Ruler from "@/assets/icons/ruler.svg?react";
 import Collection from "@arcgis/core/core/Collection";
 import {
@@ -17,9 +17,9 @@ import {
     formatDistance
 } from "@/features/Map/utils";
 import CIMSymbol from "@arcgis/core/symbols/CIMSymbol";
-import {labelSymbol, rulerSymbol} from "@/features/Map/constants/symbols.ts";
-import {Input} from "@/components/ui/input.tsx";
-import {Label} from "@/components/ui/label.tsx";
+import {labelSymbol, rulerSymbol} from "@/features/Map/constants/symbols";
+import {Input} from "@/components/ui/input";
+import {Label} from "@/components/ui/label";
 
 const Measurement = () => {
     const {mapView} = useMap();

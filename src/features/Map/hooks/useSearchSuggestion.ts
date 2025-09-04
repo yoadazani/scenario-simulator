@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useDebounce } from "@/hooks/useDebounce.ts";
+import { useDebounce } from "@/hooks/useDebounce";
 import SearchViewModel from "@arcgis/core/widgets/Search/SearchViewModel";
 
 export const useSearchSuggestions = () => {

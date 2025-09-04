@@ -1,13 +1,10 @@
 import {Suspense} from "react";
+import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@/components/ui/resizable";
+import AppFallback from "@/components/shared/Skeletons/AppFallback.tsx";
+import AppSidebar from "@/components/shared/AppSidebar";
+import {Outlet} from "@tanstack/react-router";
+import {TanStackRouterDevtools} from "@tanstack/react-router-devtools";
 import Map from "@/features/Map/components";
-import AppFallback from "@/components/shared/AppFallback.tsx";
-
-import {
-    ResizableHandle,
-    ResizablePanel,
-    ResizablePanelGroup,
-} from "@/components/ui/resizable"
-import AppSidebar from "@/components/shared/AppSidebar.tsx";
 
 function App() {
     return (
@@ -20,10 +17,12 @@ function App() {
                 <ResizablePanel defaultSize={65} maxSize={100}>
                     <AppSidebar>
                         <div className="flex flex-col items-center justify-center gap-2 p-4">
+                            <Outlet/>
                         </div>
                     </AppSidebar>
                 </ResizablePanel>
             </ResizablePanelGroup>
+            <TanStackRouterDevtools/>
         </Suspense>
     )
 }

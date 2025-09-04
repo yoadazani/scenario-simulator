@@ -1,5 +1,5 @@
 import {queryOptions} from "@tanstack/react-query";
-import {getEllipses} from "@/features/Map/api/ellipses.ts";
+import {getEllipses} from "@/features/Map/api/ellipses";
 
 const EllipsesQueryOptions = queryOptions({
   queryKey: ["ellipses"],

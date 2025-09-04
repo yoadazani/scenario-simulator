@@ -1,5 +1,5 @@
 import {queryOptions} from "@tanstack/react-query";
-import {autocomplete} from "@/features/Map/api/geocoding.ts";
+import {autocomplete} from "@/features/Map/api/geocoding";
 
 export const getAutocompleteQueryOptions = (search?: string) => {
     return queryOptions({

@@ -1,6 +1,6 @@
-import {DistrictAndSubdistrict} from "@/features/Map/types/map.type.ts";
-import MapPolygon from "@/features/Map/components/Graphics/Polygon.tsx";
-import {labelSymbol} from "@/features/Map/constants/symbols.ts";
+import {DistrictAndSubdistrict} from "@/features/Map/types/map.type";
+import MapPolygon from "@/features/Map/components/Graphics/Polygon";
+import {labelSymbol} from "@/features/Map/constants/symbols";
 
 export const PolygonLayers = (props: {
     featureData: DistrictAndSubdistrict[],

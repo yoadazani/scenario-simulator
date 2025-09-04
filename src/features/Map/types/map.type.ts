@@ -1,4 +1,4 @@
-import {MapLayersState} from "@/features/Map/stores/mapLayersSlice.ts";
+import {MapLayersState} from "@/features/Map/stores/mapLayersSlice";
 import {KeyOfType, SendingStatusEnum} from "@/types";
 import SimpleFillSymbolProperties = __esri.SimpleFillSymbolProperties;
 import SimpleMarkerSymbolProperties = __esri.SimpleMarkerSymbolProperties;

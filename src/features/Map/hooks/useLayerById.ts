@@ -1,4 +1,4 @@
-import {useMap} from "@/features/Map/contexts/MapContainer.tsx";
+import {useMap} from "@/features/Map/contexts/MapContainer";
 import {useMemo} from "react";
 
 export const useLayerById = (layerId: string) => {

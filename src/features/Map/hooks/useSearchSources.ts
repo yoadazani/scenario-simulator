@@ -3,12 +3,12 @@ import LayerSearchSource from "@arcgis/core/widgets/Search/LayerSearchSource";
 import LocatorSearchSource from "@arcgis/core/widgets/Search/LocatorSearchSource";
 import Collection from "@arcgis/core/core/Collection";
 import esriRequest from "@arcgis/core/request";
-import { AutoCompleteLocation } from "@/features/Map/types/geocoding.type.ts";
+import { AutoCompleteLocation } from "@/features/Map/types/geocoding.type";
 import { SEARCH_PLACEHOLDERS } from "@/features/Map/constants";
 import Graphic from "@arcgis/core/Graphic";
 import Extent from "@arcgis/core/geometry/Extent";
 import Point from "@arcgis/core/geometry/Point";
-import {useMap} from "@/features/Map/contexts/MapContainer.tsx";
+import {useMap} from "@/features/Map/contexts/MapContainer";
 
 const autoCompleteApiBaseUrl = import.meta.env.VITE_AUTOCOMPLETE_API_BASE_URL;
 const geocodingApiBaseUrl = import.meta.env.VITE_GEOCODING_API_BASE_URL;

@@ -1,10 +1,10 @@
-import {tryCatch} from "@/lib/utils.ts";
+import {tryCatch} from "@/lib/utils";
 import axios from "axios";
 import {
     AutoCompleteLocation,
     GeocodingLocation,
     ReverseGeocodingLocation
-} from "@/features/Map/types/geocoding.type.ts";
+} from "@/features/Map/types/geocoding.type";
 
 const privateKey = import.meta.env.VITE_LOCATIONIQ_PRIVATE_KEY;
 const autoCompleteApiBaseUrl = import.meta.env.VITE_AUTOCOMPLETE_API_BASE_URL;

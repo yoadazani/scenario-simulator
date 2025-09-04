@@ -1,4 +1,4 @@
-import {useParentLayer} from "@/features/Map/hooks/useParentLayer.ts";
+import {useParentLayer} from "@/features/Map/hooks/useParentLayer";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 import FeatureReductionCluster from "@arcgis/core/layers/support/FeatureReductionCluster";
 import FeatureReductionSelection from "@arcgis/core/layers/support/FeatureReductionSelection";
@@ -6,9 +6,9 @@ import {createContext, ReactNode, RefObject, useEffect, useRef,} from "react";
 import SimpleMarkerSymbol from "@arcgis/core/symbols/SimpleMarkerSymbol";
 import Graphic from "@arcgis/core/Graphic";
 import PictureMarkerSymbol from "@arcgis/core/symbols/PictureMarkerSymbol";
-import {labelSymbol, markerSymbol} from "@/features/Map/constants/symbols.ts";
+import {labelSymbol, markerSymbol} from "@/features/Map/constants/symbols";
 import TextSymbol from "@arcgis/core/symbols/TextSymbol";
-import {PopupContentTemplate} from "@/features/Map/constants/popup_templates.ts";
+import {PopupContentTemplate} from "@/features/Map/constants/popup_templates";
 
 interface FeatureChildProps {
     featureLayer: RefObject<{
