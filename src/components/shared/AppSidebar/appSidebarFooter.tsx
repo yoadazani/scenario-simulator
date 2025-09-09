@@ -10,7 +10,7 @@ import {
 import {Link} from "@tanstack/react-router";
 import {LogOutIcon} from "lucide-react";
 
-export const AppSidebarFooter = memo(() => {
+const AppSidebarFooter = () => {
     return <SidebarFooter className="border-t border-gray-200 dark:border-gray-800 px-0">
         <SidebarGroup>
             <SidebarGroupContent>
@@ -38,4 +38,6 @@ export const AppSidebarFooter = memo(() => {
             </SidebarGroupContent>
         </SidebarGroup>
     </SidebarFooter>;
-})
+}
+
+export default memo(AppSidebarFooter)

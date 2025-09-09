@@ -1,5 +1,4 @@
 import {SidebarItem} from "@/data/sidebar-items";
-import {useLocation} from "@tanstack/react-router";
 import {
     SidebarContent,
     SidebarGroup,
@@ -8,9 +7,9 @@ import {
     SidebarSeparator
 } from "@/components/ui/sidebar";
 import {AppSidebarMenuItem} from "@/components/shared/AppSidebar/appSidebarMenuItem";
+import {memo} from "react";
 
-export const AppSidebarContent = (props: { sidebarItems: SidebarItem[] }) => {
-    const {pathname} = useLocation()
+const AppSidebarContent = (props: { sidebarItems: SidebarItem[] }) => {
     return <SidebarContent>
         <SidebarSeparator/>
         <SidebarGroup>
@@ -18,7 +17,7 @@ export const AppSidebarContent = (props: { sidebarItems: SidebarItem[] }) => {
                 <SidebarMenu className="gap-2">
                     {
                         props.sidebarItems.map(item => {
-                            return <AppSidebarMenuItem key={item.title} pathname={pathname} item={item}/>
+                            return <AppSidebarMenuItem key={item.title} item={item}/>
                         })
                     }
                 </SidebarMenu>
@@ -26,3 +25,5 @@ export const AppSidebarContent = (props: { sidebarItems: SidebarItem[] }) => {
         </SidebarGroup>
     </SidebarContent>;
 }
+
+export default memo(AppSidebarContent)

@@ -13,12 +13,10 @@ function App() {
                 <ResizablePanel defaultSize={35} maxSize={50}>
                     <Map/>
                 </ResizablePanel>
-                <ResizableHandle withHandle/>
+                <ResizableHandle withHandle className="bg-muted hover:bg-border hover:duration-500 p-1"/>
                 <ResizablePanel defaultSize={65} maxSize={100}>
                     <AppSidebar>
-                        <div className="flex flex-col items-center justify-center gap-2 p-4">
-                            <Outlet/>
-                        </div>
+                        <Outlet/>
                     </AppSidebar>
                 </ResizablePanel>
             </ResizablePanelGroup>

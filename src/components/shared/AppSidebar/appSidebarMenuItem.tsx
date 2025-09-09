@@ -1,13 +1,14 @@
 import {memo} from "react";
 import {SidebarItem} from "@/data/sidebar-items";
 import {SidebarMenuButton, SidebarMenuItem} from "@/components/ui/sidebar";
-import {Link} from "@tanstack/react-router";
+import {Link, useLocation} from "@tanstack/react-router";
 
-export const AppSidebarMenuItem = memo((props: { pathname: string, item: SidebarItem }) => {
+export const AppSidebarMenuItem = memo((props: { item: SidebarItem }) => {
+    const {pathname} = useLocation()
     return <SidebarMenuItem>
         <SidebarMenuButton
             size="lg"
-            isActive={props.pathname.includes(props.item.url)}
+            isActive={pathname.includes(props.item.url)}
             tooltip={props.item.title}
             className="flex-row items-center justify-between"
         >
