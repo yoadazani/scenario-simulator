@@ -27,7 +27,7 @@ const Layers = () => {
         queries: [
             DistrictsQueryOptions,
             SubDistrictsQueryOptions,
-            EventsQueryOptions,
+            EventsQueryOptions(),
             EllipsesQueryOptions,
         ],
     });

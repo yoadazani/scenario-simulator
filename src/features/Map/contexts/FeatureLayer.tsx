@@ -45,7 +45,7 @@ const FeaturesLayer = ({
     });
     const featureReductionCluster = useRef<FeatureReductionCluster>(
         new FeatureReductionCluster({
-            clusterRadius: 100,
+            clusterRadius: 200,
             clusterMinSize: 24,
             clusterMaxSize: 24,
             labelingInfo: [

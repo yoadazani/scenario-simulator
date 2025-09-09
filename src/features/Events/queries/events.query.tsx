@@ -1,9 +1,10 @@
 import {queryOptions} from "@tanstack/react-query";
 import {getEvents} from "@/features/Events/api/events";
+import {Filters} from "@/hooks/useFilters.ts";
 
-const EventsQueryOptions = queryOptions({
-    queryKey: ["events"],
-    queryFn: getEvents,
+const EventsQueryOptions = (filters?: Filters) => queryOptions({
+    queryKey: ["events", filters],
+    queryFn: () => getEvents(filters)
 });
 
 export {EventsQueryOptions};

@@ -31,7 +31,7 @@ export type Event = {
         fatalInjuries?: number; // הרוגים
     }
     address?: string;
-    scheduling_sending_time: Date;
+    schedulingSendingTime: Date;
     sendingStatus: SendingStatusEnum;
     source: number;
     isVibe?: boolean | null;

@@ -52,7 +52,7 @@ export type Location = {
 
 export type RocketAttack = {
     id: string;
-    scheduling_sending_time: Date;
+    schedulingSendingTime: Date;
     sendingStatus?: SendingStatusEnum;
 
     MissileType: number;
