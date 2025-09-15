@@ -5,7 +5,11 @@ import {useMemo} from "react";
 
 export const Route = createFileRoute('/events')({
     component: RouteComponent,
-    validateSearch: () => ({} as Filters),
+    validateSearch: (search: Filters) => ({
+        _sort: search._sort,
+        _page: Number(search._page) || 1,
+        _per_page: Number(search._per_page) || 50,
+    }),
 })
 
 function RouteComponent() {

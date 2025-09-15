@@ -19,8 +19,8 @@ const AppSidebar = ({children}: { children: ReactNode }) => {
                 <AppSidebarFooter/>
             </Sidebar>
             <main className="overflow-auto">
-                <SidebarTrigger variant="default" className="rounded-none rounded-bl-md flex-shrink-0"/>
-                <div className="px-4 pt-4">
+                <SidebarTrigger variant="default" className="rounded-none rounded-bl-md flex-shrink-0 fixed z-50"/>
+                <div className="px-4 py-8">
                     {children}
                 </div>
             </main>

@@ -2,6 +2,8 @@ import {getRouteApi, RegisteredRouter, RouteIds, useLocation, useNavigate} from 
 
 export type Filters = {
     _sort: string,
+    _page: number,
+    _per_page: number,
 }
 
 export const useFilters = <T extends RouteIds<RegisteredRouter["routeTree"]>>(routeId: T) => {

@@ -3,163 +3,230 @@ import {Event} from "@/features/Events/types";
 import {convertToIsraelDateFormat} from "@/lib/utils.ts";
 import Translation from "@/components/shared/Translation.tsx";
 
-const columnHelper = createColumnHelper<Event>()
+
+const columnDefHelper = createColumnHelper<Event>();
 
 export const eventsColumnDef = [
-    columnHelper.accessor('event.id', {
+    columnDefHelper.accessor("event.id", {
         header: "מזהה",
         cell: ({getValue}) => getValue(),
         size: 300,
-        maxSize: 300
+        maxSize: 300,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.name', {
+    columnDefHelper.accessor('event.name', {
         header: "שם האירוע",
         cell: ({getValue}) => getValue(),
+        enableHiding: false,
         size: 200,
         maxSize: 300
     }),
-    columnHelper.accessor('event.location.latitude', {
+    columnDefHelper.accessor('event.location.latitude', {
         header: "קו אורך",
         cell: ({getValue}) => getValue(),
+        enableHiding: false,
         size: 200,
         maxSize: 250
     }),
-    columnHelper.accessor('event.location.longitude', {
+    columnDefHelper.accessor('event.location.longitude', {
         header: "קו רוחב",
         cell: ({getValue}) => getValue(),
+        enableHiding: false,
         size: 200,
         maxSize: 250
     }),
-    columnHelper.accessor('address', {
+    columnDefHelper.accessor('address', {
         header: "כתובת",
-        cell: ({getValue}) => getValue(),
+        cell: ({getValue}) => getValue() ?? '-',
+        enableHiding: false,
         size: 200,
         maxSize: 500
     }),
-    columnHelper.accessor('schedulingSendingTime', {
+    columnDefHelper.accessor('schedulingSendingTime', {
         header: "מועד שליחה לפוקוס",
         cell: ({getValue}) => convertToIsraelDateFormat(getValue()),
+        enableHiding: false,
         size: 200,
         maxSize: 300
     }),
-    columnHelper.accessor('sendingStatus', {
+    columnDefHelper.accessor('sendingStatus', {
         header: "סטטוס שליחה",
         cell: ({getValue}) => <Translation>{getValue()}</Translation>,
+        enableHiding: false,
         size: 150,
         maxSize: 250
     }),
-    columnHelper.accessor('event.startDate', {
+    columnDefHelper.accessor('event.startDate', {
         header: "תאריך התחלה",
         cell: ({getValue}) => convertToIsraelDateFormat(getValue()),
         size: 150,
-        maxSize: 250
+        maxSize: 250,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.endDate', {
+    columnDefHelper.accessor('event.endDate', {
         header: "תאריך סיום",
         cell: ({getValue}) => convertToIsraelDateFormat(getValue()),
         size: 150,
-        maxSize: 250
+        maxSize: 250,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.responsibleJournal', {
+    columnDefHelper.accessor('event.responsibleJournal', {
         header: "יומן מנהל האירוע",
         cell: ({getValue}) => getValue(),
+        enableHiding: false,
         size: 200,
         maxSize: 350
     }),
-    columnHelper.accessor('event.permittedJournal', {
+    columnDefHelper.accessor(row => row.event.permittedJournal ?? '', {
+        id: 'event_permittedJournal',
         header: "יומנים מורשים לצפייה",
         cell: ({getValue}) => getValue() ?? "-",
         size: 200,
-        maxSize: 500
+        maxSize: 500,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.permittedEditingJournalsIds', {
+    columnDefHelper.accessor(row => row.event.permittedEditingJournalsIds ?? '', {
+        id: 'event_permittedEditingJournalsIds',
         header: "יומנים מורשים לעריכה",
         cell: ({getValue}) => getValue() ?? "-",
         size: 200,
-        maxSize: 500
+        maxSize: 500,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.status', {
+    columnDefHelper.accessor('event.status', {
         header: "סטטוס",
         cell: ({getValue}) => getValue(),
         size: 150,
-        maxSize: 200
+        maxSize: 200,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.generator', {
+    columnDefHelper.accessor('event.generator', {
         header: "מחולל",
         cell: ({getValue}) => getValue(),
         size: 150,
-        maxSize: 200
+        maxSize: 200,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.eventType', {
+    columnDefHelper.accessor('event.eventType', {
         header: "סוג האירוע",
         cell: ({getValue}) => getValue(),
         size: 150,
-        maxSize: 200
+        maxSize: 200,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.isUrbanArea', {
+    columnDefHelper.accessor('event.isUrbanArea', {
         header: "שטח פתוח",
         cell: ({getValue}) => getValue() ? "כן" : "לא",
         size: 150,
-        maxSize: 200
+        maxSize: 200,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.damageLevel', {
+    columnDefHelper.accessor('event.damageLevel', {
         header: "רמת נזק",
-        cell: ({getValue}) => getValue(),
+        cell: ({getValue}) => getValue() ?? '-',
         size: 150,
-        maxSize: 200
+        maxSize: 200,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.lifeSavingPotential', {
+    columnDefHelper.accessor('event.lifeSavingPotential', {
         header: "פוטנצייל הצלת חיים",
-        cell: ({getValue}) => getValue(),
+        cell: ({getValue}) => getValue() ?? '-',
         size: 200,
-        maxSize: 250
+        maxSize: 250,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.allocatedStatus', {
+    columnDefHelper.accessor('event.allocatedStatus', {
         header: "סטטוס ציוות",
-        cell: ({getValue}) => getValue(),
+        cell: ({getValue}) => getValue() ?? '-',
         size: 150,
-        maxSize: 250
+        maxSize: 250,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.classification', {
+    columnDefHelper.accessor('event.classification', {
         header: "חשיבות",
-        cell: ({getValue}) => getValue(),
+        cell: ({getValue}) => getValue() ?? '-',
         size: 150,
-        maxSize: 200
+        maxSize: 200,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.seriousInjuries', {
+    columnDefHelper.accessor('event.seriousInjuries', {
         header: "נפגעי חרדה",
         cell: ({getValue}) => getValue(),
         size: 150,
-        maxSize: 250
+        maxSize: 250,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.minorInjuries', {
+    columnDefHelper.accessor('event.minorInjuries', {
         header: "פצועים קל",
         cell: ({getValue}) => getValue(),
         size: 150,
-        maxSize: 200
+        maxSize: 200,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.moderateInjuries', {
+    columnDefHelper.accessor('event.moderateInjuries', {
         header: "פצועים בינוני",
         cell: ({getValue}) => getValue(),
         size: 150,
-        maxSize: 250
+        maxSize: 250,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.severeInjuries', {
+    columnDefHelper.accessor('event.severeInjuries', {
         header: "פצועים קשה",
         cell: ({getValue}) => getValue(),
         size: 150,
-        maxSize: 250
+        maxSize: 250,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.trappedInjuries', {
+    columnDefHelper.accessor('event.trappedInjuries', {
         header: "לכודים",
         cell: ({getValue}) => getValue(),
         size: 200,
-        maxSize: 100
+        maxSize: 100,
+        meta: {
+            visible: false
+        }
     }),
-    columnHelper.accessor('event.fatalInjuries', {
+    columnDefHelper.accessor('event.fatalInjuries', {
         header: "הרוגים",
         cell: ({getValue}) => getValue(),
         size: 200,
-        maxSize: 100
+        maxSize: 100,
+        meta: {
+            visible: false
+        }
     }),
 ]

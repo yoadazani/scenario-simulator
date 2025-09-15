@@ -8,3 +8,5 @@ export enum SendingStatusEnum {
     Failed = "Failed",
     On_Hold = "On_Hold"
 }
+
+export type WithSendingStatus = { sendingStatus: SendingStatusEnum }

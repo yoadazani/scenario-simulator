@@ -4,3 +4,5 @@ export const TABLE_ROW_COLOR = {
     "Failed": "bg-red-100",
     "On_Hold": "bg-muted"
 }
+
+export const TABLE_PAGE_SIZES = [10, 50, 100, 200, 300, 500]
