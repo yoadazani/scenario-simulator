@@ -21,44 +21,46 @@ type TableActions = {
 
 type TableStore = TableState & TableActions
 
-export const useTableStore = (setFilters?: () => Promise<void>, filters?: Partial<Filters>) => create<TableStore>()(
+export const useTableStore = (setFilters?: (partialFilters: Partial<Filters>) => Promise<void>, filters?: Partial<Filters>) => create<TableStore>()(
     persist(
-        immer((set, get) => ({
-            columnVisibility: defaultColumnVisibility,
-            pagination: paginationToState(filters?._page, filters?._per_page),
-            sorting: sortByToState(filters?._sort),
-            setColumnVisibility: (updaterOrValue) => {
-                const newColumnVisibility = typeof updaterOrValue === 'function' ? updaterOrValue(get().columnVisibility) : updaterOrValue
-                set((state) => {
-                    state.columnVisibility = newColumnVisibility
-                })
-            },
-            setPagination: (updaterOrValue) => {
-                const newPaginationState = typeof updaterOrValue === "function" ? updaterOrValue(get().pagination) : updaterOrValue
-                const pagination = stateToPagination(newPaginationState)
+        immer((set, get) => {
+            return {
+                columnVisibility: defaultColumnVisibility,
+                pagination: paginationToState(filters?._page, filters?._per_page),
+                sorting: sortByToState(filters?._sort),
+                setColumnVisibility: (updaterOrValue) => {
+                    const newColumnVisibility = typeof updaterOrValue === 'function' ? updaterOrValue(get().columnVisibility) : updaterOrValue
+                    set((state) => {
+                        state.columnVisibility = newColumnVisibility
+                    })
+                },
+                setPagination: (updaterOrValue) => {
+                    const newPaginationState = typeof updaterOrValue === "function" ? updaterOrValue(get().pagination) : updaterOrValue
+                    const pagination = stateToPagination(newPaginationState)
 
-                set((state) => {
-                    state.pagination = newPaginationState
-                })
+                    set((state) => {
+                        state.pagination = newPaginationState
+                    })
 
-                return setFilters({
-                    _page: pagination?._page,
-                    _per_page: pagination?._per_page,
-                })
-            },
-            setSorting: (updaterOrValue) => {
-                const newSortingState = typeof updaterOrValue === "function" ? updaterOrValue(get().sorting) : updaterOrValue
-                const sorting = stateToSortBy(newSortingState)
+                    return setFilters?.({
+                        _page: pagination?._page,
+                        _per_page: pagination?._per_page,
+                    })
+                },
+                setSorting: (updaterOrValue) => {
+                    const newSortingState = typeof updaterOrValue === "function" ? updaterOrValue(get().sorting) : updaterOrValue
+                    const sorting = stateToSortBy(newSortingState)
 
-                set((state) => {
-                    state.sorting = newSortingState
-                })
+                    set((state) => {
+                        state.sorting = newSortingState
+                    })
 
-                return setFilters({
-                    _sort: sorting?._sort
-                })
-            },
-        })),
+                    return setFilters?.({
+                        _sort: sorting?._sort
+                    })
+                },
+            }
+        }),
         {
             name: "events-table-store",
             partialize: (state) => ({
