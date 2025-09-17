@@ -1,8 +1,8 @@
 {
   "name": "esri-react",
   "private": true,
-  "version": "0.0.0",
-  "buildDate": "03/09/2025",
+  "version": "0.0.1",
+  "buildDate": "17/09/2025",
   "type": "module",
   "scripts": {
     "start": "concurrently -c \"blue,green\" \"npm:start:*\"",

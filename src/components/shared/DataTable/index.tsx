@@ -1,5 +1,5 @@
 import '@tanstack/react-table'
-import {useCallback, useMemo, useState} from "react";
+import {useMemo} from "react";
 import {
     ColumnDef,
     flexRender,
@@ -9,13 +9,10 @@ import {
     SortingState,
     Updater,
     useReactTable,
-    VisibilityState,
+    VisibilityState
 } from "@tanstack/react-table"
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table"
+import {Table, TableBody, TableHeader, TableRow} from "@/components/ui/table"
 import {SendingStatusEnum, WithSendingStatus} from "@/types";
-import {useFilters} from "@/hooks/useFilters.ts";
-import {RegisteredRouter, RouteIds} from "@tanstack/react-router";
-import {paginationToState, sortByToState, stateToPagination, stateToSortBy} from "@/lib/utils.ts";
 import {TABLE_ROW_COLOR} from "@/constants";
 import SortingIndicator from "@/components/shared/DataTable/SortingIndicator.tsx";
 import ResizeHandler from "@/components/shared/DataTable/ResizeHandler.tsx";
@@ -23,58 +20,52 @@ import DataTableView from "@/components/shared/DataTable/DataTableView.tsx";
 import DataTablePagination from "@/components/shared/DataTable/DataTablePagination.tsx";
 import DataTableActions from "@/components/shared/DataTable/DataTableActions.tsx";
 import DataTableEmptyMessage from "@/components/shared/DataTable/DataTableEmptyMessage";
+import {closestCorners, DndContext} from "@dnd-kit/core";
+import {horizontalListSortingStrategy, SortableContext} from "@dnd-kit/sortable";
+import {restrictToHorizontalAxis} from "@dnd-kit/modifiers";
+import {useDnd} from "@/hooks/use-dnd.ts";
+import {DraggableHeader} from "@/components/shared/DataTable/DraggableHeader.tsx";
+import {DragAlongCell} from "@/components/shared/DataTable/DragAlongCell.tsx";
+import {ColumnDragOverlay} from "@/components/shared/DataTable/ColumnDragOverlay.tsx";
 
 declare module '@tanstack/react-table' {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     interface ColumnMeta<TData extends RowData, TValue> {
-        visible: boolean
+        filterKey?: keyof TData
+        filterVariant?: 'text' | 'number' | 'date' | 'select' | 'multi-select' | 'range' | 'datetime-range'
+        filterOptions?: {
+            label: string
+            value: string | number
+        }[]
     }
 }
 
 interface DataTableProps<TData, TValue> {
-    routeId: RouteIds<RegisteredRouter["routeTree"]>,
     columns: ColumnDef<TData, TValue>[],
     data: TData[],
     rowCount: number,
     columnVisibility: VisibilityState,
-    setColumnVisibility: (visibilityState: VisibilityState) => void,
+    setColumnVisibility: (updaterOrValue: Updater<VisibilityState>) => void,
+    pagination: PaginationState,
+    setPagination: (updater: Updater<PaginationState>) => void,
+    sorting?: SortingState,
+    setSorting?: (updater: Updater<SortingState>) => void,
 }
 
 const DataTable = <TData extends WithSendingStatus, TValue>(props: DataTableProps<TData, TValue>) => {
-    const {columns, data, routeId, columnVisibility, setColumnVisibility, rowCount} = props
-    const {setFilters, filters} = useFilters(routeId)
-    const sortingState = useMemo(() => {
-        return sortByToState(filters._sort)
-    }, [filters._sort])
-    const [columnOrder, setColumnOrder] = useState<string[]>(() =>
-        columns.map(c => c.id!)
-    )
-    const handleSorting = useCallback((updaterOrValue: Updater<SortingState>) => {
-        const newSortingState = typeof updaterOrValue === "function" ? updaterOrValue(sortingState) : updaterOrValue
-        const sorting = stateToSortBy(newSortingState)
-        return setFilters({
-            _sort: sorting?._sort
-        })
-    }, [filters._sort])
+    const {
+        columns,
+        data,
+        columnVisibility,
+        setColumnVisibility,
+        rowCount,
+        pagination,
+        setPagination,
+        sorting,
+        setSorting
+    } = props
 
-    const paginationState = useMemo(() => {
-        return paginationToState(filters._page, filters._per_page)
-    }, [filters._page, filters._per_page])
-
-    const handlePagination = useCallback((updaterOrValue: Updater<PaginationState>) => {
-        const newPaginationState = typeof updaterOrValue === "function" ? updaterOrValue(paginationState) : updaterOrValue
-        const pagination = stateToPagination(newPaginationState)
-        return setFilters({
-            _page: pagination?._page,
-            _per_page: pagination?._per_page,
-        })
-    }, [filters._page, filters._per_page])
-
-    const handleColumnVisibility = ((updaterOrValue: Updater<VisibilityState>) => {
-        const newColumnVisibility = typeof updaterOrValue === 'function' ? updaterOrValue(columnVisibility) : updaterOrValue
-        setColumnVisibility(newColumnVisibility)
-    })
-
+    const dnd = useDnd<string>(columns.map(col => col.id!))
     const table = useReactTable({
         data,
         columns,
@@ -87,15 +78,15 @@ const DataTable = <TData extends WithSendingStatus, TValue>(props: DataTableProp
         manualPagination: true,
         enableColumnResizing: true,
         enableHiding: true,
-        onSortingChange: handleSorting,
-        onPaginationChange: handlePagination,
-        onColumnVisibilityChange: handleColumnVisibility,
-        onColumnOrderChange: setColumnOrder,
+        onSortingChange: setSorting,
+        onPaginationChange: setPagination,
+        onColumnVisibilityChange: setColumnVisibility,
+        onColumnOrderChange: dnd.setColumnOrder,
         state: {
-            sorting: sortingState,
-            pagination: paginationState,
+            sorting: sorting,
+            pagination: pagination,
             columnVisibility: columnVisibility,
-            columnOrder: columnOrder
+            columnOrder: dnd.columnOrder
         },
     })
 
@@ -108,76 +99,80 @@ const DataTable = <TData extends WithSendingStatus, TValue>(props: DataTableProp
         <>
             <div className="flex justify-between items-center gap-2 py-2">
                 <DataTableView table={table} columnVisibility={columnVisibility}/>
-
                 <DataTableActions/>
             </div>
             <div className="rounded-md border overflow-auto h-[calc(100vh-10rem)]">
-                <Table className="h-full" style={{width: `${totalTableWidth}px`, tableLayout: 'fixed' as const}}>
-                    <TableHeader className="table-header-group sticky top-0 right-0 bg-stone-50">
-                        {table.getHeaderGroups().map((headerGroup) => (
-                            <TableRow key={headerGroup.id}>
-                                {headerGroup.headers.map((header) => {
-                                    return <TableHead
-                                        key={header.id}
-                                        className={`relative py-2 px-4 flex-row justify-between items-center w-full truncate ${
-                                            isAnyColumnResizing ? "" : "cursor-pointer"
-                                        }`}
-                                        colSpan={header.colSpan}
-                                        onDoubleClick={header.column.resetSize}
-                                        style={{
-                                            width: `${header.column.getSize()}px`,
-                                            flex: `0 0 ${header.column.getSize()}px`
-                                        }}
-                                    >
-                                        <div className="flex justify-between items-center">
-                                            {flexRender(
-                                                header.column.columnDef.header,
-                                                header.getContext()
-                                            )}
-                                            {header.column.getCanSort() && <SortingIndicator
-                                                toggleSorting={header.column.getToggleSortingHandler()!}
-                                                sortedDirection={header.column.getIsSorted()}
-                                            />}
-                                        </div>
+                <DndContext
+                    sensors={dnd.sensors}
+                    collisionDetection={closestCorners}
+                    modifiers={[restrictToHorizontalAxis]}
+                    onDragStart={dnd.onDragStart}
+                    onDragEnd={dnd.onDragEnd}
+                >
+                    <Table className="h-full"
+                           style={{
+                               width: `${totalTableWidth}px`,
+                               tableLayout: 'fixed' as const,
+                           }}>
+                        <TableHeader className="table-header-group sticky top-0 right-0 bg-stone-50">
+                            <SortableContext items={dnd.columnOrder} strategy={horizontalListSortingStrategy}>
+                                {table.getHeaderGroups().map((headerGroup) => (
+                                    <TableRow key={headerGroup.id}>
+                                        {headerGroup.headers.map((header) => {
+                                            return <DraggableHeader
+                                                key={header.id}
+                                                header={header}
+                                                isAnyColumnResizing={isAnyColumnResizing}
+                                            >
+                                                <div className="flex justify-between items-center">
+                                                    {flexRender(
+                                                        header.column.columnDef.header,
+                                                        header.getContext()
+                                                    )}
+                                                    {header.column.getCanSort() && <SortingIndicator
+                                                        toggleSorting={header.column.getToggleSortingHandler()!}
+                                                        sortedDirection={header.column.getIsSorted()}
+                                                    />}
+                                                </div>
 
-                                        {header.column.getCanResize() &&
-                                            <ResizeHandler
-                                                isResizing={header.column.getIsResizing()}
-                                                getResizeHandler={header.getResizeHandler()}
-                                            />
-                                        }
-                                    </TableHead>
-                                })}
-                            </TableRow>
-                        ))}
-                    </TableHeader>
-                    <TableBody>
-                        {table.getRowModel().rows?.length ? (
-                            table.getRowModel().rows.map((row) => (
-                                <TableRow
-                                    key={row.id}
-                                    data-state={row.getIsSelected() && "selected"}
-                                    className={`${TABLE_ROW_COLOR[row.original.sendingStatus as SendingStatusEnum]} text-center`}
-                                >
-                                    {row.getVisibleCells().map((cell) => (
-                                        <TableCell
-                                            key={cell.id}
-                                            className="truncate"
-                                            style={{
-                                                width: `${cell.column.getSize()}px`,
-                                                flex: `0 0 ${cell.column.getSize()}px`
-                                            }}
-                                        >
-                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                        </TableCell>
-                                    ))}
-                                </TableRow>
-                            ))
-                        ) : (
-                            <DataTableEmptyMessage colSpan={table.getAllColumns().length}/>
-                        )}
-                    </TableBody>
-                </Table>
+                                                {header.column.getCanResize() &&
+                                                    <ResizeHandler
+                                                        isResizing={header.column.getIsResizing()}
+                                                        getResizeHandler={header.getResizeHandler()}
+                                                    />
+                                                }
+                                            </DraggableHeader>
+                                        })}
+                                    </TableRow>
+                                ))}
+                            </SortableContext>
+                        </TableHeader>
+                        <TableBody>
+                            {table.getRowModel().rows?.length ? (
+                                table.getRowModel().rows.map((row) => (
+                                    <TableRow
+                                        key={row.id}
+                                        data-state={row.getIsSelected() && "selected"}
+                                        className={`${TABLE_ROW_COLOR[row.original.sendingStatus as SendingStatusEnum]} text-center`}
+                                    >
+                                        {row.getVisibleCells().map((cell) => (
+                                            <SortableContext
+                                                key={cell.id}
+                                                items={dnd.columnOrder}
+                                                strategy={horizontalListSortingStrategy}
+                                            >
+                                                <DragAlongCell cell={cell}/>
+                                            </SortableContext>
+                                        ))}
+                                    </TableRow>
+                                ))
+                            ) : (
+                                <DataTableEmptyMessage colSpan={table.getAllColumns().length}/>
+                            )}
+                        </TableBody>
+                    </Table>
+                    {dnd.activeId && <ColumnDragOverlay activeColumnId={dnd.activeId} table={table}/>}
+                </DndContext>
             </div>
 
             <DataTablePagination table={table}/>

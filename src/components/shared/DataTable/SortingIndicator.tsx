@@ -8,7 +8,7 @@ const SortingIndicator = (props: {
 }) => {
     const {toggleSorting, sortedDirection} = props;
 
-    const iconStyle = "size-4 text-primary hover:text-primary/50 transition-colors duration-200"
+    const iconStyle = "size-4 text-primary hover:text-primary/50 transition-colors duration-200 cursor-pointer"
 
     const Icons = useMemo(() => ({
         desc: <ArrowDown className={iconStyle} onClick={toggleSorting} />,

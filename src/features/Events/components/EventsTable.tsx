@@ -12,28 +12,42 @@ import {useTableStore} from "@/features/Events/stores/tableStore.ts";
 import {useShallow} from "zustand/shallow";
 
 const EventsTable = <T extends RouteIds<RegisteredRouter["routeTree"]>>({routeId}: { routeId: T }) => {
-    const {filters} = useFilters(routeId);
-    const {setColumnVisibility, columnVisibility} = useTableStore(useShallow((state) => {
+    const {setFilters, filters} = useFilters(routeId);
+    const {
+        setColumnVisibility,
+        columnVisibility,
+        pagination,
+        setPagination,
+        sorting,
+        setSorting
+    } = useTableStore(setFilters, filters)(useShallow((state) => {
         return {
             columnVisibility: state.columnVisibility,
             setColumnVisibility: state.setColumnVisibility,
+            pagination: state.pagination,
+            setPagination: state.setPagination,
+            sorting: state.sorting,
+            setSorting: state.setSorting,
         };
     }))
     const {data, isLoading, isError, error} = useQuery(EventsQueryOptions(filters as Filters))
-    const columns = useMemo(() => eventsColumnDef, [])
 
+    const columns = useMemo(() => eventsColumnDef, [])
     const responseData = useMemo(() => data as PaginationResponse<Event> | undefined, []);
 
     if (!responseData || isLoading) return <Skeleton className="h-[calc(100vh - 6rem)] w-full"/>
     if (isError) return <div>{error.message}</div>
 
     return <DataTable<Event, never>
-        routeId={routeId}
         columns={columns}
         data={responseData.data}
         rowCount={responseData.items}
         columnVisibility={columnVisibility}
         setColumnVisibility={setColumnVisibility}
+        pagination={pagination}
+        setPagination={setPagination}
+        sorting={sorting}
+        setSorting={setSorting}
     />
 }
 
