@@ -38,7 +38,7 @@ const EventsTable = <T extends RouteIds<RegisteredRouter["routeTree"]>>({routeId
     if (!responseData || isLoading) return <Skeleton className="h-[calc(100vh - 6rem)] w-full"/>
     if (isError) return <div>{error.message}</div>
 
-    return <DataTable<Event, never>
+    return <DataTable
         columns={columns}
         data={responseData.data}
         rowCount={responseData.items}

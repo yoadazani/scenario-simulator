@@ -4,9 +4,9 @@ import {DragOverlay} from "@dnd-kit/core";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table.tsx";
 import {flexRender} from "@tanstack/react-table";
 import {TABLE_ROW_COLOR} from "@/constants";
-import {SendingStatusEnum} from "@/types";
+import {SendingStatusEnum, WithSendingStatus} from "@/types";
 
-export const ColumnDragOverlay = <TData, >(props: { activeColumnId: string, table: TanstackTable<TData> }) => {
+export const ColumnDragOverlay = <TData extends WithSendingStatus>(props: { activeColumnId: string, table: TanstackTable<TData> }) => {
     const {activeColumnId, table} = props
     const activeIdHeader = useMemo(() => table.getFlatHeaders().find(header => header.column.id === activeColumnId)!, [activeColumnId])
 

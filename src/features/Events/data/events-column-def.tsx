@@ -1,4 +1,9 @@
-import {createColumnHelper} from "@tanstack/react-table";
+import {
+    AccessorFnColumnDef,
+    AccessorKeyColumnDefBase,
+    createColumnHelper,
+    RowData,
+} from "@tanstack/react-table";
 import {Event} from "@/features/Events/types";
 import {convertToIsraelDateFormat} from "@/lib/utils.ts";
 import Translation from "@/components/shared/Translation.tsx";
@@ -6,7 +11,7 @@ import Translation from "@/components/shared/Translation.tsx";
 
 const columnDefHelper = createColumnHelper<Event>();
 
-export const eventsColumnDef = [
+export const eventsColumnDef: (AccessorKeyColumnDefBase<Event, keyof RowData> | AccessorFnColumnDef<Event, keyof RowData>)[] = [
     columnDefHelper.accessor("event.id", {
         id: "event_id",
         header: "מזהה",
