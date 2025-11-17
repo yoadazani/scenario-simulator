@@ -1,5 +1,5 @@
 import {useSortable} from "@dnd-kit/sortable";
-import {CSSProperties, ReactNode} from "react";
+import {CSSProperties, memo, ReactNode, useMemo} from "react";
 import {CSS} from "@dnd-kit/utilities";
 import {TableHead} from "@/components/ui/table.tsx";
 import {Header} from "@tanstack/react-table";
@@ -11,22 +11,22 @@ interface DraggableHeaderProps<TData> {
     isAnyColumnResizing?: boolean
 }
 
-export const DraggableHeader = <TData, >({header, children, isAnyColumnResizing}: DraggableHeaderProps<TData>) => {
+const DraggableHeader = <TData, >({header, children, isAnyColumnResizing}: DraggableHeaderProps<TData>) => {
     const {attributes, listeners, setNodeRef, transform, transition, isDragging} = useSortable({
         id: header.column.id,
     });
 
-    const style: CSSProperties = {
+    const style: CSSProperties = useMemo(() => ({
         opacity: isDragging ? 0.5 : 1,
-        transform: CSS.Transform.toString(transform),
-        transition,
-        whiteSpace: "nowrap",
-        width: `${header.column.getSize()}px`,
-        flex: `0 0 ${header.column.getSize()}px`,
-        cursor: isAnyColumnResizing ? "default" : "cursor-pointer",
-        zIndex: isDragging ? 1 : 0,
-        position: "relative",
-    };
+            transform: CSS.Transform.toString(transform),
+            transition,
+            whiteSpace: "nowrap",
+            width: `${header.column.getSize()}px`,
+            flex: `0 0 ${header.column.getSize()}px`,
+            cursor: isAnyColumnResizing ? "default" : "cursor-pointer",
+            zIndex: isDragging ? 1 : 0,
+            position: "relative",
+    }), [isDragging, transform, transition, header.column.getSize(), isAnyColumnResizing]);
 
     return (
         <TableHead
@@ -47,3 +47,5 @@ export const DraggableHeader = <TData, >({header, children, isAnyColumnResizing}
         </TableHead>
     );
 };
+
+export default memo(DraggableHeader) as typeof DraggableHeader;

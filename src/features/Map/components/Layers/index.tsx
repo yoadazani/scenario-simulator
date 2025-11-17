@@ -14,6 +14,7 @@ import LayersControl from "@/features/Map/components/widgets/LayersControl";
 import {FeaturesGroupsData, OnlyFeatures, OnlyGraphics,} from "@/features/Map/types/map.type";
 import {featuresLayersComponents, graphicLayersComponents} from "@/features/Map/data/layers";
 import {useMapStore} from "@/features/Map/stores/mapStore";
+import {Event} from "@/features/Events/types";
 
 
 const Layers = () => {
@@ -38,7 +39,7 @@ const Layers = () => {
             subdistricts: {type: "polygon", data: subdistricts, symbol: subdestrictSymbol},
             ellipses: {type: "ellipse", data: ellipses, symbol: ellipseSymbol},
         },
-        features: {events: {type: "point", data: events, symbol: markerSymbol}},
+        features: {events: {type: "point", data: events as Event[], symbol: markerSymbol}},
     };
 
 

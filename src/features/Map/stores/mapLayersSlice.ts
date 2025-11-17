@@ -33,16 +33,16 @@ export const mapLayersSlice: StateCreator<
         districts: {
             type: "graphic",
             id: "districts",
-            title: "נפות",
+            title: "מחוזות",
             visible: false,
-            order: 0,
+            order: 1,
         },
         subdistricts: {
             type: "graphic",
             id: "subdistricts",
-            title: "מחוזות",
+            title: "נפות",
             visible: false,
-            order: 1,
+            order: 0,
         },
         ellipses: {
             type: "graphic",

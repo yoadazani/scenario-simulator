@@ -1,7 +1,7 @@
 import {memo, ReactNode, useMemo} from "react";
 
 import {Sidebar, SidebarProvider, SidebarTrigger} from "@/components/ui/sidebar";
-import {getVersion} from "@/lib/utils";
+import {getVersion} from "@/utils";
 import {sidebarItems} from "@/data/sidebar-items";
 import AppSidebarHeader from "./appSidebarHeader";
 import AppSidebarFooter from "./appSidebarFooter";

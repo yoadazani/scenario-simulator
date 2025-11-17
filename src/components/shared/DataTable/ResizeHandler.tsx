@@ -1,3 +1,5 @@
+import {memo} from "react";
+
 type ResizeHandlerProps = {
     isResizing: boolean;
     getResizeHandler: (event: unknown) => void;
@@ -14,4 +16,4 @@ const ResizeHandler = (props: ResizeHandlerProps) => {
     />
 };
 
-export default ResizeHandler;
+export default memo(ResizeHandler);

@@ -2,25 +2,33 @@ import {eventsColumnDef} from "@/features/Events/data/events-column-def";
 import DataTable from "@/components/shared/DataTable";
 import {useQuery} from "@tanstack/react-query";
 import {EventsQueryOptions} from "@/features/Events/queries/events.query";
-import {RegisteredRouter, RouteIds} from "@tanstack/react-router";
-import {Filters, useFilters} from "@/hooks/useFilters.ts";
+import {RegisteredRouter, RouteIds, useLoaderData} from "@tanstack/react-router";
+import {Filters, useFilters} from "@/hooks/use-filters.ts";
 import {Skeleton} from "@/components/ui/skeleton.tsx";
 import {useMemo} from "react";
 import {Event} from "@/features/Events/types";
-import {PaginationResponse} from "@/features/Events/api/events.ts";
-import {useTableStore} from "@/features/Events/stores/tableStore.ts";
+import {PaginationResponse} from "@/features/Events/api/events";
+import {useTableStore} from "@/stores/tableStore";
 import {useShallow} from "zustand/shallow";
+import {defaultColumnVisibility} from "@/features/Events/data/default-column-visibility";
 
 const EventsTable = <T extends RouteIds<RegisteredRouter["routeTree"]>>({routeId}: { routeId: T }) => {
-    const {setFilters, filters} = useFilters(routeId);
+    const {filters} = useFilters(routeId);
+    const enumsData = useLoaderData({from: routeId})
+    const eventsTableStore = useTableStore(routeId, defaultColumnVisibility)
     const {
         setColumnVisibility,
         columnVisibility,
         pagination,
         setPagination,
         sorting,
-        setSorting
-    } = useTableStore(setFilters, filters)(useShallow((state) => {
+        setSorting,
+        globalFilters,
+        setGlobalFilters,
+        columnFilters,
+        setColumnFilters,
+        resetColumnFilters
+    } = eventsTableStore(useShallow((state) => {
         return {
             columnVisibility: state.columnVisibility,
             setColumnVisibility: state.setColumnVisibility,
@@ -28,6 +36,11 @@ const EventsTable = <T extends RouteIds<RegisteredRouter["routeTree"]>>({routeId
             setPagination: state.setPagination,
             sorting: state.sorting,
             setSorting: state.setSorting,
+            globalFilters: state.globalFilters,
+            setGlobalFilters: state.setGlobalFilters,
+            columnFilters: state.columnFilters,
+            setColumnFilters: state.setColumnFilters,
+            resetColumnFilters: state.resetColumnFilters,
         };
     }))
     const {data, isLoading, isError, error} = useQuery(EventsQueryOptions(filters as Filters))
@@ -39,7 +52,7 @@ const EventsTable = <T extends RouteIds<RegisteredRouter["routeTree"]>>({routeId
     if (isError) return <div>{error.message}</div>
 
     return <DataTable
-        columns={columns}
+        columns={columns(enumsData)}
         data={responseData.data}
         rowCount={responseData.items}
         columnVisibility={columnVisibility}
@@ -48,6 +61,11 @@ const EventsTable = <T extends RouteIds<RegisteredRouter["routeTree"]>>({routeId
         setPagination={setPagination}
         sorting={sorting}
         setSorting={setSorting}
+        globalFilters={globalFilters}
+        setGlobalFilters={setGlobalFilters}
+        columnFilters={columnFilters}
+        setColumnFilters={setColumnFilters}
+        resetColumnFilters={resetColumnFilters}
     />
 }
 

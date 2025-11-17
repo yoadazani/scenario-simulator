@@ -1,4 +1,4 @@
-import {tryCatch} from "@/lib/utils";
+import {tryCatch} from "@/utils";
 import axios from "axios";
 import {
     AutoCompleteLocation,

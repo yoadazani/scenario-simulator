@@ -1,15 +1,15 @@
 import {Cell, flexRender} from "@tanstack/react-table";
 import {useSortable} from "@dnd-kit/sortable";
-import {CSSProperties} from "react";
+import {CSSProperties, memo, useMemo} from "react";
 import {CSS} from "@dnd-kit/utilities";
 import {TableCell} from "@/components/ui/table.tsx";
 
-export const DragAlongCell = <TData, >({cell}: { cell: Cell<TData, unknown> }) => {
+const DragAlongCell = <TData, >({cell}: { cell: Cell<TData, unknown> }) => {
     const {isDragging, setNodeRef, transform, transition} = useSortable({
         id: cell.column.id,
     });
 
-    const style: CSSProperties = {
+    const style: CSSProperties = useMemo(() => ({
         opacity: isDragging ? 0.5 : 1,
         position: 'relative',
         transform: CSS.Translate.toString(transform),
@@ -17,7 +17,7 @@ export const DragAlongCell = <TData, >({cell}: { cell: Cell<TData, unknown> }) =
         zIndex: isDragging ? 1 : 0,
         width: `${cell.column.getSize()}px`,
         flex: `0 0 ${cell.column.getSize()}px`,
-    };
+    }), [isDragging, transform, transition, cell.column.getSize()]);
 
     return (
         <TableCell
@@ -30,3 +30,5 @@ export const DragAlongCell = <TData, >({cell}: { cell: Cell<TData, unknown> }) =
         </TableCell>
     );
 };
+
+export default memo(DragAlongCell) as typeof DragAlongCell

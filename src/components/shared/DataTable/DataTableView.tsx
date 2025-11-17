@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {Columns} from "lucide-react";
+import {memo} from "react";
 
 function DataTableView<TData>(props: { table: TanstackTable<TData>, columnVisibility: VisibilityState }) {
     const {table, columnVisibility} = props
@@ -16,10 +17,9 @@ function DataTableView<TData>(props: { table: TanstackTable<TData>, columnVisibi
         <DropdownMenuTrigger asChild>
             <Button
                 variant="outline"
-                size="sm"
                 className="flex items-center"
             >
-                <Columns className="size-4 text-primary"/>
+                <Columns className="size-4.5 text-primary"/>
                 <span className="pt-0.5">עמודות</span>
             </Button>
         </DropdownMenuTrigger>
@@ -46,4 +46,4 @@ function DataTableView<TData>(props: { table: TanstackTable<TData>, columnVisibi
     </DropdownMenu>
 }
 
-export default DataTableView
+export default memo(DataTableView) as typeof DataTableView

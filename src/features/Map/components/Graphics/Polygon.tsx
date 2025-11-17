@@ -3,6 +3,7 @@ import Polygon from "@arcgis/core/geometry/Polygon";
 import SimpleFillSymbol from "@arcgis/core/symbols/SimpleFillSymbol";
 import { useGraphic } from "@/features/Map/hooks/useGraphic";
 import TextSymbol from "@arcgis/core/symbols/TextSymbol";
+import * as centroidOperator from "@arcgis/core/geometry/operators/centroidOperator.js"
 
 interface PolygonProps {
   rings: number[][];
@@ -30,7 +31,7 @@ function MapPolygon(props: PolygonProps) {
     graphicRef.current.attributes = attributes;
 
     if (label) {
-      const centroid = polygonGeometry.centroid;
+      const centroid = centroidOperator.execute(polygonGeometry);
       const textSymbol = new TextSymbol({
         text: label,
         ...(labelSymbol ?? {

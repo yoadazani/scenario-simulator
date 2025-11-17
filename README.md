@@ -49,7 +49,7 @@ npm start
 
 This will concurrently run:
 - The Vite development server at http://localhost:5173 (or another port if 5173 is in use)
-- The JSON Server mock API at http://localhost:3000
+- The JSON Server mock API at http://localhost:8080
 
 ### Building for Production
 

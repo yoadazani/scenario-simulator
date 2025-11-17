@@ -3,7 +3,7 @@ import {Button} from "@/components/ui/button.tsx";
 import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select.tsx";
 import {Badge} from "@/components/ui/badge.tsx";
 import {ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight} from "lucide-react";
-import {useMemo} from "react";
+import { useMemo} from "react";
 import {TABLE_PAGE_SIZES} from "@/constants";
 
 function DataTablePagination<TData>(props: { table: TanstackTable<TData> }) {
@@ -32,7 +32,7 @@ function DataTablePagination<TData>(props: { table: TanstackTable<TData> }) {
                 className="p-2"
             >
                 {" "} עמוד {table.getState().pagination.pageIndex + 1} מתוך {" "}
-                {`${table.getPageCount()}`}
+                {`${table.getPageCount() > 0 ? table.getPageCount() : 1}`}
             </Badge>
             <Button
                 variant="outline"
@@ -51,6 +51,7 @@ function DataTablePagination<TData>(props: { table: TanstackTable<TData> }) {
         </div>
 
         <Select
+            dir="rtl"
             onValueChange={(val) => table.setPageSize(Number(val))}
             defaultValue={`${table.getState().pagination.pageSize}`}
         >

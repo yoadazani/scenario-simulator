@@ -1,6 +1,6 @@
-import {tryCatch} from "@/lib/utils";
+import {tryCatch} from "@/utils";
 import axios from "axios";
-import {Filters} from "@/hooks/useFilters.ts";
+import {Filters} from "@/hooks/use-filters.ts";
 
 export type PaginationResponse<T> = {
     first: number,
@@ -12,8 +12,10 @@ export type PaginationResponse<T> = {
     data: T[]
 }
 
+const backendBaseUrl = import.meta.env.VITE_BACKEND_URL
+
 export const getEvents = async (filters?: Filters) => {
-    const [error, result] = await tryCatch(axios.get<PaginationResponse<Event>>("http://localhost:3000/events", {
+    const [error, result] = await tryCatch(axios.get<PaginationResponse<Event>>(`${backendBaseUrl}/events`, {
         params: filters,
     }));
     if (error) throw error;

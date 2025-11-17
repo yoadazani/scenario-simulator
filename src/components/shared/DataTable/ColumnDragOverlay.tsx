@@ -1,18 +1,16 @@
 import type {Table as TanstackTable} from "@tanstack/table-core";
-import {useMemo} from "react";
+import {memo, useMemo} from "react";
 import {DragOverlay} from "@dnd-kit/core";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table.tsx";
 import {flexRender} from "@tanstack/react-table";
-import {TABLE_ROW_COLOR} from "@/constants";
-import {SendingStatusEnum, WithSendingStatus} from "@/types";
 
-export const ColumnDragOverlay = <TData extends WithSendingStatus>(props: { activeColumnId: string, table: TanstackTable<TData> }) => {
+const ColumnDragOverlay = <TData,>(props: { activeColumnId: string, table: TanstackTable<TData> }) => {
     const {activeColumnId, table} = props
     const activeIdHeader = useMemo(() => table.getFlatHeaders().find(header => header.column.id === activeColumnId)!, [activeColumnId])
 
     return (
         <DragOverlay
-            className="bg-stone-50 cursor-grabbing translate-x-10"
+            className="cursor-grabbing translate-x-10"
             style={{position: 'fixed', top: 85}}
         >
             <div className="rounded-md border overflow-auto h-[calc(100vh-10rem)]">
@@ -21,7 +19,7 @@ export const ColumnDragOverlay = <TData extends WithSendingStatus>(props: { acti
                         <TableRow>
                             <TableHead
                                 colSpan={activeIdHeader.colSpan}
-                                className={`py-2 px-4 flex-row justify-between items-center w-full truncate group`}
+                                className={`py-2 px-4 flex-row justify-between items-center w-full truncate group text-right`}
                                 style={{
                                     width: `${activeIdHeader.getSize()}px`,
                                     flex: `0 0 ${activeIdHeader.getSize()}px`,
@@ -41,7 +39,7 @@ export const ColumnDragOverlay = <TData extends WithSendingStatus>(props: { acti
                         {table.getRowModel().rows.map((row) => (
                             <TableRow
                                 key={row.id}
-                                className={`${TABLE_ROW_COLOR[row.original.sendingStatus as SendingStatusEnum]} text-center`}
+                                className={`bg-white text-center`}
                             >
                                 {row.getVisibleCells()
                                     .filter(cell => cell.column.id === activeColumnId)
@@ -51,6 +49,7 @@ export const ColumnDragOverlay = <TData extends WithSendingStatus>(props: { acti
                                             className="truncate"
                                             style={{
                                                 width: `${cell.column.getSize()}px`,
+                                                maxWidth: `${cell.column.getSize()}px`,
                                                 flex: `0 0 ${cell.column.getSize()}px`,
                                             }}
                                         >
@@ -65,3 +64,5 @@ export const ColumnDragOverlay = <TData extends WithSendingStatus>(props: { acti
         </DragOverlay>
     )
 }
+
+export default memo(ColumnDragOverlay) as typeof ColumnDragOverlay

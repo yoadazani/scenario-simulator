@@ -1,5 +1,5 @@
 import {
-    DragEndEvent,
+    DragEndEvent, DragStartEvent,
     KeyboardSensor,
     MouseSensor,
     PointerSensor,
@@ -8,12 +8,13 @@ import {
     useSensors
 } from "@dnd-kit/core";
 import {arrayMove} from "@dnd-kit/sortable";
-import {useState} from "react";
+import {useCallback, useState} from "react";
 
 export const useDnd = <T>(items: T[]) => {
     const [columnOrder, setColumnOrder] = useState<T[]>(items)
     const [activeId, setActiveId] = useState<T | null>(null)
 
+    // These sensors are created once per component instance
     const sensors = useSensors(
         useSensor(MouseSensor, {}),
         useSensor(TouchSensor, {}),
@@ -21,11 +22,12 @@ export const useDnd = <T>(items: T[]) => {
         useSensor(PointerSensor, {}),
     )
 
-    function onDragStart(event: DragEndEvent) {
+    // Use useCallback to memoize event handlers
+    const onDragStart = useCallback((event: DragStartEvent) => {
         setActiveId(items.find(item => item === event.active.id) as T)
-    }
+    }, [items]);
 
-    function onDragEnd(event: DragEndEvent) {
+    const onDragEnd = useCallback((event: DragEndEvent) => {
         const {active, over} = event
         if (active && over && active.id !== over.id) {
             setColumnOrder(columnOrder => {
@@ -35,7 +37,7 @@ export const useDnd = <T>(items: T[]) => {
             })
         }
         setActiveId(null)
-    }
+    }, []);
 
     return {
         onDragStart,
