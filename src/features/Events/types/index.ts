@@ -1,8 +1,8 @@
 import {SendingStatusEnum} from "@/types";
 
 export type Event = {
+    id: string;
     event: {
-        id: string;
         cityId: number;
         name: string;
         location: { latitude: number, longitude: number };

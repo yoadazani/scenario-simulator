@@ -8,43 +8,49 @@ import {Header} from "@tanstack/react-table";
 interface DraggableHeaderProps<TData> {
     header: Header<TData, unknown>;
     children: ReactNode;
-    isAnyColumnResizing?: boolean
+    isAnyColumnResizing?: boolean;
+    allowDragging?: boolean;
 }
 
-const DraggableHeader = <TData, >({header, children, isAnyColumnResizing}: DraggableHeaderProps<TData>) => {
+const DraggableHeader = <TData, >({
+                                      header,
+                                      children,
+                                      isAnyColumnResizing,
+                                      allowDragging
+                                  }: DraggableHeaderProps<TData>) => {
     const {attributes, listeners, setNodeRef, transform, transition, isDragging} = useSortable({
         id: header.column.id,
     });
 
     const style: CSSProperties = useMemo(() => ({
         opacity: isDragging ? 0.5 : 1,
-            transform: CSS.Transform.toString(transform),
-            transition,
-            whiteSpace: "nowrap",
-            width: `${header.column.getSize()}px`,
-            flex: `0 0 ${header.column.getSize()}px`,
-            cursor: isAnyColumnResizing ? "default" : "cursor-pointer",
-            zIndex: isDragging ? 1 : 0,
-            position: "relative",
+        transform: CSS.Transform.toString(transform),
+        transition,
+        whiteSpace: "nowrap",
+        width: `${header.column.getSize()}px`,
+        flex: `0 0 ${header.column.getSize()}px`,
+        cursor: isAnyColumnResizing ? "default" : "cursor-pointer",
+        zIndex: isDragging ? 1 : 0,
+        position: "relative",
     }), [isDragging, transform, transition, header.column.getSize(), isAnyColumnResizing]);
 
     return (
-        <TableHead
-            ref={setNodeRef}
-            key={header.id}
-            className={`py-2 px-4 flex-row justify-between items-center w-full truncate group`}
-            colSpan={header.colSpan}
-            onDoubleClick={header.column.resetSize}
-            style={style}
-        >
-            <div
-                className={`w-full h-1 bg-primary absolute top-0 left-0 cursor-grab active:cursor-grabbing transition-opacity ${
-                    isAnyColumnResizing
-                        ? 'opacity-0 pointer-events-none'
-                        : 'opacity-0 group-hover:opacity-100'
-                }`} {...attributes} {...listeners}/>
-            {children}
-        </TableHead>
+            <TableHead
+                ref={setNodeRef}
+                key={header.id}
+                className={`p-2 flex-row justify-between items-center w-full truncate group`}
+                colSpan={header.colSpan}
+                onDoubleClick={header.column.resetSize}
+                style={style}
+            >
+                {allowDragging && <div
+                    className={`w-full h-1 bg-primary absolute top-0 left-0 cursor-grab active:cursor-grabbing transition-opacity ${
+                        isAnyColumnResizing
+                            ? 'opacity-0 pointer-events-none'
+                            : 'opacity-0 group-hover:opacity-100'
+                    }`} {...attributes} {...listeners}/>}
+                {children}
+            </TableHead>
     );
 };
 

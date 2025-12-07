@@ -8,9 +8,9 @@ export const PointLayers = (props: {
 }) => {
     const {featureData, symbol} = props;
     return featureData.map((data) => {
-        const id = uuidToInt(data.event?.id)
+        const id = uuidToInt(data.id)
         return <MapMarker
-            key={data.event?.id}
+            key={data.id}
             attributes={{...data.event, id}}
             point={data.event.location}
             symbol={symbol}

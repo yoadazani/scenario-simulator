@@ -1,5 +1,5 @@
 import '@tanstack/react-table'
-import {useMemo, useRef} from "react";
+import {useCallback, useMemo, useRef} from "react";
 import {
     ColumnDef, ColumnFiltersState,
     flexRender,
@@ -31,6 +31,7 @@ import DragAlongCell from "@/components/shared/DataTable/DragAlongCell.tsx";
 import DraggableHeader from "@/components/shared/DataTable/DraggableHeader.tsx";
 import DataTableGlobalFilter from "@/components/shared/DataTable/DataTableGlobalFilter.tsx";
 import ColumnDragOverlay from "@/components/shared/DataTable/ColumnDragOverlay.tsx";
+import {cn} from "@/utils";
 
 declare module '@tanstack/react-table' {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -42,10 +43,11 @@ declare module '@tanstack/react-table' {
         filterPlaceholder?: string,
         filterVariant?: 'text' | 'number' | 'date' | 'range' | 'datetime-range' | 'select' | 'multi-select' | 'radio-group' | 'classification'
         filterOptions?: Options[]
+        enableColumnOrdering?: boolean
     }
 }
 
-interface DataTableProps<TData, TValue> {
+interface DataTableProps<TData extends object, TValue> {
     columns: ColumnDef<TData, TValue>[],
     data: TData[],
     rowCount: number,
@@ -59,10 +61,12 @@ interface DataTableProps<TData, TValue> {
     setGlobalFilters?: (updater: Updater<GlobalFilterTableState>) => void,
     columnFilters?: ColumnFiltersState,
     setColumnFilters?: (newColumnFiltersState: ColumnFiltersState) => void,
-    resetColumnFilters?: () => void
+    resetColumnFilters?: () => void,
+    rowSelection?: Record<string, boolean>,
+    setRowSelection?: (updater: Updater<Record<string, boolean>>) => void
 }
 
-const DataTable = <TData, TValue>(props: DataTableProps<TData, TValue>) => {
+const DataTable = <TData extends object, TValue>(props: DataTableProps<TData, TValue>) => {
     const {
         columns,
         data,
@@ -77,9 +81,13 @@ const DataTable = <TData, TValue>(props: DataTableProps<TData, TValue>) => {
         setGlobalFilters,
         columnFilters,
         setColumnFilters,
-        resetColumnFilters
+        resetColumnFilters,
+        rowSelection,
+        setRowSelection
     } = props
+    const tableContainerRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
+
     const columnIds = useMemo(() => columns.map(col => col.id!), [columns]);
     const dnd = useDnd<string>(columnIds);
 
@@ -96,30 +104,41 @@ const DataTable = <TData, TValue>(props: DataTableProps<TData, TValue>) => {
         enableColumnResizing: true,
         enableGlobalFilter: true,
         enableHiding: true,
+        enableRowSelection: true,
+        enableColumnPinning: true,
         onSortingChange: setSorting,
         onPaginationChange: setPagination,
         onColumnVisibilityChange: setColumnVisibility,
         onGlobalFilterChange: setGlobalFilters,
         onColumnOrderChange: dnd.setColumnOrder,
+        onRowSelectionChange: setRowSelection,
+        getRowId: (originalRow, index) => {
+            if ('id' in originalRow)
+                return `${originalRow.id}`
+            else return `${index}`
+        },
         state: {
             sorting: sorting,
             pagination: pagination,
             columnVisibility: columnVisibility,
             globalFilter: globalFilters,
+            rowSelection: rowSelection,
             columnOrder: dnd.columnOrder,
         },
     })
-    const tableContainerRef = useRef<HTMLDivElement>(null);
 
+    const rows = table.getRowModel().rows;
     const rowVirtualizer = useVirtualizer({
-        count: table.getRowModel().rows.length,
-        getScrollElement: () => tableContainerRef.current,
-        estimateSize: () => 54,
-        overscan: 3,
+        count: rows.length,
+        getScrollElement: useCallback(() => tableContainerRef.current, []),
+        estimateSize: useCallback(() => 54, []),
+        getItemKey: useCallback((index: number) => rows[index].id, [rows]),
+        overscan: 5,
     });
 
+    const virtualItems = rowVirtualizer.getVirtualItems();
 
-    const totalTableWidth = useMemo(() => table.getTotalSize(), [table.getTotalSize()])
+    const totalTableWidth = table.getTotalSize()
     const isAnyColumnResizing = useMemo(() => {
         return Boolean(table.getState().columnSizingInfo?.isResizingColumn)
     }, [table.getState().columnSizingInfo?.isResizingColumn])
@@ -153,28 +172,32 @@ const DataTable = <TData, TValue>(props: DataTableProps<TData, TValue>) => {
                     onDragStart={dnd.onDragStart}
                     onDragEnd={dnd.onDragEnd}
                 >
-                    <div
-                        ref={tableContainerRef}
-                        className="h-[calc(100vh-10rem)] overflow-y-auto relative"
-                    >
-                        <Table
-                            style={{
-                                width: `${totalTableWidth}px`,
-                                tableLayout: 'fixed' as const,
-                            }}
+                    <SortableContext items={dnd.columnOrder} strategy={horizontalListSortingStrategy}>
+                        <div
+                            ref={tableContainerRef}
+                            className="h-[calc(100vh-10rem)] overflow-y-auto relative"
                         >
-                            <TableHeader
-                                className="table-header-group sticky top-0 flex-1 w-full z-10 bg-stone-50 ring-1 ring-stone-200">
-                                <SortableContext items={dnd.columnOrder} strategy={horizontalListSortingStrategy}>
+                            <Table
+                                style={{
+                                    width: `${totalTableWidth}px`,
+                                    tableLayout: 'fixed' as const,
+                                }}
+                            >
+                                <TableHeader
+                                    className="table-header-group sticky top-0 w-full z-10 bg-stone-50 ring-1 ring-stone-200">
                                     {table.getHeaderGroups().map((headerGroup) => (
                                         <TableRow key={headerGroup.id}>
                                             {headerGroup.headers.map((header) => {
+                                                const enableColumnOrdering = header.column.columnDef.meta?.enableColumnOrdering !== false;
                                                 return <DraggableHeader
                                                     key={header.id}
                                                     header={header}
                                                     isAnyColumnResizing={isAnyColumnResizing}
+                                                    allowDragging={enableColumnOrdering}
                                                 >
-                                                    <div className="flex justify-between items-center">
+                                                    <div className={cn("flex items-center", (
+                                                        !enableColumnOrdering ? 'justify-center' : 'justify-between'
+                                                    ))}>
                                                         {flexRender(
                                                             header.column.columnDef.header,
                                                             header.getContext()
@@ -195,42 +218,37 @@ const DataTable = <TData, TValue>(props: DataTableProps<TData, TValue>) => {
                                             })}
                                         </TableRow>
                                     ))}
-                                </SortableContext>
-                            </TableHeader>
-                            <TableBody className="relative" style={{height: `${rowVirtualizer.getTotalSize()}px`}}>
-                                {rowVirtualizer.getVirtualItems()?.length ? (
-                                    rowVirtualizer.getVirtualItems().map((virtualRow) => {
-                                        const row = table.getRowModel().rows[virtualRow.index];
-                                        return (
-                                            <TableRow
-                                                key={row.id}
-                                                data-index={virtualRow.index}
-                                                ref={node => rowVirtualizer.measureElement(node)}
-                                                data-state={row.getIsSelected() && "selected"}
-                                                className="absolute left-0 flex items-center"
-                                                style={{
-                                                    transform: `translateY(${virtualRow.start}px)`,
-                                                    height: `${virtualRow.size}px`,
-                                                }}
-                                            >
-                                                <SortableContext
-                                                    items={dnd.columnOrder}
-                                                    strategy={horizontalListSortingStrategy}
+                                </TableHeader>
+                                <TableBody className="relative" style={{height: `${rowVirtualizer.getTotalSize()}px`}}>
+                                    {virtualItems?.length ? (
+                                        virtualItems.map(virtualRow => {
+                                            const row = rows[virtualRow.index];
+                                            return (
+                                                <TableRow
+                                                    key={virtualRow.key}
+                                                    data-index={virtualRow.index}
+                                                    ref={node => rowVirtualizer.measureElement(node)}
+                                                    data-state={row.getIsSelected() && "selected"}
+                                                    className="absolute left-0 flex items-center"
+                                                    style={{
+                                                        transform: `translateY(${virtualRow.start}px)`,
+                                                        height: `${virtualRow.size}px`,
+                                                    }}
                                                 >
-                                                    {row.getVisibleCells().map((cell) => (
+                                                    {row.getVisibleCells().map(cell => (
                                                         <DragAlongCell key={cell.id} cell={cell}/>
                                                     ))}
-                                                </SortableContext>
-                                            </TableRow>
-                                        );
-                                    })
-                                ) : (
-                                    <DataTableEmptyMessage colSpan={table.getAllColumns().length}/>
-                                )}
-                            </TableBody>
-                        </Table>
-                    </div>
-                    {dnd.activeId && <ColumnDragOverlay activeColumnId={dnd.activeId} table={table}/>}
+                                                </TableRow>
+                                            );
+                                        })
+                                    ) : (
+                                        <DataTableEmptyMessage colSpan={table.getAllColumns().length}/>
+                                    )}
+                                </TableBody>
+                            </Table>
+                        </div>
+                        {dnd.activeId && <ColumnDragOverlay activeColumnId={dnd.activeId} table={table}/>}
+                    </SortableContext>
                 </DndContext>
             </div>
 
@@ -239,4 +257,4 @@ const DataTable = <TData, TValue>(props: DataTableProps<TData, TValue>) => {
     )
 }
 
-export default DataTable
+export default DataTable;

@@ -1,7 +1,8 @@
 import {
     AccessorFnColumnDef,
-    AccessorKeyColumnDefBase,
+    AccessorKeyColumnDef,
     createColumnHelper,
+    DisplayColumnDef,
     RowData,
 } from "@tanstack/react-table";
 import {Event} from "@/features/Events/types";
@@ -11,12 +12,45 @@ import DataTableCell from "@/components/shared/DataTable/DataTableCell.tsx";
 import {Badge} from "@/components/ui/badge.tsx";
 import {SENDING_STATUS, TABLE_ROW_COLOR} from "@/constants";
 import {Options} from '@/types'
+import {Checkbox} from "@/components/ui/checkbox";
 
 const columnDefHelper = createColumnHelper<Event>();
 
-export const eventsColumnDef = (enums: Record<string, Options[]>): (AccessorKeyColumnDefBase<Event, keyof RowData> | AccessorFnColumnDef<Event, keyof RowData>)[] => [
-    columnDefHelper.accessor("event.id", {
-        id: "event_id",
+export const eventsColumnDef = (enums: Record<string, Options[]>): (
+    | DisplayColumnDef<Event, keyof RowData>
+    | AccessorKeyColumnDef<Event, keyof RowData>
+    | AccessorFnColumnDef<Event, keyof RowData>
+    )[] => [
+    columnDefHelper.display({
+        id: "select",
+        header: ({table}) => (
+            <DataTableCell>
+                <Checkbox
+                    checked={table.getIsAllPageRowsSelected() || table.getIsSomePageRowsSelected() && "indeterminate"}
+                    onCheckedChange={e => table.toggleAllPageRowsSelected(!!e)}
+                    aria-label="Select all"
+                />
+            </DataTableCell>
+        ),
+        cell: ({row}) => {
+            return <DataTableCell>
+                <Checkbox
+                    checked={row.getIsSelected()}
+                    onCheckedChange={e =>  row.toggleSelected(!!e)}
+                    aria-label="Select row"
+                />
+            </DataTableCell>
+        },
+        enableSorting: false,
+        enableHiding: false,
+        enableResizing: false,
+        size: 40,
+        meta: {
+            enableColumnOrdering: false
+        },
+    }),
+    columnDefHelper.accessor("id", {
+        id: "id",
         header: "מזהה",
         cell: ({getValue}) => {
             return <DataTableCell>

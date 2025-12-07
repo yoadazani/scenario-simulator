@@ -1,5 +1,5 @@
 export const defaultColumnVisibility = {
-    'event_id': false,
+    'id': false,
     'event_startDate': false,
     'event_endDate': false,
     'event_permittedJournal': false,

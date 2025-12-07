@@ -30,7 +30,8 @@ function DataTableView<TData>(props: { table: TanstackTable<TData>, columnVisibi
         >
             {
                 table.getAllColumns().map(column => {
-                    return <DropdownMenuCheckboxItem
+                    const label = column.id !== 'select' ? column.columnDef.header as string : undefined
+                    return label && <DropdownMenuCheckboxItem
                         key={column.id}
                         checked={column.getIsVisible() || columnVisibility[column.id]}
                         disabled={!column.getCanHide()}
@@ -38,7 +39,7 @@ function DataTableView<TData>(props: { table: TanstackTable<TData>, columnVisibi
                         onSelect={(e) => e.preventDefault()}
                         className="px-1 py-2 text-sm cursor-pointer rounded-sm flex items-center justify-between"
                     >
-                        {column.columnDef.header as string}
+                        {label}
                     </DropdownMenuCheckboxItem>
                 })
             }

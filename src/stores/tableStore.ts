@@ -25,7 +25,8 @@ type TableState = {
     pagination: PaginationState,
     sorting: SortingState,
     globalFilters: GlobalFilterTableState,
-    columnFilters: ColumnFiltersState
+    columnFilters: ColumnFiltersState,
+    rowSelection: Record<string, boolean>
 }
 
 type TableActions = {
@@ -35,6 +36,7 @@ type TableActions = {
     setGlobalFilters: (updaterOrValue: Updater<GlobalFilterTableState>) => void,
     setColumnFilters: (newColumnFiltersState: ColumnFiltersState) => void,
     resetColumnFilters: () => void,
+    setRowSelection: (updaterOrValue: Updater<Record<string, boolean>>) => void,
 }
 
 type TableStore = TableState & TableActions
@@ -50,6 +52,7 @@ export const useTableStore = <T extends RouteIds<RegisteredRouter["routeTree"]>>
                     sorting: sortByToState(filters?._sort),
                     globalFilters: globalFiltersToState(filters?._q),
                     columnFilters: columnFiltersToState(columnFiltersToQuery(filters)),
+                    rowSelection: {},
                     setColumnVisibility: (updaterOrValue) => {
                         const newColumnVisibility = typeof updaterOrValue === 'function' ? updaterOrValue(get().columnVisibility) : updaterOrValue
                         set((state) => {
@@ -130,6 +133,13 @@ export const useTableStore = <T extends RouteIds<RegisteredRouter["routeTree"]>>
                         }, {});
 
                         return setFilters?.(combinedFilters)
+                    },
+                    setRowSelection: (updaterOrValue) => {
+                        const newRowSelectionState = typeof updaterOrValue === "function" ? updaterOrValue(get().rowSelection) : updaterOrValue
+
+                        set((state) => {
+                            state.rowSelection = newRowSelectionState
+                        })
                     }
                 }
             }),
@@ -137,6 +147,7 @@ export const useTableStore = <T extends RouteIds<RegisteredRouter["routeTree"]>>
                 name: `${routeId}-table-store` as const,
                 partialize: (state) => ({
                     columnVisibility: state.columnVisibility,
+                    rowSelection: state.rowSelection,
                 })
             }
         )
