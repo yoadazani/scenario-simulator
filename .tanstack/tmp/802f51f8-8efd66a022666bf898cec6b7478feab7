@@ -8,8 +8,6 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from '@tanstack/react-router'
-
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SirensRouteImport } from './routes/sirens'
 import { Route as RocketAttackRouteImport } from './routes/rocket-attack'
@@ -19,13 +17,6 @@ import { Route as EventsIndexRouteImport } from './routes/events/index'
 import { Route as EventsLayoutRouteImport } from './routes/events/_layout'
 import { Route as EventsEventIdRouteImport } from './routes/events/$eventId'
 
-const EventsRouteImport = createFileRoute('/events')()
-
-const EventsRoute = EventsRouteImport.update({
-  id: '/events',
-  path: '/events',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SirensRoute = SirensRouteImport.update({
   id: '/sirens',
   path: '/sirens',
@@ -85,7 +76,6 @@ export interface FileRoutesById {
   '/rocket-attack': typeof RocketAttackRoute
   '/sirens': typeof SirensRoute
   '/events/$eventId': typeof EventsEventIdRoute
-  '/events': typeof EventsRouteWithChildren
   '/events/_layout': typeof EventsLayoutRoute
   '/events/': typeof EventsIndexRoute
 }
@@ -114,7 +104,6 @@ export interface FileRouteTypes {
     | '/rocket-attack'
     | '/sirens'
     | '/events/$eventId'
-    | '/events'
     | '/events/_layout'
     | '/events/'
   fileRoutesById: FileRoutesById
@@ -125,18 +114,10 @@ export interface RootRouteChildren {
   RocketAttackRoute: typeof RocketAttackRoute
   SirensRoute: typeof SirensRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
-  EventsRoute: typeof EventsRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/events': {
-      id: '/events'
-      path: '/events'
-      fullPath: '/events'
-      preLoaderRoute: typeof EventsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sirens': {
       id: '/sirens'
       path: '/sirens'
@@ -174,7 +155,7 @@ declare module '@tanstack/react-router' {
     }
     '/events/_layout': {
       id: '/events/_layout'
-      path: '/events'
+      path: ''
       fullPath: '/events'
       preLoaderRoute: typeof EventsLayoutRouteImport
       parentRoute: typeof EventsRoute
@@ -189,26 +170,12 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface EventsRouteChildren {
-  EventsLayoutRoute: typeof EventsLayoutRoute
-  EventsIndexRoute: typeof EventsIndexRoute
-}
-
-const EventsRouteChildren: EventsRouteChildren = {
-  EventsLayoutRoute: EventsLayoutRoute,
-  EventsIndexRoute: EventsIndexRoute,
-}
-
-const EventsRouteWithChildren =
-  EventsRoute._addFileChildren(EventsRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ForcesRoute: ForcesRoute,
   RocketAttackRoute: RocketAttackRoute,
   SirensRoute: SirensRoute,
   EventsEventIdRoute: EventsEventIdRoute,
-  EventsRoute: EventsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
