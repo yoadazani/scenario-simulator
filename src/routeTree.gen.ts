@@ -8,24 +8,13 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from '@tanstack/react-router'
-
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SirensRouteImport } from './routes/sirens'
 import { Route as RocketAttackRouteImport } from './routes/rocket-attack'
 import { Route as ForcesRouteImport } from './routes/forces'
+import { Route as EventsRouteImport } from './routes/events'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as EventsIndexRouteImport } from './routes/events/index'
-import { Route as EventsLayoutRouteImport } from './routes/events/_layout'
-import { Route as EventsEventIdRouteImport } from './routes/events/$eventId'
 
-const EventsRouteImport = createFileRoute('/events')()
-
-const EventsRoute = EventsRouteImport.update({
-  id: '/events',
-  path: '/events',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SirensRoute = SirensRouteImport.update({
   id: '/sirens',
   path: '/sirens',
@@ -41,102 +30,57 @@ const ForcesRoute = ForcesRouteImport.update({
   path: '/forces',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EventsIndexRoute = EventsIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => EventsRoute,
-} as any)
-const EventsLayoutRoute = EventsLayoutRouteImport.update({
-  id: '/_layout',
-  getParentRoute: () => EventsRoute,
-} as any)
-const EventsEventIdRoute = EventsEventIdRouteImport.update({
-  id: '/events/$eventId',
-  path: '/events/$eventId',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/events': typeof EventsRoute
   '/forces': typeof ForcesRoute
   '/rocket-attack': typeof RocketAttackRoute
   '/sirens': typeof SirensRoute
-  '/events/$eventId': typeof EventsEventIdRoute
-  '/events': typeof EventsLayoutRoute
-  '/events/': typeof EventsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/events': typeof EventsRoute
   '/forces': typeof ForcesRoute
   '/rocket-attack': typeof RocketAttackRoute
   '/sirens': typeof SirensRoute
-  '/events/$eventId': typeof EventsEventIdRoute
-  '/events': typeof EventsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/events': typeof EventsRoute
   '/forces': typeof ForcesRoute
   '/rocket-attack': typeof RocketAttackRoute
   '/sirens': typeof SirensRoute
-  '/events/$eventId': typeof EventsEventIdRoute
-  '/events': typeof EventsRouteWithChildren
-  '/events/_layout': typeof EventsLayoutRoute
-  '/events/': typeof EventsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/forces'
-    | '/rocket-attack'
-    | '/sirens'
-    | '/events/$eventId'
-    | '/events'
-    | '/events/'
+  fullPaths: '/' | '/events' | '/forces' | '/rocket-attack' | '/sirens'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/forces'
-    | '/rocket-attack'
-    | '/sirens'
-    | '/events/$eventId'
-    | '/events'
-  id:
-    | '__root__'
-    | '/'
-    | '/forces'
-    | '/rocket-attack'
-    | '/sirens'
-    | '/events/$eventId'
-    | '/events'
-    | '/events/_layout'
-    | '/events/'
+  to: '/' | '/events' | '/forces' | '/rocket-attack' | '/sirens'
+  id: '__root__' | '/' | '/events' | '/forces' | '/rocket-attack' | '/sirens'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EventsRoute: typeof EventsRoute
   ForcesRoute: typeof ForcesRoute
   RocketAttackRoute: typeof RocketAttackRoute
   SirensRoute: typeof SirensRoute
-  EventsEventIdRoute: typeof EventsEventIdRoute
-  EventsRoute: typeof EventsRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/events': {
-      id: '/events'
-      path: '/events'
-      fullPath: '/events'
-      preLoaderRoute: typeof EventsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sirens': {
       id: '/sirens'
       path: '/sirens'
@@ -158,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ForcesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -165,50 +116,15 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/events/': {
-      id: '/events/'
-      path: '/'
-      fullPath: '/events/'
-      preLoaderRoute: typeof EventsIndexRouteImport
-      parentRoute: typeof EventsRoute
-    }
-    '/events/_layout': {
-      id: '/events/_layout'
-      path: '/events'
-      fullPath: '/events'
-      preLoaderRoute: typeof EventsLayoutRouteImport
-      parentRoute: typeof EventsRoute
-    }
-    '/events/$eventId': {
-      id: '/events/$eventId'
-      path: '/events/$eventId'
-      fullPath: '/events/$eventId'
-      preLoaderRoute: typeof EventsEventIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
-interface EventsRouteChildren {
-  EventsLayoutRoute: typeof EventsLayoutRoute
-  EventsIndexRoute: typeof EventsIndexRoute
-}
-
-const EventsRouteChildren: EventsRouteChildren = {
-  EventsLayoutRoute: EventsLayoutRoute,
-  EventsIndexRoute: EventsIndexRoute,
-}
-
-const EventsRouteWithChildren =
-  EventsRoute._addFileChildren(EventsRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EventsRoute: EventsRoute,
   ForcesRoute: ForcesRoute,
   RocketAttackRoute: RocketAttackRoute,
   SirensRoute: SirensRoute,
-  EventsEventIdRoute: EventsEventIdRoute,
-  EventsRoute: EventsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
